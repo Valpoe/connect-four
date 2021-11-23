@@ -17,10 +17,23 @@ namespace Lopputyo
         {
             InitializeComponent();
 
-            this.paneeli = new Panel[6, 7];
+            // this.paneeli = new Panel[6, 7];
 
+            luoPeliAlusta();
 
+        }
 
+        public void luoPeliAlusta()
+        {
+
+            //luodaan paneelit kenttään koko X Y
+
+            tarkistaPelinTila();
+        }
+
+        public void tarkistaPelinTila()
+        {
+            //katsotaan voittiko X pelaaja jne.
         }
     }
 }
