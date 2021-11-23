@@ -25,7 +25,7 @@ namespace Lopputyo
             taulukko[5, 0] = panel6;
             taulukko[5, 0] = panel7;
             // pa2
-            
+            //moi Mikko editoi tätä! ! !
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
