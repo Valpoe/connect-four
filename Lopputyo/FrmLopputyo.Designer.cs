@@ -96,7 +96,6 @@
             this.btn1.TabIndex = 0;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn2
             // 
@@ -638,8 +637,6 @@
             this.panel0.Name = "panel0";
             this.panel0.Size = new System.Drawing.Size(884, 596);
             this.panel0.TabIndex = 0;
-            this.panel0.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel0.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
             // label1
             // 
@@ -659,8 +656,6 @@
             this.Controls.Add(this.panel0);
             this.Name = "FrmLopputyo";
             this.Text = "Neljän suora";
-            this.Load += new System.EventHandler(this.FrmLopputyo_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.FrmLopputyo_MouseClick);
             this.panel41.ResumeLayout(false);
             this.panel0.ResumeLayout(false);
             this.panel0.PerformLayout();
