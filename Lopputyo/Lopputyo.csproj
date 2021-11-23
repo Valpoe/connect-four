@@ -86,5 +86,8 @@
   <ItemGroup>
     <None Include="Resources\Kiekonpaikka.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\NappiPeli.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
