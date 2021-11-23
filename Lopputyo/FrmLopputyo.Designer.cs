@@ -563,7 +563,7 @@
             this.labelPelaaja1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPelaaja1.Location = new System.Drawing.Point(675, 167);
             this.labelPelaaja1.Name = "labelPelaaja1";
-            this.labelPelaaja1.Size = new System.Drawing.Size(66, 18);
+            this.labelPelaaja1.Size = new System.Drawing.Size(67, 18);
             this.labelPelaaja1.TabIndex = 16;
             this.labelPelaaja1.Text = "Pelaaja 1";
             // 
@@ -574,7 +574,7 @@
             this.labelPelaaja2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPelaaja2.Location = new System.Drawing.Point(794, 167);
             this.labelPelaaja2.Name = "labelPelaaja2";
-            this.labelPelaaja2.Size = new System.Drawing.Size(66, 18);
+            this.labelPelaaja2.Size = new System.Drawing.Size(67, 18);
             this.labelPelaaja2.TabIndex = 17;
             this.labelPelaaja2.Text = "Pelaaja 2";
             // 
@@ -654,6 +654,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 620);
             this.Controls.Add(this.panel0);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmLopputyo";
             this.Text = "Neljän suora";
             this.panel41.ResumeLayout(false);
