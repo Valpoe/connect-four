@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lopputyo", "Lopputyo\Lopputyo.csproj", "{C336DCA3-FE94-4ABA-9433-EF9CFAADC69A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C336DCA3-FE94-4ABA-9433-EF9CFAADC69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C336DCA3-FE94-4ABA-9433-EF9CFAADC69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C336DCA3-FE94-4ABA-9433-EF9CFAADC69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C336DCA3-FE94-4ABA-9433-EF9CFAADC69A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7BEC15A-1D19-4534-A739-5C59AC4E30B5}
+	EndGlobalSection
+EndGlobal
