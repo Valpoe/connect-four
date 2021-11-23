@@ -24,6 +24,7 @@ namespace Lopputyo
             taulukko[4, 0] = panel5;
             taulukko[5, 0] = panel6;
             taulukko[5, 0] = panel7;
+            // pa2
             
         }
 
