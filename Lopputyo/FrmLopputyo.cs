@@ -33,7 +33,7 @@ namespace Lopputyo
                     peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
                     peliKentta[i, j].BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
                     peliKentta[i, j].Click += new EventHandler(peliKentta_Click);
-                    this.ppeliKentta.Controls.Add(peliKentta[i, j]);
+                    this.panel1.Controls.Add(peliKentta[i, j]);
                 }
             }
 
