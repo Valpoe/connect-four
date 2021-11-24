@@ -55,7 +55,11 @@ namespace Lopputyo
 
         public void peliKentta_Click(object sender, EventArgs e)
         {
+            Panel p = (Panel)sender;
+
             //kun nappia painetaan! tapahtuu tämä.
+
+            Console.Write(p.Name);
         }
     }
 }
