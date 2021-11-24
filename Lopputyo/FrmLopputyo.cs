@@ -27,6 +27,7 @@ namespace Lopputyo
                 {
                     peliKentta[i, j] = new Panel();
                     peliKentta[i, j].Location = new Point(j * 75, i * 75);
+                    peliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
                     peliKentta[i, j].Size = new Size(75, 75);
                     peliKentta[i, j].BackColor = Color.White;
                     peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
@@ -59,7 +60,7 @@ namespace Lopputyo
 
             //kun nappia painetaan! tapahtuu tämä.
 
-            Console.Write(p.Name);
+            Console.WriteLine(p.Name);
         }
     }
 }
