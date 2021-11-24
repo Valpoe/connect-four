@@ -12,7 +12,7 @@ namespace Lopputyo
 {
     public partial class FrmLopputyo : Form
     {
-        private Panel[,] paneeli;
+        
         public FrmLopputyo()
         {
             InitializeComponent();

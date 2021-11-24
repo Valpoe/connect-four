@@ -38,19 +38,64 @@
             this.btn5 = new System.Windows.Forms.Button();
             this.btn6 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
-            this.btnAloitaPeli = new System.Windows.Forms.Button();
+            this.panel0 = new System.Windows.Forms.Panel();
+            this.ss1 = new System.Windows.Forms.StatusStrip();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiValikko = new System.Windows.Forms.ToolStripMenuItem();
             this.aloitaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vieTiedostoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tallennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ss1 = new System.Windows.Forms.StatusStrip();
             this.tsslKulunutPeliAika = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslKummanVuoro = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslViimeisinSiirto = new System.Windows.Forms.ToolStripStatusLabel();
-            this.panel0 = new System.Windows.Forms.Panel();
-            this.ppeliKentta = new System.Windows.Forms.Panel();
+            this.tsslKummanVuoro = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnAloitaPeli = new System.Windows.Forms.Button();
+            this.panel42 = new System.Windows.Forms.Panel();
+            this.panel41 = new System.Windows.Forms.Panel();
+            this.panel44 = new System.Windows.Forms.Panel();
+            this.panel40 = new System.Windows.Forms.Panel();
+            this.panel39 = new System.Windows.Forms.Panel();
+            this.panel38 = new System.Windows.Forms.Panel();
+            this.panel37 = new System.Windows.Forms.Panel();
+            this.panel36 = new System.Windows.Forms.Panel();
+            this.panel29 = new System.Windows.Forms.Panel();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.panel32 = new System.Windows.Forms.Panel();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.panel35 = new System.Windows.Forms.Panel();
+            this.panel28 = new System.Windows.Forms.Panel();
+            this.panel27 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel0.SuspendLayout();
+            this.ss1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.ss1.SuspendLayout();
             this.panel0.SuspendLayout();
@@ -68,6 +113,7 @@
             this.btn1.TabIndex = 0;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn2
             // 
@@ -133,6 +179,22 @@
             this.btnAloitaPeli.TabIndex = 15;
             this.btnAloitaPeli.UseVisualStyleBackColor = true;
             // 
+            // ss1
+            // 
+            this.ss1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsslKulunutPeliAika,
+            this.tsslKummanVuoro,
+            this.tsslViimeisinSiirto});
+            this.ss1.Location = new System.Drawing.Point(0, 572);
+            this.ss1.Name = "ss1";
+            this.ss1.Size = new System.Drawing.Size(563, 22);
+            this.ss1.TabIndex = 19;
+            this.ss1.Text = "statusStrip1";
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -178,23 +240,17 @@
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.infoToolStripMenuItem.Text = "Info";
             // 
-            // ss1
-            // 
-            this.ss1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsslKulunutPeliAika,
-            this.tsslKummanVuoro,
-            this.tsslViimeisinSiirto});
-            this.ss1.Location = new System.Drawing.Point(0, 572);
-            this.ss1.Name = "ss1";
-            this.ss1.Size = new System.Drawing.Size(563, 22);
-            this.ss1.TabIndex = 19;
-            this.ss1.Text = "statusStrip1";
-            // 
             // tsslKulunutPeliAika
             // 
             this.tsslKulunutPeliAika.Name = "tsslKulunutPeliAika";
             this.tsslKulunutPeliAika.Size = new System.Drawing.Size(33, 17);
             this.tsslKulunutPeliAika.Text = "Aika:";
+            // 
+            // tsslViimeisinSiirto
+            // 
+            this.tsslViimeisinSiirto.Name = "tsslViimeisinSiirto";
+            this.tsslViimeisinSiirto.Size = new System.Drawing.Size(87, 17);
+            this.tsslViimeisinSiirto.Text = "Viimeisin siirto:";
             // 
             // tsslKummanVuoro
             // 
@@ -202,7 +258,124 @@
             this.tsslKummanVuoro.Size = new System.Drawing.Size(42, 17);
             this.tsslKummanVuoro.Text = "Vuoro:";
             // 
-            // tsslViimeisinSiirto
+            // btnAloitaPeli
+            // 
+            this.btnAloitaPeli.Image = global::Lopputyo.Properties.Resources.Uusipeli;
+            this.btnAloitaPeli.Location = new System.Drawing.Point(232, 33);
+            this.btnAloitaPeli.Name = "btnAloitaPeli";
+            this.btnAloitaPeli.Size = new System.Drawing.Size(100, 30);
+            this.btnAloitaPeli.TabIndex = 15;
+            this.btnAloitaPeli.UseVisualStyleBackColor = true;
+            // 
+            // panel42
+            // 
+            this.panel42.BackColor = System.Drawing.Color.Transparent;
+            this.panel42.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel42.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel42.Location = new System.Drawing.Point(475, 483);
+            this.panel42.Name = "panel42";
+            this.panel42.Size = new System.Drawing.Size(75, 75);
+            this.panel42.TabIndex = 14;
+            // 
+            // panel41
+            // 
+            this.panel41.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel41.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel41.Controls.Add(this.panel44);
+            this.panel41.Location = new System.Drawing.Point(398, 483);
+            this.panel41.Name = "panel41";
+            this.panel41.Size = new System.Drawing.Size(75, 75);
+            this.panel41.TabIndex = 12;
+            // 
+            // panel44
+            // 
+            this.panel44.Location = new System.Drawing.Point(77, 0);
+            this.panel44.Name = "panel44";
+            this.panel44.Size = new System.Drawing.Size(75, 75);
+            this.panel44.TabIndex = 12;
+            // 
+            // panel40
+            // 
+            this.panel40.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel40.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel40.Location = new System.Drawing.Point(321, 483);
+            this.panel40.Name = "panel40";
+            this.panel40.Size = new System.Drawing.Size(75, 75);
+            this.panel40.TabIndex = 12;
+            // 
+            // panel39
+            // 
+            this.panel39.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel39.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel39.Location = new System.Drawing.Point(244, 483);
+            this.panel39.Name = "panel39";
+            this.panel39.Size = new System.Drawing.Size(75, 75);
+            this.panel39.TabIndex = 12;
+            // 
+            // panel38
+            // 
+            this.panel38.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel38.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel38.Location = new System.Drawing.Point(167, 483);
+            this.panel38.Name = "panel38";
+            this.panel38.Size = new System.Drawing.Size(75, 75);
+            this.panel38.TabIndex = 12;
+            // 
+            // panel37
+            // 
+            this.panel37.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel37.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel37.Location = new System.Drawing.Point(90, 483);
+            this.panel37.Name = "panel37";
+            this.panel37.Size = new System.Drawing.Size(75, 75);
+            this.panel37.TabIndex = 13;
+            // 
+            // panel36
+            // 
+            this.panel36.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel36.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel36.Location = new System.Drawing.Point(13, 483);
+            this.panel36.Name = "panel36";
+            this.panel36.Size = new System.Drawing.Size(75, 75);
+            this.panel36.TabIndex = 12;
+            // 
+            // panel29
+            // 
+            this.panel29.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel29.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel29.Location = new System.Drawing.Point(13, 406);
+            this.panel29.Name = "panel29";
+            this.panel29.Size = new System.Drawing.Size(75, 75);
+            this.panel29.TabIndex = 12;
+            // 
+            // panel30
+            // 
+            this.panel30.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel30.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel30.Location = new System.Drawing.Point(90, 406);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(75, 75);
+            this.panel30.TabIndex = 12;
+            // 
+            // panel31
+            // 
+            this.panel31.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel31.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel31.Location = new System.Drawing.Point(167, 406);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(75, 75);
+            this.panel31.TabIndex = 12;
+            // 
+            // panel32
+            // 
+            this.panel32.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel32.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel32.Location = new System.Drawing.Point(244, 406);
+            this.panel32.Name = "panel32";
+            this.panel32.Size = new System.Drawing.Size(75, 75);
+            this.panel32.TabIndex = 12;
+            // 
+            // panel33
             // 
             this.tsslViimeisinSiirto.Name = "tsslViimeisinSiirto";
             this.tsslViimeisinSiirto.Size = new System.Drawing.Size(87, 17);
@@ -233,6 +406,267 @@
             this.ppeliKentta.Name = "ppeliKentta";
             this.ppeliKentta.Size = new System.Drawing.Size(534, 471);
             this.ppeliKentta.TabIndex = 21;
+            // 
+            // panel28
+            // 
+            this.panel28.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel28.Location = new System.Drawing.Point(475, 329);
+            this.panel28.Name = "panel28";
+            this.panel28.Size = new System.Drawing.Size(75, 75);
+            this.panel28.TabIndex = 12;
+            // 
+            // panel27
+            // 
+            this.panel27.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel27.Location = new System.Drawing.Point(398, 329);
+            this.panel27.Name = "panel27";
+            this.panel27.Size = new System.Drawing.Size(75, 75);
+            this.panel27.TabIndex = 12;
+            // 
+            // panel26
+            // 
+            this.panel26.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel26.Location = new System.Drawing.Point(321, 329);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(75, 75);
+            this.panel26.TabIndex = 12;
+            // 
+            // panel25
+            // 
+            this.panel25.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel25.Location = new System.Drawing.Point(244, 329);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(75, 75);
+            this.panel25.TabIndex = 12;
+            // 
+            // panel24
+            // 
+            this.panel24.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel24.Location = new System.Drawing.Point(167, 329);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(75, 75);
+            this.panel24.TabIndex = 12;
+            // 
+            // panel23
+            // 
+            this.panel23.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel23.Location = new System.Drawing.Point(90, 329);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(75, 75);
+            this.panel23.TabIndex = 12;
+            // 
+            // panel22
+            // 
+            this.panel22.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel22.Location = new System.Drawing.Point(13, 329);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(75, 75);
+            this.panel22.TabIndex = 12;
+            // 
+            // panel15
+            // 
+            this.panel15.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel15.Location = new System.Drawing.Point(13, 252);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(75, 75);
+            this.panel15.TabIndex = 12;
+            // 
+            // panel16
+            // 
+            this.panel16.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel16.Location = new System.Drawing.Point(90, 252);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(75, 75);
+            this.panel16.TabIndex = 12;
+            // 
+            // panel17
+            // 
+            this.panel17.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel17.Location = new System.Drawing.Point(167, 252);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(75, 75);
+            this.panel17.TabIndex = 12;
+            // 
+            // panel18
+            // 
+            this.panel18.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel18.Location = new System.Drawing.Point(244, 252);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(75, 75);
+            this.panel18.TabIndex = 12;
+            // 
+            // panel19
+            // 
+            this.panel19.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel19.Location = new System.Drawing.Point(321, 252);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(75, 75);
+            this.panel19.TabIndex = 12;
+            // 
+            // panel20
+            // 
+            this.panel20.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel20.Location = new System.Drawing.Point(398, 252);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(75, 75);
+            this.panel20.TabIndex = 12;
+            // 
+            // panel21
+            // 
+            this.panel21.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel21.Location = new System.Drawing.Point(475, 252);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(75, 75);
+            this.panel21.TabIndex = 11;
+            // 
+            // panel14
+            // 
+            this.panel14.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel14.Location = new System.Drawing.Point(475, 175);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(75, 75);
+            this.panel14.TabIndex = 11;
+            // 
+            // panel13
+            // 
+            this.panel13.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel13.Location = new System.Drawing.Point(398, 175);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(75, 75);
+            this.panel13.TabIndex = 11;
+            // 
+            // panel12
+            // 
+            this.panel12.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel12.Location = new System.Drawing.Point(321, 175);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(75, 75);
+            this.panel12.TabIndex = 11;
+            // 
+            // panel11
+            // 
+            this.panel11.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel11.Location = new System.Drawing.Point(244, 175);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(75, 75);
+            this.panel11.TabIndex = 11;
+            // 
+            // panel10
+            // 
+            this.panel10.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel10.Location = new System.Drawing.Point(167, 175);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(75, 75);
+            this.panel10.TabIndex = 11;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Transparent;
+            this.panel9.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel9.Location = new System.Drawing.Point(90, 175);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(75, 75);
+            this.panel9.TabIndex = 11;
+            // 
+            // panel8
+            // 
+            this.panel8.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel8.Location = new System.Drawing.Point(13, 175);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(75, 75);
+            this.panel8.TabIndex = 10;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Transparent;
+            this.panel7.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel7.Location = new System.Drawing.Point(475, 98);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(75, 75);
+            this.panel7.TabIndex = 10;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel6.Location = new System.Drawing.Point(398, 98);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(75, 75);
+            this.panel6.TabIndex = 10;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Location = new System.Drawing.Point(321, 98);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(75, 75);
+            this.panel5.TabIndex = 10;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel4.Location = new System.Drawing.Point(244, 98);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(75, 75);
+            this.panel4.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Location = new System.Drawing.Point(167, 98);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(75, 75);
+            this.panel3.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(90, 98);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(75, 75);
+            this.panel2.TabIndex = 8;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(13, 98);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(75, 75);
+            this.panel1.TabIndex = 7;
             // 
             // FrmLopputyo
             // 
