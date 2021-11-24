@@ -18,13 +18,19 @@ namespace Lopputyo
             InitializeComponent();
 
             // this.paneeli = new Panel[6, 7];
-            Panel[,] peliKenttä = new Panel[6, 7];
+            Panel[,] peliKentta = new Panel[6, 7];
 
-            for(int i = 0; i < peliKenttä.GetLength(1); i++)
+            //Luodaan pelikenttä 2-dim arrayn pohjalta. Suuruutta voi muuttaa myöhemmin tarpeen mukaan!
+            for(int i = 0; i < peliKentta.GetLength(0); i++)
             {
-                for(int j = 0; j < peliKenttä.GetLength(2); i++)
+                for (int j = 0; j < peliKentta.GetLength(1); j++)
                 {
-                   //Hei
+                    peliKentta[i, j] = new Panel();
+                    peliKentta[i, j].Location = new Point(j * 75, i * 75);
+                    peliKentta[i, j].Size = new Size(75, 75);
+                    peliKentta[i, j].BackColor = Color.White;
+                    peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
+                    Controls.Add(peliKentta[i, j]);
                 }
             }
 
