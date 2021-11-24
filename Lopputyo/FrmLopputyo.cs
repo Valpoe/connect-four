@@ -18,6 +18,15 @@ namespace Lopputyo
             InitializeComponent();
 
             // this.paneeli = new Panel[6, 7];
+            Panel[,] peliKenttä = new Panel[6, 7];
+
+            for(int i = 0; i < peliKenttä.GetLength(1); i++)
+            {
+                for(int j = 0; j < peliKenttä.GetLength(2); i++)
+                {
+                   
+                }
+            }
 
             luoPeliAlusta();
 
