@@ -24,7 +24,7 @@ namespace Lopputyo
             {
                 for(int j = 0; j < peliKenttä.GetLength(2); i++)
                 {
-                   
+                   //Hei
                 }
             }
 
