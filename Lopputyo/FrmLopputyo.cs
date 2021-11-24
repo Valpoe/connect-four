@@ -26,7 +26,7 @@ namespace Lopputyo
                 for (int j = 0; j < peliKentta.GetLength(1); j++)
                 {
                     peliKentta[i, j] = new Panel();
-                    peliKentta[i, j].Location = new Point(j * 75, i * 75);
+                    peliKentta[i, j].Location = new Point(j * 77, i * 77);
                     peliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
                     peliKentta[i, j].Size = new Size(75, 75);
                     peliKentta[i, j].BackColor = Color.White;
