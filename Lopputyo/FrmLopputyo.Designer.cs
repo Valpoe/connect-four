@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLopputyo));
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
@@ -39,15 +40,16 @@
             this.btn7 = new System.Windows.Forms.Button();
             this.panel0 = new System.Windows.Forms.Panel();
             this.ss1 = new System.Windows.Forms.StatusStrip();
-            this.tsslKulunutPeliAika = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslKummanVuoro = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslViimeisinSiirto = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiValikko = new System.Windows.Forms.ToolStripMenuItem();
             this.aloitaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vieTiedostoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tallennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsslKulunutPeliAika = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslViimeisinSiirto = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslKummanVuoro = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnAloitaPeli = new System.Windows.Forms.Button();
             this.panel42 = new System.Windows.Forms.Panel();
             this.panel41 = new System.Windows.Forms.Panel();
@@ -92,12 +94,16 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel0.SuspendLayout();
             this.ss1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel41.SuspendLayout();
+            this.ss1.SuspendLayout();
+            this.panel0.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
             // 
             // btn1
             // 
@@ -163,65 +169,15 @@
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
             // 
-            // panel0
+            // btnAloitaPeli
             // 
-            this.panel0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel0.Controls.Add(this.ss1);
-            this.panel0.Controls.Add(this.menuStrip1);
-            this.panel0.Controls.Add(this.btnAloitaPeli);
-            this.panel0.Controls.Add(this.panel42);
-            this.panel0.Controls.Add(this.panel41);
-            this.panel0.Controls.Add(this.panel40);
-            this.panel0.Controls.Add(this.panel39);
-            this.panel0.Controls.Add(this.panel38);
-            this.panel0.Controls.Add(this.panel37);
-            this.panel0.Controls.Add(this.panel36);
-            this.panel0.Controls.Add(this.panel29);
-            this.panel0.Controls.Add(this.panel30);
-            this.panel0.Controls.Add(this.panel31);
-            this.panel0.Controls.Add(this.panel32);
-            this.panel0.Controls.Add(this.panel33);
-            this.panel0.Controls.Add(this.panel34);
-            this.panel0.Controls.Add(this.panel35);
-            this.panel0.Controls.Add(this.panel28);
-            this.panel0.Controls.Add(this.panel27);
-            this.panel0.Controls.Add(this.panel26);
-            this.panel0.Controls.Add(this.panel25);
-            this.panel0.Controls.Add(this.panel24);
-            this.panel0.Controls.Add(this.panel23);
-            this.panel0.Controls.Add(this.panel22);
-            this.panel0.Controls.Add(this.panel15);
-            this.panel0.Controls.Add(this.panel16);
-            this.panel0.Controls.Add(this.panel17);
-            this.panel0.Controls.Add(this.panel18);
-            this.panel0.Controls.Add(this.panel19);
-            this.panel0.Controls.Add(this.panel20);
-            this.panel0.Controls.Add(this.panel21);
-            this.panel0.Controls.Add(this.panel14);
-            this.panel0.Controls.Add(this.panel13);
-            this.panel0.Controls.Add(this.panel12);
-            this.panel0.Controls.Add(this.panel11);
-            this.panel0.Controls.Add(this.panel10);
-            this.panel0.Controls.Add(this.panel9);
-            this.panel0.Controls.Add(this.panel8);
-            this.panel0.Controls.Add(this.panel7);
-            this.panel0.Controls.Add(this.panel6);
-            this.panel0.Controls.Add(this.panel5);
-            this.panel0.Controls.Add(this.panel4);
-            this.panel0.Controls.Add(this.panel3);
-            this.panel0.Controls.Add(this.panel2);
-            this.panel0.Controls.Add(this.panel1);
-            this.panel0.Controls.Add(this.btn7);
-            this.panel0.Controls.Add(this.btn6);
-            this.panel0.Controls.Add(this.btn5);
-            this.panel0.Controls.Add(this.btn4);
-            this.panel0.Controls.Add(this.btn3);
-            this.panel0.Controls.Add(this.btn2);
-            this.panel0.Controls.Add(this.btn1);
-            this.panel0.Location = new System.Drawing.Point(12, 12);
-            this.panel0.Name = "panel0";
-            this.panel0.Size = new System.Drawing.Size(565, 596);
-            this.panel0.TabIndex = 0;
+            this.btnAloitaPeli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAloitaPeli.Image = global::Lopputyo.Properties.Resources.Uusipeli;
+            this.btnAloitaPeli.Location = new System.Drawing.Point(232, 33);
+            this.btnAloitaPeli.Name = "btnAloitaPeli";
+            this.btnAloitaPeli.Size = new System.Drawing.Size(100, 30);
+            this.btnAloitaPeli.TabIndex = 15;
+            this.btnAloitaPeli.UseVisualStyleBackColor = true;
             // 
             // ss1
             // 
@@ -235,23 +191,9 @@
             this.ss1.TabIndex = 19;
             this.ss1.Text = "statusStrip1";
             // 
-            // tsslKulunutPeliAika
+            // timer1
             // 
-            this.tsslKulunutPeliAika.Name = "tsslKulunutPeliAika";
-            this.tsslKulunutPeliAika.Size = new System.Drawing.Size(33, 17);
-            this.tsslKulunutPeliAika.Text = "Aika:";
-            // 
-            // tsslKummanVuoro
-            // 
-            this.tsslKummanVuoro.Name = "tsslKummanVuoro";
-            this.tsslKummanVuoro.Size = new System.Drawing.Size(42, 17);
-            this.tsslKummanVuoro.Text = "Vuoro:";
-            // 
-            // tsslViimeisinSiirto
-            // 
-            this.tsslViimeisinSiirto.Name = "tsslViimeisinSiirto";
-            this.tsslViimeisinSiirto.Size = new System.Drawing.Size(87, 17);
-            this.tsslViimeisinSiirto.Text = "Viimeisin siirto:";
+            this.timer1.Interval = 1000;
             // 
             // menuStrip1
             // 
@@ -298,11 +240,28 @@
             this.infoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.infoToolStripMenuItem.Text = "Info";
             // 
+            // tsslKulunutPeliAika
+            // 
+            this.tsslKulunutPeliAika.Name = "tsslKulunutPeliAika";
+            this.tsslKulunutPeliAika.Size = new System.Drawing.Size(33, 17);
+            this.tsslKulunutPeliAika.Text = "Aika:";
+            // 
+            // tsslViimeisinSiirto
+            // 
+            this.tsslViimeisinSiirto.Name = "tsslViimeisinSiirto";
+            this.tsslViimeisinSiirto.Size = new System.Drawing.Size(87, 17);
+            this.tsslViimeisinSiirto.Text = "Viimeisin siirto:";
+            // 
+            // tsslKummanVuoro
+            // 
+            this.tsslKummanVuoro.Name = "tsslKummanVuoro";
+            this.tsslKummanVuoro.Size = new System.Drawing.Size(42, 17);
+            this.tsslKummanVuoro.Text = "Vuoro:";
+            // 
             // btnAloitaPeli
             // 
-            this.btnAloitaPeli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAloitaPeli.Image = global::Lopputyo.Properties.Resources.Uusipeli;
-            this.btnAloitaPeli.Location = new System.Drawing.Point(232, 32);
+            this.btnAloitaPeli.Location = new System.Drawing.Point(232, 33);
             this.btnAloitaPeli.Name = "btnAloitaPeli";
             this.btnAloitaPeli.Size = new System.Drawing.Size(100, 30);
             this.btnAloitaPeli.TabIndex = 15;
@@ -418,30 +377,35 @@
             // 
             // panel33
             // 
-            this.panel33.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
-            this.panel33.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel33.Location = new System.Drawing.Point(321, 406);
-            this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(75, 75);
-            this.panel33.TabIndex = 12;
+            this.tsslViimeisinSiirto.Name = "tsslViimeisinSiirto";
+            this.tsslViimeisinSiirto.Size = new System.Drawing.Size(87, 17);
+            this.tsslViimeisinSiirto.Text = "Viimeisin siirto:";
             // 
-            // panel34
+            // panel0
             // 
-            this.panel34.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
-            this.panel34.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel34.Location = new System.Drawing.Point(398, 406);
-            this.panel34.Name = "panel34";
-            this.panel34.Size = new System.Drawing.Size(75, 75);
-            this.panel34.TabIndex = 12;
+            this.panel0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel0.Controls.Add(this.ppeliKentta);
+            this.panel0.Controls.Add(this.ss1);
+            this.panel0.Controls.Add(this.menuStrip1);
+            this.panel0.Controls.Add(this.btnAloitaPeli);
+            this.panel0.Controls.Add(this.btn7);
+            this.panel0.Controls.Add(this.btn6);
+            this.panel0.Controls.Add(this.btn5);
+            this.panel0.Controls.Add(this.btn4);
+            this.panel0.Controls.Add(this.btn3);
+            this.panel0.Controls.Add(this.btn2);
+            this.panel0.Controls.Add(this.btn1);
+            this.panel0.Location = new System.Drawing.Point(12, 12);
+            this.panel0.Name = "panel0";
+            this.panel0.Size = new System.Drawing.Size(565, 596);
+            this.panel0.TabIndex = 0;
             // 
-            // panel35
+            // ppeliKentta
             // 
-            this.panel35.BackgroundImage = global::Lopputyo.Properties.Resources.Kiekonpaikka;
-            this.panel35.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel35.Location = new System.Drawing.Point(475, 406);
-            this.panel35.Name = "panel35";
-            this.panel35.Size = new System.Drawing.Size(75, 75);
-            this.panel35.TabIndex = 12;
+            this.ppeliKentta.Location = new System.Drawing.Point(15, 101);
+            this.ppeliKentta.Name = "ppeliKentta";
+            this.ppeliKentta.Size = new System.Drawing.Size(534, 471);
+            this.ppeliKentta.TabIndex = 21;
             // 
             // panel28
             // 
@@ -704,10 +668,6 @@
             this.panel1.Size = new System.Drawing.Size(75, 75);
             this.panel1.TabIndex = 7;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            // 
             // FrmLopputyo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -718,19 +678,18 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmLopputyo";
             this.Text = "Neljän suora";
-            this.panel0.ResumeLayout(false);
-            this.panel0.PerformLayout();
-            this.ss1.ResumeLayout(false);
-            this.ss1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel41.ResumeLayout(false);
+            this.ss1.ResumeLayout(false);
+            this.ss1.PerformLayout();
+            this.panel0.ResumeLayout(false);
+            this.panel0.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn3;
@@ -738,62 +697,19 @@
         private System.Windows.Forms.Button btn5;
         private System.Windows.Forms.Button btn6;
         private System.Windows.Forms.Button btn7;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Panel panel35;
-        private System.Windows.Forms.Panel panel34;
-        private System.Windows.Forms.Panel panel33;
-        private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.Panel panel36;
-        private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.Panel panel38;
-        private System.Windows.Forms.Panel panel39;
-        private System.Windows.Forms.Panel panel40;
-        private System.Windows.Forms.Panel panel41;
-        private System.Windows.Forms.Panel panel44;
-        private System.Windows.Forms.Panel panel42;
         private System.Windows.Forms.Button btnAloitaPeli;
-        private System.Windows.Forms.Panel panel0;
-        private System.Windows.Forms.StatusStrip ss1;
-        private System.Windows.Forms.ToolStripStatusLabel tsslKulunutPeliAika;
-        private System.Windows.Forms.ToolStripStatusLabel tsslKummanVuoro;
-        private System.Windows.Forms.ToolStripStatusLabel tsslViimeisinSiirto;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiValikko;
         private System.Windows.Forms.ToolStripMenuItem aloitaPeliToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vieTiedostoonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tallennaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.StatusStrip ss1;
+        private System.Windows.Forms.ToolStripStatusLabel tsslKulunutPeliAika;
+        private System.Windows.Forms.ToolStripStatusLabel tsslKummanVuoro;
+        private System.Windows.Forms.ToolStripStatusLabel tsslViimeisinSiirto;
+        private System.Windows.Forms.Panel panel0;
+        private System.Windows.Forms.Panel ppeliKentta;
     }
 }
 

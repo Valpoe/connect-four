@@ -30,7 +30,9 @@ namespace Lopputyo
                     peliKentta[i, j].Size = new Size(75, 75);
                     peliKentta[i, j].BackColor = Color.White;
                     peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    Controls.Add(peliKentta[i, j]);
+                    peliKentta[i, j].BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
+                    peliKentta[i, j].Click += new EventHandler(peliKentta_Click);
+                    this.ppeliKentta.Controls.Add(peliKentta[i, j]);
                 }
             }
 
@@ -49,11 +51,6 @@ namespace Lopputyo
         public void tarkistaPelinTila()
         {
             //katsotaan voittiko X pelaaja jne.
-        }
-
-        private void btn1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
