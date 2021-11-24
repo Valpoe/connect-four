@@ -12,7 +12,7 @@ namespace Lopputyo
 {
     public partial class FrmLopputyo : Form
     {
-        private Panel[,] paneeli;
+        
         public FrmLopputyo()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace Lopputyo
             {
                 for(int j = 0; j < peliKenttä.GetLength(2); i++)
                 {
-                   
+                   //Hei
                 }
             }
 
@@ -43,6 +43,11 @@ namespace Lopputyo
         public void tarkistaPelinTila()
         {
             //katsotaan voittiko X pelaaja jne.
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
