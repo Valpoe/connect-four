@@ -21,6 +21,7 @@ namespace Lopputyo
         {
             FrmLopputyo frmLopputyo = new FrmLopputyo();
             frmLopputyo.Aloitapeli(sender, e);
+            this.Close();
         }
     }
 }
