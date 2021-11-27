@@ -14,11 +14,14 @@ namespace Lopputyo
     
     public partial class FrmLopputyo : Form
     {
+        public Form PaaFrm = null;
+
         int kulunutPeliAika = 0;
         
         public FrmLopputyo()
         {
             InitializeComponent();
+            PaaFrm = this;
 
             PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
 
@@ -49,17 +52,14 @@ namespace Lopputyo
             Console.WriteLine(p.Name);
         }
 
-        public void Aloitapeli(object sender, EventArgs e)
-        {
-            Button b = (Button)sender;
-            tsslKulunutPeliAika.Text = kulunutPeliAika.ToString();
-
-
-        }
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
             FrmPelaajat frmPelaajat = new FrmPelaajat();
             frmPelaajat.ShowDialog();
+
+
+            tsslKulunutPeliAika.Text = kulunutPeliAika.ToString();
+            timer1.Start();
         }
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -102,7 +102,7 @@ namespace Lopputyo
         private void timer1_Tick(object sender, EventArgs e)
         {
             kulunutPeliAika++;
-            
+            tsslKulunutPeliAika.Text = kulunutPeliAika.ToString();
         }
     }
 }

@@ -19,8 +19,6 @@ namespace Lopputyo
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            FrmLopputyo frmLopputyo = new FrmLopputyo();
-            frmLopputyo.Aloitapeli(sender, e);
             this.Close();
         }
     }
