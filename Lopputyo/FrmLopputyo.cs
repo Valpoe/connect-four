@@ -55,10 +55,11 @@ namespace Lopputyo
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
             FrmPelaajat frmPelaajat = new FrmPelaajat();
+            //showdialog kun suljetaan alkaa pelin ajastin
             frmPelaajat.ShowDialog();
 
 
-            tsslKulunutPeliAika.Text = kulunutPeliAika.ToString();
+            tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
             timer1.Start();
         }
 
@@ -102,7 +103,7 @@ namespace Lopputyo
         private void timer1_Tick(object sender, EventArgs e)
         {
             kulunutPeliAika++;
-            tsslKulunutPeliAika.Text = kulunutPeliAika.ToString();
+            tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
         }
     }
 }
