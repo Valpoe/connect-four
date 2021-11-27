@@ -11,6 +11,7 @@ using System.IO;
 
 namespace Lopputyo
 {
+    
     public partial class FrmLopputyo : Form
     {
         
