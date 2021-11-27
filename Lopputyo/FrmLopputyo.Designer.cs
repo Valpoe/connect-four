@@ -38,6 +38,7 @@
             this.btn6 = new System.Windows.Forms.Button();
             this.btn7 = new System.Windows.Forms.Button();
             this.panel0 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.ss1 = new System.Windows.Forms.StatusStrip();
             this.tsslKulunutPeliAika = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslKummanVuoro = new System.Windows.Forms.ToolStripStatusLabel();
@@ -50,7 +51,6 @@
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAloitaPeli = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel0.SuspendLayout();
             this.ss1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -64,6 +64,7 @@
             this.btn1.TabIndex = 0;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn2
             // 
@@ -138,6 +139,13 @@
             this.panel0.Size = new System.Drawing.Size(565, 596);
             this.panel0.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(13, 98);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(536, 474);
+            this.panel1.TabIndex = 21;
+            // 
             // ss1
             // 
             this.ss1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -192,25 +200,25 @@
             // aloitaPeliToolStripMenuItem
             // 
             this.aloitaPeliToolStripMenuItem.Name = "aloitaPeliToolStripMenuItem";
-            this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aloitaPeliToolStripMenuItem.Text = "Aloita peli";
             // 
             // vieTiedostoonToolStripMenuItem
             // 
             this.vieTiedostoonToolStripMenuItem.Name = "vieTiedostoonToolStripMenuItem";
-            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vieTiedostoonToolStripMenuItem.Text = "Vie tiedostoon";
             // 
             // tallennaToolStripMenuItem
             // 
             this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
-            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tallennaToolStripMenuItem.Text = "Tallenna";
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.infoToolStripMenuItem.Text = "Info";
             // 
             // btnAloitaPeli
@@ -226,13 +234,6 @@
             // timer1
             // 
             this.timer1.Interval = 1000;
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(13, 98);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(536, 474);
-            this.panel1.TabIndex = 21;
             // 
             // FrmLopputyo
             // 

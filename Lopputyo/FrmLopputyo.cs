@@ -17,28 +17,12 @@ namespace Lopputyo
         {
             InitializeComponent();
 
-            // this.paneeli = new Panel[6, 7];
-            Panel[,] peliKentta = new Panel[6, 7];
+            //oletusparametrinä columns = 7 ja rows = 6
+            peliKentta uusiPeliKentta = new peliKentta();
 
-            //Luodaan pelikenttä 2-dim arrayn pohjalta. Suuruutta voi muuttaa myöhemmin tarpeen mukaan!
-            for(int i = 0; i < peliKentta.GetLength(0); i++)
-            {
-                for (int j = 0; j < peliKentta.GetLength(1); j++)
-                {
-                    peliKentta[i, j] = new Panel();
-                    peliKentta[i, j].Location = new Point(j * 75, i * 75);
-                    peliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
-                    peliKentta[i, j].Size = new Size(75, 75);
-                    peliKentta[i, j].BackColor = Color.White;
-                    peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    peliKentta[i, j].BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
-                    peliKentta[i, j].Click += new EventHandler(peliKentta_Click);
-                    this.panel1.Controls.Add(peliKentta[i, j]);
-                }
-            }
+            Panel[,] peliAlue = uusiPeliKentta.LuoPeliKentta(this.panel1);
 
             luoPeliAlusta();
-
         }
 
         public void luoPeliAlusta()
@@ -54,13 +38,32 @@ namespace Lopputyo
             //katsotaan voittiko X pelaaja jne.
         }
 
+            //kun nappia painetaan! tapahtuu tämä event
         public void peliKentta_Click(object sender, EventArgs e)
         {
-            Panel p = (Panel)sender;
+            //funktio pelikentän tarkistamiseen, onko tyhjä
+            tarkistaKentanTila(sender as Panel, e);
 
-            //kun nappia painetaan! tapahtuu tämä.
+            Panel p = (Panel)sender;
+            p.BackColor = Color.Red;
+
 
             Console.WriteLine(p.Name);
+        }
+
+        public void tarkistaKentanTila(Panel peliKentta, EventArgs e)
+        {
+            //tarkistetaan pelikenttä ja kerrotaan minkävärinen nappi siinä on
+            //logiikka muuttuu kun piirretään kuviot ohjelmallisesti, silloin voidaan vedota "kenttaClass" arvoon "väri" esim...?
+            if(peliKentta.BackColor == Color.Red || peliKentta.BackColor == Color.Yellow)
+            {
+                Console.WriteLine("Pelikenttä ei ole tyhjä, siinä on {0} nappi!", peliKentta.BackColor.ToString());
+            }
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
