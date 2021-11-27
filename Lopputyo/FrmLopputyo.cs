@@ -55,6 +55,7 @@ namespace Lopputyo
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
             FrmPelaajat frmPelaajat = new FrmPelaajat();
+            //showdialog kun suljetaan alkaa pelin ajastin
             frmPelaajat.ShowDialog();
 
 
