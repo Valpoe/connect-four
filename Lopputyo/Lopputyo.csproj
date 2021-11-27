@@ -58,6 +58,7 @@
     <Compile Include="FrmLopputyo.Designer.cs">
       <DependentUpon>FrmLopputyo.cs</DependentUpon>
     </Compile>
+    <Compile Include="PeliKenttaLuonti.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmLopputyo.resx">

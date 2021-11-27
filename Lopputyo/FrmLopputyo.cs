@@ -19,25 +19,9 @@ namespace Lopputyo
         {
             InitializeComponent();
 
-            // this.paneeli = new Panel[6, 7];
-            Panel[,] peliKentta = new Panel[6, 7];
+            PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
 
-            //Luodaan pelikenttä 2-dim arrayn pohjalta. Suuruutta voi muuttaa myöhemmin tarpeen mukaan!
-            for(int i = 0; i < peliKentta.GetLength(0); i++)
-            {
-                for (int j = 0; j < peliKentta.GetLength(1); j++)
-                {
-                    peliKentta[i, j] = new Panel();
-                    peliKentta[i, j].Location = new Point(j * 77, i * 77);
-                    peliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
-                    peliKentta[i, j].Size = new Size(75, 75);
-                    peliKentta[i, j].BackColor = Color.White;
-                    peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    peliKentta[i, j].BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
-                    peliKentta[i, j].Click += new EventHandler(peliKentta_Click);
-                    this.panel1.Controls.Add(peliKentta[i, j]);
-                }
-            }
+            LuoPeli.LuoPeliKentta(panel1);
 
             luoPeliAlusta();
 
