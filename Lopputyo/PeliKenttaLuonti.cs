@@ -10,8 +10,11 @@ namespace Lopputyo
 {
     class PeliKenttaLuonti
     {
+        public int PelaajanVuoro = 0;
+
         public Panel[,] LuoPeliKentta(Panel kentanKohde, int columns = 6, int rows = 7)
         {
+
             Panel[,] luotuPeliKentta = new Panel[columns, rows];
 
             for (int i = 0; i < luotuPeliKentta.GetLength(0); i++)
@@ -22,6 +25,7 @@ namespace Lopputyo
                     luotuPeliKentta[i, j].Location = new Point(j * 77, i * 77);
                     kentanKohde.Controls.Add(luotuPeliKentta[i, j]);
                     luotuPeliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
+                    luotuPeliKentta[i, j].Tag = i + "," + j;
                     luotuPeliKentta[i, j].Size = new Size(75, 75);
                     luotuPeliKentta[i, j].BackColor = Color.White;
                     luotuPeliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
@@ -35,7 +39,40 @@ namespace Lopputyo
 
         public void kentanKoko_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Klikkasit minua!");
+            tarkistaSijainti(sender, e);
+
+            Panel p = (Panel)sender;
+
+            Console.WriteLine("Tag on:" + p.Tag.ToString());
+
+            if(p.BackColor != Color.White)
+            {
+                Console.WriteLine("Et valinnut tyhjää kenttää, tässä on {0} sijainti {1}", p.BackColor.ToString(), p.Name);
+                return;
+            }
+            Console.WriteLine();
+
+            //pelaajana vuoro
+            if(PelaajanVuoro == 0)
+            {
+                p.BackColor = Color.Yellow;
+                PelaajanVuoro = 1;
+            }
+            else
+            {
+                p.BackColor = Color.Red;
+                PelaajanVuoro = 0;
+            }
+
+            Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, PelaajanVuoro);
+        }
+
+        public void tarkistaSijainti(object sender, EventArgs e)
+        {
+            Panel nykyinenSijainti = sender as Panel;
+
+            //ynnätään rivit - sijainti rivi + vaaka rivi = nykyinen sijainti
+            //ynnätään rivin pituus + sijainti kunnes sijainti + rivi != white
         }
     }
 }
