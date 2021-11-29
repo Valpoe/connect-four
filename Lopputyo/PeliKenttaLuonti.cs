@@ -12,15 +12,22 @@ namespace Lopputyo
     {
         public int PelaajanVuoro = 0;
 
+        Panel[,] luotuPeliKentta;
+        int peliKentanPanelMax;
+
         public Panel[,] LuoPeliKentta(Panel kentanKohde, int columns = 6, int rows = 7)
         {
 
-            Panel[,] luotuPeliKentta = new Panel[columns, rows];
+            luotuPeliKentta = new Panel[columns, rows];
+            peliKentanPanelMax = columns * rows - 1;
 
             for (int i = 0; i < luotuPeliKentta.GetLength(0); i++)
             {
                 for (int j = 0; j < luotuPeliKentta.GetLength(1); j++)
                 {
+                    //i = rivikorkeus
+                    //j = columni syvyys
+
                     luotuPeliKentta[i, j] = new Panel();
                     luotuPeliKentta[i, j].Location = new Point(j * 77, i * 77);
                     kentanKohde.Controls.Add(luotuPeliKentta[i, j]);
@@ -39,7 +46,6 @@ namespace Lopputyo
 
         public void kentanKoko_Click(object sender, EventArgs e)
         {
-            tarkistaSijainti(sender, e);
 
             Panel p = (Panel)sender;
 
@@ -57,11 +63,13 @@ namespace Lopputyo
             {
                 p.BackColor = Color.Yellow;
                 PelaajanVuoro = 1;
+                tarkistaSijainti(sender, e);
             }
             else
             {
                 p.BackColor = Color.Red;
                 PelaajanVuoro = 0;
+                tarkistaSijainti(sender, e);
             }
 
             Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, PelaajanVuoro);
@@ -69,10 +77,48 @@ namespace Lopputyo
 
         public void tarkistaSijainti(object sender, EventArgs e)
         {
-            Panel nykyinenSijainti = sender as Panel;
+            //avataan tag
+            Panel p = sender as Panel;
 
-            //ynnätään rivit - sijainti rivi + vaaka rivi = nykyinen sijainti
-            //ynnätään rivin pituus + sijainti kunnes sijainti + rivi != white
+            string[] sijaintiTaulukko = p.Tag.ToString().Split(',');
+
+            //dim1 = rivikorkeus
+            //dim2 = kolumnisyvyys
+
+            int dim1Sijainti;
+            int dim2Sijainti;
+
+            bool parseInt = int.TryParse(sijaintiTaulukko[0], out dim1Sijainti);
+            parseInt = int.TryParse(sijaintiTaulukko[1], out dim2Sijainti);
+
+
+            if(dim1Sijainti + 1 >= luotuPeliKentta.GetLength(0))
+            {
+                //MessageBox.Show("Kenttä loppuu!");
+                return;
+            }
+
+            else if (luotuPeliKentta[dim1Sijainti + 1, dim2Sijainti].BackColor != Color.White)
+            {
+                //MessageBox.Show("Alapuolella ei ole tilaa!");
+            }
+
+            else
+            {
+                //MessageBox.Show("Alapuolella on tilaa!");
+                siirraKiekkoAlas(p, dim1Sijainti, dim2Sijainti, e);
+            }
+        }
+
+        public void siirraKiekkoAlas(Panel peliKentta, int r, int c, EventArgs e)
+        {
+            Color siirrettavaVari = luotuPeliKentta[r, c].BackColor;
+            peliKentta = luotuPeliKentta[r + 1, c];
+
+            luotuPeliKentta[r, c].BackColor = Color.White;
+            luotuPeliKentta[r+1, c].BackColor = siirrettavaVari;
+
+            tarkistaSijainti(peliKentta, e);
         }
     }
 }
