@@ -110,15 +110,26 @@ namespace Lopputyo
             }
         }
 
-        public void siirraKiekkoAlas(Panel peliKentta, int r, int c, EventArgs e)
+        public async void siirraKiekkoAlas(Panel peliKentta, int r, int c, EventArgs e)
         {
+            //async methodi, odotetaan että tämä suoritetaan ennenkuin koodi jatkaa suoritustaan.
+            await odotaHetki();
+
+            //napataan talteen valitun panelin väri ja vaihdetaan valittu paneeli luotuPeliKentta viittaamalla.
             Color siirrettavaVari = luotuPeliKentta[r, c].BackColor;
             peliKentta = luotuPeliKentta[r + 1, c];
 
             luotuPeliKentta[r, c].BackColor = Color.White;
             luotuPeliKentta[r+1, c].BackColor = siirrettavaVari;
 
+
+
             tarkistaSijainti(peliKentta, e);
+        }
+
+        public async Task odotaHetki()
+        {
+            await Task.Delay(250);
         }
     }
 }
