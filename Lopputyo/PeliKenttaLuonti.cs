@@ -10,8 +10,12 @@ namespace Lopputyo
 {
     public class PeliKenttaLuonti
     {
-        public Form frmRef;
-        public int PelaajanVuoro = 0;
+        public int PelaajanVuoro = 1;
+        public string KummanVuoro = "Pelaaja 1";
+        public string pelaaja1 = "";
+        public string pelaaja2 = "";
+        public bool peliAlkanut = false;
+
         bool siirtoKesken = false;
 
         Panel[,] luotuPeliKentta;
@@ -19,8 +23,10 @@ namespace Lopputyo
 
         public Panel[,] LuoPeliKentta(Panel kentanKohde, int columns = 6, int rows = 7)
         {
-            
+            //Luodaan oletusparametreilla, tai annetuilla parametreillä pelikentän koko
             luotuPeliKentta = new Panel[columns, rows];
+
+            //otetaan pelikentän paneelien määrä ylös "Array" muodossa eli 0-X eikä 1-X
             peliKentanPanelMax = columns * rows - 1;
 
             for (int i = 0; i < luotuPeliKentta.GetLength(0); i++)
@@ -51,19 +57,22 @@ namespace Lopputyo
         public async void kentanKoko_Click(object sender, EventArgs e)
         {
 
-            //jos task on käynnissä estä uusi painallus.
-            if (siirtoKesken)
+            //jos vuoro on kesken tai peli ei ole alkanut, return eli ei tapahdu mitään.
+            if (siirtoKesken || !peliAlkanut)
             {
                 return;
             }
 
+            //jos peli on alkanut ja siirto aloitettu, muutetaan siirtokesken bool trueksi, koska ajastimia pitää odottaa.
+            //ja tällä myös estetään ettei yhtä aikaa pudoteta 2 pelimerkkiä.
             siirtoKesken = true;
 
+            //napataan object sender paneeli muuttujaan jotta voidaan käyttää paneelin omia tietueita.
             Panel p = (Panel)sender;
 
             Console.WriteLine("Tag on:" + p.Tag.ToString());
 
-            //jos taustaväri ei ole valkoinen
+            //jos taustaväri ei ole valkoinen -> tulostetaan klikatun paneelin taustaväri ja nimi.
             if(p.BackColor != Color.White)
             {
                 Console.WriteLine("Et valinnut tyhjää kenttää, tässä on {0} sijainti {1}", p.BackColor.ToString(), p.Name);
@@ -71,17 +80,19 @@ namespace Lopputyo
             }
             Console.WriteLine();
 
-            //pelaajana vuoro
+            //pelaajan vuoro
             if(PelaajanVuoro == 0)
             {
-                KummanVuoro = "Pelaaja 1";
+                KummanVuoro = pelaaja1;
                 p.BackColor = Color.Yellow;
                 PelaajanVuoro = 1;
                 await tarkistaSijainti(sender, e);
+                
+                
             }
             else
             {
-                KummanVuoro = "Pelaaja 2";
+                KummanVuoro = pelaaja2;
                 p.BackColor = Color.Red;
                 PelaajanVuoro = 0;
                 await tarkistaSijainti(sender, e);
@@ -116,6 +127,7 @@ namespace Lopputyo
             else if (luotuPeliKentta[dim1Sijainti + 1, dim2Sijainti].BackColor != Color.White)
             {
                 //MessageBox.Show("Alapuolella ei ole tilaa!");
+                MessageBox.Show(p.Tag.ToString());
             }
 
             else
@@ -146,6 +158,15 @@ namespace Lopputyo
         {
             //siirto ei ole kesken kun tullaan tähän
             siirtoKesken = false;
+
+            if(PelaajanVuoro == 1)
+            {
+                FrmLopputyo.painallusEvent(pelaaja1);
+            }
+            else
+            {
+                FrmLopputyo.painallusEvent(pelaaja2);
+            }
         }
 
         public async Task odotaHetki()
