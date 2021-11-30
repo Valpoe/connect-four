@@ -12,7 +12,6 @@ namespace Lopputyo
     {
         public Form frmRef;
         public int PelaajanVuoro = 0;
-
         bool siirtoKesken = false;
 
         Panel[,] luotuPeliKentta;
@@ -75,12 +74,14 @@ namespace Lopputyo
             //pelaajana vuoro
             if(PelaajanVuoro == 0)
             {
+                //KummanVuoro = "Pelaaja 1";
                 p.BackColor = Color.Yellow;
                 PelaajanVuoro = 1;
-                await tarkistaSijainti(sender, e);              
+                await tarkistaSijainti(sender, e);
             }
             else
             {
+                //KummanVuoro = "Pelaaja 2";
                 p.BackColor = Color.Red;
                 PelaajanVuoro = 0;
                 await tarkistaSijainti(sender, e);
