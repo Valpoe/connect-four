@@ -11,6 +11,7 @@ namespace Lopputyo
     class PeliKenttaLuonti
     {
         public int PelaajanVuoro = 0;
+        bool siirtoKesken = false;
 
         Panel[,] luotuPeliKentta;
         int peliKentanPanelMax;
@@ -44,8 +45,15 @@ namespace Lopputyo
             return luotuPeliKentta;
         }
 
-        public void kentanKoko_Click(object sender, EventArgs e)
+        public async void kentanKoko_Click(object sender, EventArgs e)
         {
+            //jos task on käynnissä estä uusi painallus.
+            if (siirtoKesken)
+            {
+                return;
+            }
+
+            siirtoKesken = true;
 
             Panel p = (Panel)sender;
 
@@ -63,19 +71,19 @@ namespace Lopputyo
             {
                 p.BackColor = Color.Yellow;
                 PelaajanVuoro = 1;
-                tarkistaSijainti(sender, e);
+                await tarkistaSijainti(sender, e);
             }
             else
             {
                 p.BackColor = Color.Red;
                 PelaajanVuoro = 0;
-                tarkistaSijainti(sender, e);
+                await tarkistaSijainti(sender, e);
             }
 
             Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, PelaajanVuoro);
         }
 
-        public void tarkistaSijainti(object sender, EventArgs e)
+        public async Task tarkistaSijainti(object sender, EventArgs e)
         {
             //avataan tag
             Panel p = sender as Panel;
@@ -106,11 +114,14 @@ namespace Lopputyo
             else
             {
                 //MessageBox.Show("Alapuolella on tilaa!");
-                siirraKiekkoAlas(p, dim1Sijainti, dim2Sijainti, e);
+                await siirraKiekkoAlas(p, dim1Sijainti, dim2Sijainti, e);
             }
+
+            //siirto ei ole kesken kun tullaan tähän
+            siirtoKesken = false;
         }
 
-        public async void siirraKiekkoAlas(Panel peliKentta, int r, int c, EventArgs e)
+        public async Task siirraKiekkoAlas(Panel peliKentta, int r, int c, EventArgs e)
         {
             //async methodi, odotetaan että tämä suoritetaan ennenkuin koodi jatkaa suoritustaan.
             await odotaHetki();
@@ -122,9 +133,7 @@ namespace Lopputyo
             luotuPeliKentta[r, c].BackColor = Color.White;
             luotuPeliKentta[r+1, c].BackColor = siirrettavaVari;
 
-
-
-            tarkistaSijainti(peliKentta, e);
+            await tarkistaSijainti(peliKentta, e);
         }
 
         public async Task odotaHetki()
