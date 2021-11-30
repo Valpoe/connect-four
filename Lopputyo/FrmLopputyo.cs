@@ -52,7 +52,8 @@ namespace Lopputyo
             FrmPelaajat frmPelaajat = new FrmPelaajat();
             //showdialog kun suljetaan alkaa pelin ajastin
             frmPelaajat.ShowDialog();
-            
+
+
             tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
             timer1.Start();
         }

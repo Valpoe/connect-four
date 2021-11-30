@@ -19,8 +19,6 @@ namespace Lopputyo
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            FrmLopputyo.Pelaaja1 = tbPelaaja1.Text;
-            FrmLopputyo.Pelaaja2 = tbPelaaja2.Text;
             this.Close();
         }
     }
