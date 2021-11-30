@@ -81,9 +81,6 @@ namespace Lopputyo
                 KummanVuoro = "Pelaaja 1";
                 p.BackColor = Color.Yellow;
                 PelaajanVuoro = 1;
-
-                frmRef.Controls["tsslKummanVuoro"].Text = pelaaja1;
-
                 await tarkistaSijainti(sender, e);
                 
             }
