@@ -14,16 +14,18 @@ namespace Lopputyo
     
     public partial class FrmLopputyo : Form
     {
-        public Form PaaFrm = null;
+        private static Form Frm1 = null;
+        public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
 
         int kulunutPeliAika = 0;
         
         public FrmLopputyo()
         {
             InitializeComponent();
-            PaaFrm = this;
+            Frm1 = this;
 
-            PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
+            int pelaajanVuoro = LuoPeli.PelaajanVuoro;
+            LuoPeli.frmRef = Frm1;
 
             LuoPeli.LuoPeliKentta(panel1);
 
@@ -43,21 +45,11 @@ namespace Lopputyo
             //katsotaan voittiko X pelaaja jne.
         }
 
-        public void peliKentta_Click(object sender, EventArgs e)
-        {
-            Panel p = (Panel)sender;
-
-            //kun nappia painetaan! tapahtuu tämä.
-
-            Console.WriteLine(p.Name);
-        }
-
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
             FrmPelaajat frmPelaajat = new FrmPelaajat();
             //showdialog kun suljetaan alkaa pelin ajastin
             frmPelaajat.ShowDialog();
-
 
             tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
             timer1.Start();
