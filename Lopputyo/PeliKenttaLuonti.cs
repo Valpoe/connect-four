@@ -8,9 +8,11 @@ using System.Windows.Forms;
 
 namespace Lopputyo
 {
-    class PeliKenttaLuonti
+    public class PeliKenttaLuonti
     {
+        public Form frmRef;
         public int PelaajanVuoro = 0;
+
         bool siirtoKesken = false;
 
         Panel[,] luotuPeliKentta;
@@ -18,7 +20,7 @@ namespace Lopputyo
 
         public Panel[,] LuoPeliKentta(Panel kentanKohde, int columns = 6, int rows = 7)
         {
-
+            
             luotuPeliKentta = new Panel[columns, rows];
             peliKentanPanelMax = columns * rows - 1;
 
@@ -33,6 +35,8 @@ namespace Lopputyo
                     luotuPeliKentta[i, j].Location = new Point(j * 77, i * 77);
                     kentanKohde.Controls.Add(luotuPeliKentta[i, j]);
                     luotuPeliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
+
+                    //napataan 2 dim sijainti tagiin talteen
                     luotuPeliKentta[i, j].Tag = i + "," + j;
                     luotuPeliKentta[i, j].Size = new Size(75, 75);
                     luotuPeliKentta[i, j].BackColor = Color.White;
@@ -47,6 +51,7 @@ namespace Lopputyo
 
         public async void kentanKoko_Click(object sender, EventArgs e)
         {
+
             //jos task on käynnissä estä uusi painallus.
             if (siirtoKesken)
             {
@@ -59,6 +64,7 @@ namespace Lopputyo
 
             Console.WriteLine("Tag on:" + p.Tag.ToString());
 
+            //jos taustaväri ei ole valkoinen
             if(p.BackColor != Color.White)
             {
                 Console.WriteLine("Et valinnut tyhjää kenttää, tässä on {0} sijainti {1}", p.BackColor.ToString(), p.Name);
@@ -71,7 +77,7 @@ namespace Lopputyo
             {
                 p.BackColor = Color.Yellow;
                 PelaajanVuoro = 1;
-                await tarkistaSijainti(sender, e);
+                await tarkistaSijainti(sender, e);              
             }
             else
             {
@@ -117,8 +123,7 @@ namespace Lopputyo
                 await siirraKiekkoAlas(p, dim1Sijainti, dim2Sijainti, e);
             }
 
-            //siirto ei ole kesken kun tullaan tähän
-            siirtoKesken = false;
+            pelaajanVuoronVaihto();
         }
 
         public async Task siirraKiekkoAlas(Panel peliKentta, int r, int c, EventArgs e)
@@ -134,6 +139,12 @@ namespace Lopputyo
             luotuPeliKentta[r+1, c].BackColor = siirrettavaVari;
 
             await tarkistaSijainti(peliKentta, e);
+        }
+
+        public void pelaajanVuoronVaihto()
+        {
+            //siirto ei ole kesken kun tullaan tähän
+            siirtoKesken = false;
         }
 
         public async Task odotaHetki()

@@ -59,70 +59,63 @@
             // 
             // btn1
             // 
-            this.btn1.Location = new System.Drawing.Point(20, 106);
-            this.btn1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn1.Location = new System.Drawing.Point(13, 69);
             this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(112, 35);
+            this.btn1.Size = new System.Drawing.Size(75, 23);
             this.btn1.TabIndex = 0;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
             // 
             // btn2
             // 
-            this.btn2.Location = new System.Drawing.Point(135, 106);
-            this.btn2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn2.Location = new System.Drawing.Point(90, 69);
             this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(112, 35);
+            this.btn2.Size = new System.Drawing.Size(75, 23);
             this.btn2.TabIndex = 1;
             this.btn2.Text = "2";
             this.btn2.UseVisualStyleBackColor = true;
             // 
             // btn3
             // 
-            this.btn3.Location = new System.Drawing.Point(250, 106);
-            this.btn3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn3.Location = new System.Drawing.Point(167, 69);
             this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(112, 35);
+            this.btn3.Size = new System.Drawing.Size(75, 23);
             this.btn3.TabIndex = 2;
             this.btn3.Text = "3";
             this.btn3.UseVisualStyleBackColor = true;
             // 
             // btn4
             // 
-            this.btn4.Location = new System.Drawing.Point(366, 106);
-            this.btn4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn4.Location = new System.Drawing.Point(244, 69);
             this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(112, 35);
+            this.btn4.Size = new System.Drawing.Size(75, 23);
             this.btn4.TabIndex = 3;
             this.btn4.Text = "4";
             this.btn4.UseVisualStyleBackColor = true;
             // 
             // btn5
             // 
-            this.btn5.Location = new System.Drawing.Point(482, 106);
-            this.btn5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn5.Location = new System.Drawing.Point(321, 69);
             this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(112, 35);
+            this.btn5.Size = new System.Drawing.Size(75, 23);
             this.btn5.TabIndex = 4;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
             // 
             // btn6
             // 
-            this.btn6.Location = new System.Drawing.Point(597, 106);
-            this.btn6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn6.Location = new System.Drawing.Point(398, 69);
             this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(112, 35);
+            this.btn6.Size = new System.Drawing.Size(75, 23);
             this.btn6.TabIndex = 5;
             this.btn6.Text = "6";
             this.btn6.UseVisualStyleBackColor = true;
             // 
             // btn7
             // 
-            this.btn7.Location = new System.Drawing.Point(712, 106);
-            this.btn7.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn7.Location = new System.Drawing.Point(475, 69);
             this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(112, 35);
+            this.btn7.Size = new System.Drawing.Size(75, 23);
             this.btn7.TabIndex = 6;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
@@ -141,19 +134,19 @@
             this.panel0.Controls.Add(this.btn3);
             this.panel0.Controls.Add(this.btn2);
             this.panel0.Controls.Add(this.btn1);
-            this.panel0.Location = new System.Drawing.Point(18, 18);
-            this.panel0.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel0.Location = new System.Drawing.Point(12, 12);
             this.panel0.Name = "panel0";
-            this.panel0.Size = new System.Drawing.Size(846, 916);
+            this.panel0.Size = new System.Drawing.Size(565, 596);
             this.panel0.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(20, 151);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(13, 98);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(804, 729);
+            this.panel1.Size = new System.Drawing.Size(536, 474);
             this.panel1.TabIndex = 21;
+            this.panel1.BackColorChanged += new System.EventHandler(this.panel1_BackColorChanged);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // ss1
             // 
@@ -162,40 +155,39 @@
             this.tsslKulunutPeliAika,
             this.tsslKummanVuoro,
             this.tsslViimeisinSiirto});
-            this.ss1.Location = new System.Drawing.Point(0, 882);
+            this.ss1.Location = new System.Drawing.Point(0, 572);
             this.ss1.Name = "ss1";
-            this.ss1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
-            this.ss1.Size = new System.Drawing.Size(844, 32);
+            this.ss1.Size = new System.Drawing.Size(563, 22);
             this.ss1.TabIndex = 19;
             this.ss1.Text = "statusStrip1";
             // 
             // tsslKulunutPeliAika
             // 
             this.tsslKulunutPeliAika.Name = "tsslKulunutPeliAika";
-            this.tsslKulunutPeliAika.Size = new System.Drawing.Size(50, 25);
+            this.tsslKulunutPeliAika.Size = new System.Drawing.Size(33, 17);
             this.tsslKulunutPeliAika.Text = "Aika:";
             // 
             // tsslKummanVuoro
             // 
             this.tsslKummanVuoro.Name = "tsslKummanVuoro";
-            this.tsslKummanVuoro.Size = new System.Drawing.Size(65, 25);
+            this.tsslKummanVuoro.Size = new System.Drawing.Size(42, 17);
             this.tsslKummanVuoro.Text = "Vuoro:";
             // 
             // tsslViimeisinSiirto
             // 
             this.tsslViimeisinSiirto.Name = "tsslViimeisinSiirto";
-            this.tsslViimeisinSiirto.Size = new System.Drawing.Size(130, 25);
+            this.tsslViimeisinSiirto.Size = new System.Drawing.Size(87, 17);
             this.tsslViimeisinSiirto.Text = "Viimeisin siirto:";
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiValikko});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(844, 35);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
+            this.menuStrip1.Size = new System.Drawing.Size(563, 24);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,43 +199,42 @@
             this.tallennaToolStripMenuItem,
             this.infoToolStripMenuItem});
             this.tsmiValikko.Name = "tsmiValikko";
-            this.tsmiValikko.Size = new System.Drawing.Size(84, 29);
+            this.tsmiValikko.Size = new System.Drawing.Size(56, 22);
             this.tsmiValikko.Text = "Valikko";
             // 
             // aloitaPeliToolStripMenuItem
             // 
             this.aloitaPeliToolStripMenuItem.Name = "aloitaPeliToolStripMenuItem";
-            this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(230, 34);
+            this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.aloitaPeliToolStripMenuItem.Text = "Aloita peli";
             this.aloitaPeliToolStripMenuItem.Click += new System.EventHandler(this.btnAloitaPeli_Click);
             // 
             // vieTiedostoonToolStripMenuItem
             // 
             this.vieTiedostoonToolStripMenuItem.Name = "vieTiedostoonToolStripMenuItem";
-            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(230, 34);
+            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.vieTiedostoonToolStripMenuItem.Text = "Vie tiedostoon";
             this.vieTiedostoonToolStripMenuItem.Click += new System.EventHandler(this.vieTiedostoonToolStripMenuItem_Click);
             // 
             // tallennaToolStripMenuItem
             // 
             this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
-            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(230, 34);
+            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.tallennaToolStripMenuItem.Text = "Tallenna";
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(230, 34);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
             // btnAloitaPeli
             // 
             this.btnAloitaPeli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAloitaPeli.Location = new System.Drawing.Point(348, 51);
-            this.btnAloitaPeli.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAloitaPeli.Location = new System.Drawing.Point(232, 33);
             this.btnAloitaPeli.Name = "btnAloitaPeli";
-            this.btnAloitaPeli.Size = new System.Drawing.Size(150, 46);
+            this.btnAloitaPeli.Size = new System.Drawing.Size(100, 30);
             this.btnAloitaPeli.TabIndex = 15;
             this.btnAloitaPeli.UseVisualStyleBackColor = true;
             this.btnAloitaPeli.Click += new System.EventHandler(this.btnAloitaPeli_Click);
@@ -255,13 +246,12 @@
             // 
             // FrmLopputyo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 954);
+            this.ClientSize = new System.Drawing.Size(590, 620);
             this.Controls.Add(this.panel0);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "FrmLopputyo";
             this.Text = "Neljän suora";
             this.panel0.ResumeLayout(false);
@@ -292,11 +282,11 @@
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.StatusStrip ss1;
         private System.Windows.Forms.ToolStripStatusLabel tsslKulunutPeliAika;
-        private System.Windows.Forms.ToolStripStatusLabel tsslKummanVuoro;
         private System.Windows.Forms.ToolStripStatusLabel tsslViimeisinSiirto;
         private System.Windows.Forms.Panel panel0;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SaveFileDialog sfdTiedot1;
+        public System.Windows.Forms.ToolStripStatusLabel tsslKummanVuoro;
     }
 }
 
