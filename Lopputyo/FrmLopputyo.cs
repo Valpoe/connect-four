@@ -14,8 +14,10 @@ namespace Lopputyo
     
     public partial class FrmLopputyo : Form
     {
-        private static Form Frm1 = null;
         public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
+        public static FrmLopputyo Frm1Ref = null;
+        public static Label testLBL;
+        public static ToolStripStatusLabel testTSSL;
 
         int kulunutPeliAika = 0;
         public static string Pelaaja1 = "";
@@ -24,37 +26,40 @@ namespace Lopputyo
         public FrmLopputyo()
         {
             InitializeComponent();
-            Frm1 = this;
 
-            int pelaajanVuoro = LuoPeli.PelaajanVuoro;
-            LuoPeli.frmRef = Frm1;
-
+            //alustetaan Frm1Ref muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
+            Frm1Ref = this;
+            testTSSL = tsslKummanVuoro;
             LuoPeli.LuoPeliKentta(panel1);
-
-            luoPeliAlusta();
         }
 
-        public void luoPeliAlusta()
+        static public void painallusEvent(string pelaajanVuoro)
         {
+            //Tätä kutsutaan classista "FrmLopputyö.painallusEvent();" <- Static
+            //eli aina kun painetaan Panel nappia päädytään tähän koodiin vuoron loputtua
 
+            testTSSL.Text = "Vuoro: " + pelaajanVuoro;
+        }
+
+        public void AlustaPeli(string aloittavaPelaaja)
+        {
+            testLBL.Text = aloittavaPelaaja;
             //luodaan paneelit kenttään koko X Y
-
-            tarkistaPelinTila();
         }
 
-        public void tarkistaPelinTila()
-        {
-            //katsotaan voittiko X pelaaja jne.
-        }
 
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
             FrmPelaajat frmPelaajat = new FrmPelaajat();
             //showdialog kun suljetaan alkaa pelin ajastin
             frmPelaajat.ShowDialog();
+<<<<<<<<< Temporary merge branch 1
 
-
+=========
+            
+>>>>>>>>> Temporary merge branch 2
             tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
+            tsslKummanVuoro.Text = "Vuoro: " + Pelaaja1;
             timer1.Start();
         }
 
