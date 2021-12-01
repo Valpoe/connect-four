@@ -27,6 +27,7 @@ namespace Lopputyo
         {
             InitializeComponent();
 
+            //Alku
             //alustetaan Frm1Ref muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
             Frm1Ref = this;
             testTSSL = tsslKummanVuoro;
