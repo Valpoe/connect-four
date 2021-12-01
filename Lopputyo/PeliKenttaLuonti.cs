@@ -10,11 +10,14 @@ namespace Lopputyo
 {
     public class PeliKenttaLuonti
     {
-        public int PelaajanVuoro = 1;
+        public Form frmRef;
+        public int PelaajanVuoro = 0;
+<<<<<<<<< Temporary merge branch 1
         public string KummanVuoro = "Pelaaja 1";
-        public string pelaaja1 = "";
-        public string pelaaja2 = "";
-        public bool peliAlkanut = false;
+        string pelaaja1 = "";
+        string pelaaja2 = "";
+=========
+>>>>>>>>> Temporary merge branch 2
 
         bool siirtoKesken = false;
 
@@ -83,16 +86,19 @@ namespace Lopputyo
             //pelaajan vuoro
             if(PelaajanVuoro == 0)
             {
-                KummanVuoro = pelaaja1;
+                KummanVuoro = "Pelaaja 1";
                 p.BackColor = Color.Yellow;
                 PelaajanVuoro = 1;
+<<<<<<<<< Temporary merge branch 1
                 await tarkistaSijainti(sender, e);
                 
-                
+=========
+                await tarkistaSijainti(sender, e);              
+>>>>>>>>> Temporary merge branch 2
             }
             else
             {
-                KummanVuoro = pelaaja2;
+                KummanVuoro = "Pelaaja 2";
                 p.BackColor = Color.Red;
                 PelaajanVuoro = 0;
                 await tarkistaSijainti(sender, e);

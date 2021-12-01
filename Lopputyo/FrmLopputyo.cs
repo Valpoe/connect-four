@@ -54,9 +54,13 @@ namespace Lopputyo
             FrmPelaajat frmPelaajat = new FrmPelaajat();
             //showdialog kun suljetaan alkaa pelin ajastin
             frmPelaajat.ShowDialog();
+<<<<<<<<< Temporary merge branch 1
 
-
+=========
+            
+>>>>>>>>> Temporary merge branch 2
             tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
+            tsslKummanVuoro.Text = "Vuoro: " + Pelaaja1;
             timer1.Start();
         }
 
@@ -108,18 +112,16 @@ namespace Lopputyo
 
         }
 
-        //private void panel1_Paint(object sender, PaintEventArgs e)
-        //{
-        //    if (LuoPeli.PelaajanVuoro == 1)
-        //    {
-        //        tsslKummanVuoro.Text = "Vuoro: " + Pelaaja1;
-        //    }
-        //    else if (LuoPeli.PelaajanVuoro == 0)
-        //    {
-        //        tsslKummanVuoro.Text = "Vuoro: " + Pelaaja2;
-        //    }
-        //}
-
-
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            if (LuoPeli.PelaajanVuoro == 1)
+            {
+                tsslKummanVuoro.Text = "Vuoro: " + Pelaaja1;
+            }
+            else if (LuoPeli.PelaajanVuoro == 0)
+            {
+                tsslKummanVuoro.Text = "Vuoro: " + Pelaaja2;
+            }
+        }
     }
 }
