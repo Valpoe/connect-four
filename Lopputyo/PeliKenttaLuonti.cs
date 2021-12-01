@@ -10,14 +10,12 @@ namespace Lopputyo
 {
     public class PeliKenttaLuonti
     {
-        public Form frmRef;
-        public int PelaajanVuoro = 0;
-<<<<<<<<< Temporary merge branch 1
+        public int PelaajanVuoro = 1;
         public string KummanVuoro = "Pelaaja 1";
-        string pelaaja1 = "";
-        string pelaaja2 = "";
-=========
->>>>>>>>> Temporary merge branch 2
+        public string pelaaja1 = "";
+        public string pelaaja2 = "";
+        public bool peliAlkanut = false;
+        public int viimeisinSiirto;
 
         bool siirtoKesken = false;
 
@@ -76,7 +74,7 @@ namespace Lopputyo
             Console.WriteLine("Tag on:" + p.Tag.ToString());
 
             //jos taustaväri ei ole valkoinen -> tulostetaan klikatun paneelin taustaväri ja nimi.
-            if(p.BackColor != Color.White)
+            if (p.BackColor != Color.White)
             {
                 Console.WriteLine("Et valinnut tyhjää kenttää, tässä on {0} sijainti {1}", p.BackColor.ToString(), p.Name);
                 return;
@@ -84,21 +82,18 @@ namespace Lopputyo
             Console.WriteLine();
 
             //pelaajan vuoro
-            if(PelaajanVuoro == 0)
+            if (PelaajanVuoro == 0)
             {
-                KummanVuoro = "Pelaaja 1";
+                KummanVuoro = pelaaja1;
                 p.BackColor = Color.Yellow;
                 PelaajanVuoro = 1;
-<<<<<<<<< Temporary merge branch 1
                 await tarkistaSijainti(sender, e);
-                
-=========
-                await tarkistaSijainti(sender, e);              
->>>>>>>>> Temporary merge branch 2
+
+
             }
             else
             {
-                KummanVuoro = "Pelaaja 2";
+                KummanVuoro = pelaaja2;
                 p.BackColor = Color.Red;
                 PelaajanVuoro = 0;
                 await tarkistaSijainti(sender, e);
@@ -124,7 +119,7 @@ namespace Lopputyo
             parseInt = int.TryParse(sijaintiTaulukko[1], out dim2Sijainti);
 
 
-            if(dim1Sijainti + 1 >= luotuPeliKentta.GetLength(0))
+            if (dim1Sijainti + 1 >= luotuPeliKentta.GetLength(0))
             {
                 //MessageBox.Show("Kenttä loppuu!");
                 return;
@@ -133,13 +128,14 @@ namespace Lopputyo
             else if (luotuPeliKentta[dim1Sijainti + 1, dim2Sijainti].BackColor != Color.White)
             {
                 //MessageBox.Show("Alapuolella ei ole tilaa!");
-                MessageBox.Show(p.Tag.ToString());
+                //viimeisinSiirto = dim2Sijainti + 1;
             }
 
             else
             {
                 //MessageBox.Show("Alapuolella on tilaa!");
                 await siirraKiekkoAlas(p, dim1Sijainti, dim2Sijainti, e);
+                viimeisinSiirto = dim2Sijainti + 1;
             }
 
             pelaajanVuoronVaihto();
@@ -155,7 +151,7 @@ namespace Lopputyo
             peliKentta = luotuPeliKentta[r + 1, c];
 
             luotuPeliKentta[r, c].BackColor = Color.White;
-            luotuPeliKentta[r+1, c].BackColor = siirrettavaVari;
+            luotuPeliKentta[r + 1, c].BackColor = siirrettavaVari;
 
             await tarkistaSijainti(peliKentta, e);
         }
@@ -165,7 +161,7 @@ namespace Lopputyo
             //siirto ei ole kesken kun tullaan tähän
             siirtoKesken = false;
 
-            if(PelaajanVuoro == 1)
+            if (PelaajanVuoro == 1)
             {
                 FrmLopputyo.painallusEvent(pelaaja1);
             }

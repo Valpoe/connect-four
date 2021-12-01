@@ -22,14 +22,18 @@ namespace Lopputyo
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-<<<<<<<<< Temporary merge branch 1
-            
+            //mahdollistetaan pelin aloitus
+            PeliKenttaRef.peliAlkanut = true;
+
+            //asetetaan pelaajien nimet classiin
+            PeliKenttaRef.pelaaja1 = this.tbPelaaja1.Text;
+            PeliKenttaRef.pelaaja2 = this.tbPelaaja2.Text;
+
+            //alustetaan heti form1 status strippiin pelaajan 1 text.
+            MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;
 
             
-=========
-            FrmLopputyo.Pelaaja1 = tbPelaaja1.Text;
-            FrmLopputyo.Pelaaja2 = tbPelaaja2.Text;
->>>>>>>>> Temporary merge branch 2
+
             this.Close();
         }
     }
