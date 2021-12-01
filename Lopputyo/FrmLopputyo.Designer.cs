@@ -155,7 +155,7 @@
             this.panel1.Size = new System.Drawing.Size(804, 729);
             this.panel1.TabIndex = 21;
             this.panel1.BackColorChanged += new System.EventHandler(this.panel1_BackColorChanged);
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            //this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // ss1
             // 

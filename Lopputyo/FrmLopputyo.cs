@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Lopputyo
 {
-    
+
     public partial class FrmLopputyo : Form
     {
         public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
@@ -22,12 +22,11 @@ namespace Lopputyo
         int kulunutPeliAika = 0;
         public static string Pelaaja1 = "";
         public static string Pelaaja2 = "";
-        
+
         public FrmLopputyo()
         {
             InitializeComponent();
 
-            //Alku
             //alustetaan Frm1Ref muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
             Frm1Ref = this;
             testTSSL = tsslKummanVuoro;
@@ -54,13 +53,9 @@ namespace Lopputyo
             FrmPelaajat frmPelaajat = new FrmPelaajat();
             //showdialog kun suljetaan alkaa pelin ajastin
             frmPelaajat.ShowDialog();
-<<<<<<<<< Temporary merge branch 1
 
-=========
-            
->>>>>>>>> Temporary merge branch 2
+
             tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
-            tsslKummanVuoro.Text = "Vuoro: " + Pelaaja1;
             timer1.Start();
         }
 
@@ -112,16 +107,16 @@ namespace Lopputyo
 
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            if (LuoPeli.PelaajanVuoro == 1)
-            {
-                tsslKummanVuoro.Text = "Vuoro: " + Pelaaja1;
-            }
-            else if (LuoPeli.PelaajanVuoro == 0)
-            {
-                tsslKummanVuoro.Text = "Vuoro: " + Pelaaja2;
-            }
-        }
+        //private void panel1_Paint(object sender, PaintEventArgs e)
+        //{
+        //    if (LuoPeli.PelaajanVuoro == 1)
+        //    {
+        //        tsslKummanVuoro.Text = "Vuoro: " + Pelaaja1;
+        //    }
+        //    else if (LuoPeli.PelaajanVuoro == 0)
+        //    {
+        //        tsslKummanVuoro.Text = "Vuoro: " + Pelaaja2;
+        //    }
+        //}
     }
 }
