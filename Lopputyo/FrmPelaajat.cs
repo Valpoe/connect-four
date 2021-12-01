@@ -12,6 +12,9 @@ namespace Lopputyo
 {
     public partial class FrmPelaajat : Form
     {
+        PeliKenttaLuonti PeliKenttaRef = FrmLopputyo.LuoPeli;
+        FrmLopputyo MainRef = FrmLopputyo.Frm1Ref;
+
         public FrmPelaajat()
         {
             InitializeComponent();
@@ -19,8 +22,14 @@ namespace Lopputyo
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+<<<<<<<<< Temporary merge branch 1
+            
+
+            
+=========
             FrmLopputyo.Pelaaja1 = tbPelaaja1.Text;
             FrmLopputyo.Pelaaja2 = tbPelaaja2.Text;
+>>>>>>>>> Temporary merge branch 2
             this.Close();
         }
     }
