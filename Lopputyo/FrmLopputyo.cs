@@ -15,10 +15,9 @@ namespace Lopputyo
     public partial class FrmLopputyo : Form
     {
         public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
-        public static FrmLopputyo Frm1Ref = null;
-        public static Label testLBL;
-        public static ToolStripStatusLabel testTSSL;
-        public static ToolStripStatusLabel test2TSSL;
+        public static FrmLopputyo FormLopputyo = null;
+        public static ToolStripStatusLabel tsslPublicKummanVuoro;
+        public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
 
         int kulunutPeliAika = 0;
 
@@ -26,10 +25,10 @@ namespace Lopputyo
         {
             InitializeComponent();
 
-            //alustetaan Frm1Ref muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
-            Frm1Ref = this;
-            testTSSL = tsslKummanVuoro;
-            test2TSSL = tsslViimeisinSiirto;
+            //alustetaan FormLopputyo muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
+            FormLopputyo = this;
+            tsslPublicKummanVuoro = tsslKummanVuoro;
+            tsslPublicViimeisinSiirto = tsslViimeisinSiirto;
             LuoPeli.LuoPeliKentta(panel1);
         }
 
@@ -38,16 +37,9 @@ namespace Lopputyo
             //Tätä kutsutaan classista "FrmLopputyö.painallusEvent();" <- Static
             //eli aina kun painetaan Panel nappia päädytään tähän koodiin vuoron loputtua
             
-            testTSSL.Text = "Vuoro: " + pelaajanVuoro;
-            test2TSSL.Text = "Viimeisin siirto: " + LuoPeli.viimeisinSiirto;
+            tsslPublicKummanVuoro.Text = "Vuoro: " + pelaajanVuoro;
+            tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: " + LuoPeli.viimeisinSiirto;
         }
-
-        public void AlustaPeli(string aloittavaPelaaja)
-        {
-            testLBL.Text = aloittavaPelaaja;
-            //luodaan paneelit kenttään koko X Y
-        }
-
 
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {

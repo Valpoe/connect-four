@@ -10,49 +10,48 @@ namespace Lopputyo
 {
     public class PeliKenttaLuonti
     {
-        public int PelaajanVuoro = 1;
-        public string KummanVuoro = "Pelaaja 1";
+        public int pelaajanVuoro = 1;
+        public string kummanVuoro;
         public string pelaaja1 = "";
         public string pelaaja2 = "";
         public bool peliAlkanut = false;
         public int viimeisinSiirto;
-
         bool siirtoKesken = false;
 
-        Panel[,] luotuPeliKentta;
+        Panel[,] peliKentta;
         int peliKentanPanelMax;
 
         public Panel[,] LuoPeliKentta(Panel kentanKohde, int columns = 6, int rows = 7)
         {
             //Luodaan oletusparametreilla, tai annetuilla parametreillä pelikentän koko
-            luotuPeliKentta = new Panel[columns, rows];
+            peliKentta = new Panel[columns, rows];
 
             //otetaan pelikentän paneelien määrä ylös "Array" muodossa eli 0-X eikä 1-X
             peliKentanPanelMax = columns * rows - 1;
 
-            for (int i = 0; i < luotuPeliKentta.GetLength(0); i++)
+            for (int i = 0; i < peliKentta.GetLength(0); i++)
             {
-                for (int j = 0; j < luotuPeliKentta.GetLength(1); j++)
+                for (int j = 0; j < peliKentta.GetLength(1); j++)
                 {
                     //i = rivikorkeus
                     //j = columni syvyys
 
-                    luotuPeliKentta[i, j] = new Panel();
-                    luotuPeliKentta[i, j].Location = new Point(j * 77, i * 77);
-                    kentanKohde.Controls.Add(luotuPeliKentta[i, j]);
-                    luotuPeliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
+                    peliKentta[i, j] = new Panel();
+                    peliKentta[i, j].Location = new Point(j * 77, i * 77);
+                    kentanKohde.Controls.Add(peliKentta[i, j]);
+                    peliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
 
                     //napataan 2 dim sijainti tagiin talteen
-                    luotuPeliKentta[i, j].Tag = i + "," + j;
-                    luotuPeliKentta[i, j].Size = new Size(75, 75);
-                    luotuPeliKentta[i, j].BackColor = Color.White;
-                    luotuPeliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
-                    luotuPeliKentta[i, j].BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
-                    luotuPeliKentta[i, j].Click += new EventHandler(kentanKoko_Click);
+                    peliKentta[i, j].Tag = i + "," + j;
+                    peliKentta[i, j].Size = new Size(75, 75);
+                    peliKentta[i, j].BackColor = Color.White;
+                    peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
+                    peliKentta[i, j].BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
+                    peliKentta[i, j].Click += new EventHandler(kentanKoko_Click);
                 }
             }
 
-            return luotuPeliKentta;
+            return peliKentta;
         }
 
         public async void kentanKoko_Click(object sender, EventArgs e)
@@ -70,7 +69,6 @@ namespace Lopputyo
 
             //napataan object sender paneeli muuttujaan jotta voidaan käyttää paneelin omia tietueita.
             Panel p = (Panel)sender;
-
             Console.WriteLine("Tag on:" + p.Tag.ToString());
 
             //jos taustaväri ei ole valkoinen -> tulostetaan klikatun paneelin taustaväri ja nimi.
@@ -82,24 +80,23 @@ namespace Lopputyo
             Console.WriteLine();
 
             //pelaajan vuoro
-            if (PelaajanVuoro == 0)
+            if (pelaajanVuoro == 0)
             {
-                KummanVuoro = pelaaja1;
+                kummanVuoro = pelaaja1;
                 p.BackColor = Color.Yellow;
-                PelaajanVuoro = 1;
+                pelaajanVuoro = 1;
                 await tarkistaSijainti(sender, e);
-
 
             }
             else
             {
-                KummanVuoro = pelaaja2;
+                kummanVuoro = pelaaja2;
                 p.BackColor = Color.Red;
-                PelaajanVuoro = 0;
+                pelaajanVuoro = 0;
                 await tarkistaSijainti(sender, e);
             }
 
-            Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, PelaajanVuoro);
+            Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, pelaajanVuoro);
         }
 
         public async Task tarkistaSijainti(object sender, EventArgs e)
@@ -119,13 +116,15 @@ namespace Lopputyo
             parseInt = int.TryParse(sijaintiTaulukko[1], out dim2Sijainti);
 
 
-            if (dim1Sijainti + 1 >= luotuPeliKentta.GetLength(0))
+            if (dim1Sijainti + 1 >= peliKentta.GetLength(0))
             {
                 //MessageBox.Show("Kenttä loppuu!");
+                siirtoKesken = false;
                 return;
             }
 
-            else if (luotuPeliKentta[dim1Sijainti + 1, dim2Sijainti].BackColor != Color.White)
+            else if (peliKentta[dim1Sijainti + 1, dim2Sijainti].BackColor != Color.White)
+                //luotuelikenttä[dimsijainti +1] > dim1 max.length
             {
                 //MessageBox.Show("Alapuolella ei ole tilaa!");
                 //viimeisinSiirto = dim2Sijainti + 1;
@@ -147,21 +146,19 @@ namespace Lopputyo
             await odotaHetki();
 
             //napataan talteen valitun panelin väri ja vaihdetaan valittu paneeli luotuPeliKentta viittaamalla.
-            Color siirrettavaVari = luotuPeliKentta[r, c].BackColor;
-            peliKentta = luotuPeliKentta[r + 1, c];
+            Color siirrettavaVari = this.peliKentta[r, c].BackColor;
+            peliKentta = this.peliKentta[r + 1, c];
 
-            luotuPeliKentta[r, c].BackColor = Color.White;
-            luotuPeliKentta[r + 1, c].BackColor = siirrettavaVari;
+            this.peliKentta[r, c].BackColor = Color.White;
+            this.peliKentta[r + 1, c].BackColor = siirrettavaVari;
 
             await tarkistaSijainti(peliKentta, e);
         }
 
         public void pelaajanVuoronVaihto()
         {
-            //siirto ei ole kesken kun tullaan tähän
-            siirtoKesken = false;
 
-            if (PelaajanVuoro == 1)
+            if (pelaajanVuoro == 1)
             {
                 FrmLopputyo.painallusEvent(pelaaja1);
             }
@@ -169,11 +166,14 @@ namespace Lopputyo
             {
                 FrmLopputyo.painallusEvent(pelaaja2);
             }
+
+            //siirto ei ole kesken kun tullaan tähän
+            siirtoKesken = false;
         }
 
         public async Task odotaHetki()
         {
-            await Task.Delay(250);
+            await Task.Delay(200);
         }
     }
 }

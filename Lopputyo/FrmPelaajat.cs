@@ -13,7 +13,7 @@ namespace Lopputyo
     public partial class FrmPelaajat : Form
     {
         PeliKenttaLuonti PeliKenttaRef = FrmLopputyo.LuoPeli;
-        FrmLopputyo MainRef = FrmLopputyo.Frm1Ref;
+        FrmLopputyo MainRef = FrmLopputyo.FormLopputyo;
 
         public FrmPelaajat()
         {
