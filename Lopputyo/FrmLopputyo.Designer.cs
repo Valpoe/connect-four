@@ -30,14 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLopputyo));
-            this.btn1 = new System.Windows.Forms.Button();
-            this.btn2 = new System.Windows.Forms.Button();
-            this.btn3 = new System.Windows.Forms.Button();
-            this.btn4 = new System.Windows.Forms.Button();
-            this.btn5 = new System.Windows.Forms.Button();
-            this.btn6 = new System.Windows.Forms.Button();
-            this.btn7 = new System.Windows.Forms.Button();
             this.panel0 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.ss1 = new System.Windows.Forms.StatusStrip();
             this.tsslKulunutPeliAika = new System.Windows.Forms.ToolStripStatusLabel();
@@ -49,95 +50,113 @@
             this.vieTiedostoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tallennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAloitaPeli = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sfdTiedot1 = new System.Windows.Forms.SaveFileDialog();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel0.SuspendLayout();
             this.ss1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btn1
-            // 
-            this.btn1.Location = new System.Drawing.Point(13, 69);
-            this.btn1.Name = "btn1";
-            this.btn1.Size = new System.Drawing.Size(75, 23);
-            this.btn1.TabIndex = 0;
-            this.btn1.Text = "1";
-            this.btn1.UseVisualStyleBackColor = true;
-            // 
-            // btn2
-            // 
-            this.btn2.Location = new System.Drawing.Point(90, 69);
-            this.btn2.Name = "btn2";
-            this.btn2.Size = new System.Drawing.Size(75, 23);
-            this.btn2.TabIndex = 1;
-            this.btn2.Text = "2";
-            this.btn2.UseVisualStyleBackColor = true;
-            // 
-            // btn3
-            // 
-            this.btn3.Location = new System.Drawing.Point(167, 69);
-            this.btn3.Name = "btn3";
-            this.btn3.Size = new System.Drawing.Size(75, 23);
-            this.btn3.TabIndex = 2;
-            this.btn3.Text = "3";
-            this.btn3.UseVisualStyleBackColor = true;
-            // 
-            // btn4
-            // 
-            this.btn4.Location = new System.Drawing.Point(244, 69);
-            this.btn4.Name = "btn4";
-            this.btn4.Size = new System.Drawing.Size(75, 23);
-            this.btn4.TabIndex = 3;
-            this.btn4.Text = "4";
-            this.btn4.UseVisualStyleBackColor = true;
-            // 
-            // btn5
-            // 
-            this.btn5.Location = new System.Drawing.Point(321, 69);
-            this.btn5.Name = "btn5";
-            this.btn5.Size = new System.Drawing.Size(75, 23);
-            this.btn5.TabIndex = 4;
-            this.btn5.Text = "5";
-            this.btn5.UseVisualStyleBackColor = true;
-            // 
-            // btn6
-            // 
-            this.btn6.Location = new System.Drawing.Point(398, 69);
-            this.btn6.Name = "btn6";
-            this.btn6.Size = new System.Drawing.Size(75, 23);
-            this.btn6.TabIndex = 5;
-            this.btn6.Text = "6";
-            this.btn6.UseVisualStyleBackColor = true;
-            // 
-            // btn7
-            // 
-            this.btn7.Location = new System.Drawing.Point(475, 69);
-            this.btn7.Name = "btn7";
-            this.btn7.Size = new System.Drawing.Size(75, 23);
-            this.btn7.TabIndex = 6;
-            this.btn7.Text = "7";
-            this.btn7.UseVisualStyleBackColor = true;
-            // 
             // panel0
             // 
             this.panel0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel0.Controls.Add(this.button2);
+            this.panel0.Controls.Add(this.button1);
+            this.panel0.Controls.Add(this.label9);
+            this.panel0.Controls.Add(this.label8);
+            this.panel0.Controls.Add(this.label7);
+            this.panel0.Controls.Add(this.label6);
+            this.panel0.Controls.Add(this.label4);
+            this.panel0.Controls.Add(this.label2);
+            this.panel0.Controls.Add(this.lbl1);
             this.panel0.Controls.Add(this.panel1);
             this.panel0.Controls.Add(this.ss1);
             this.panel0.Controls.Add(this.menuStrip1);
-            this.panel0.Controls.Add(this.btnAloitaPeli);
-            this.panel0.Controls.Add(this.btn7);
-            this.panel0.Controls.Add(this.btn6);
-            this.panel0.Controls.Add(this.btn5);
-            this.panel0.Controls.Add(this.btn4);
-            this.panel0.Controls.Add(this.btn3);
-            this.panel0.Controls.Add(this.btn2);
-            this.panel0.Controls.Add(this.btn1);
             this.panel0.Location = new System.Drawing.Point(12, 12);
             this.panel0.Name = "panel0";
             this.panel0.Size = new System.Drawing.Size(565, 596);
             this.panel0.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(243, 34);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Aloita Peli";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnAloitaPeli_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(505, 67);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(14, 16);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "7";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(428, 67);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(14, 16);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "6";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(351, 67);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(14, 16);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(274, 67);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(14, 16);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "4";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(197, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(14, 16);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "3";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(120, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(14, 16);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "2";
+            // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.Location = new System.Drawing.Point(43, 67);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(14, 16);
+            this.lbl1.TabIndex = 22;
+            this.lbl1.Text = "1";
             // 
             // panel1
             // 
@@ -145,7 +164,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(536, 474);
             this.panel1.TabIndex = 21;
-            this.panel1.BackColorChanged += new System.EventHandler(this.panel1_BackColorChanged);
             // 
             // ss1
             // 
@@ -162,18 +180,21 @@
             // 
             // tsslKulunutPeliAika
             // 
+            this.tsslKulunutPeliAika.Enabled = false;
             this.tsslKulunutPeliAika.Name = "tsslKulunutPeliAika";
             this.tsslKulunutPeliAika.Size = new System.Drawing.Size(33, 17);
             this.tsslKulunutPeliAika.Text = "Aika:";
             // 
             // tsslKummanVuoro
             // 
+            this.tsslKummanVuoro.Enabled = false;
             this.tsslKummanVuoro.Name = "tsslKummanVuoro";
             this.tsslKummanVuoro.Size = new System.Drawing.Size(42, 17);
             this.tsslKummanVuoro.Text = "Vuoro:";
             // 
             // tsslViimeisinSiirto
             // 
+            this.tsslViimeisinSiirto.Enabled = false;
             this.tsslViimeisinSiirto.Name = "tsslViimeisinSiirto";
             this.tsslViimeisinSiirto.Size = new System.Drawing.Size(87, 17);
             this.tsslViimeisinSiirto.Text = "Viimeisin siirto:";
@@ -210,6 +231,7 @@
             // 
             // vieTiedostoonToolStripMenuItem
             // 
+            this.vieTiedostoonToolStripMenuItem.Enabled = false;
             this.vieTiedostoonToolStripMenuItem.Name = "vieTiedostoonToolStripMenuItem";
             this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vieTiedostoonToolStripMenuItem.Text = "Tallenna tulos";
@@ -217,6 +239,7 @@
             // 
             // tallennaToolStripMenuItem
             // 
+            this.tallennaToolStripMenuItem.Enabled = false;
             this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
             this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tallennaToolStripMenuItem.Text = "Tallenna peli";
@@ -228,20 +251,20 @@
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
-            // btnAloitaPeli
-            // 
-            this.btnAloitaPeli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAloitaPeli.Location = new System.Drawing.Point(232, 33);
-            this.btnAloitaPeli.Name = "btnAloitaPeli";
-            this.btnAloitaPeli.Size = new System.Drawing.Size(100, 30);
-            this.btnAloitaPeli.TabIndex = 15;
-            this.btnAloitaPeli.UseVisualStyleBackColor = true;
-            this.btnAloitaPeli.Click += new System.EventHandler(this.btnAloitaPeli_Click);
-            // 
             // timer1
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(92, 39);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // FrmLopputyo
             // 
@@ -265,27 +288,28 @@
 
         #endregion
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btn1;
-        private System.Windows.Forms.Button btn2;
-        private System.Windows.Forms.Button btn3;
-        private System.Windows.Forms.Button btn4;
-        private System.Windows.Forms.Button btn5;
-        private System.Windows.Forms.Button btn6;
-        private System.Windows.Forms.Button btn7;
-        private System.Windows.Forms.Button btnAloitaPeli;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiValikko;
         private System.Windows.Forms.ToolStripMenuItem aloitaPeliToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem vieTiedostoonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tallennaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.StatusStrip ss1;
-        private System.Windows.Forms.ToolStripStatusLabel tsslKulunutPeliAika;
-        private System.Windows.Forms.ToolStripStatusLabel tsslViimeisinSiirto;
         private System.Windows.Forms.Panel panel0;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SaveFileDialog sfdTiedot1;
         public System.Windows.Forms.ToolStripStatusLabel tsslKummanVuoro;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl1;
+        public System.Windows.Forms.ToolStripStatusLabel tsslKulunutPeliAika;
+        public System.Windows.Forms.ToolStripStatusLabel tsslViimeisinSiirto;
+        public System.Windows.Forms.ToolStripMenuItem vieTiedostoonToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem tallennaToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
     }
 }
 

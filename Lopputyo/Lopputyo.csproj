@@ -61,6 +61,7 @@
     <Compile Include="PeliKenttaLuonti.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TarkistaVoitto.cs" />
     <EmbeddedResource Include="FrmLopputyo.resx">
       <DependentUpon>FrmLopputyo.cs</DependentUpon>
     </EmbeddedResource>

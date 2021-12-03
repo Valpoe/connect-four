@@ -65,7 +65,7 @@ namespace Lopputyo
                 "Pelin voittaakseen täytyy pelaajan asettaa omia kiekkoja niin, " +
                 "että muodostuu neljän kiekon suora joko pystysuorassa, " +
                 "vaakasuorassa tai vinottain. Jos pelilauta täyttyy ilman voittajaa niin syntyy tasapeli.";
-            MessageBox.Show(info, otsikko, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(info, otsikko, MessageBoxButtons.OK);
         }
 
         private void vieTiedostoonToolStripMenuItem_Click(object sender, EventArgs e)
@@ -96,21 +96,9 @@ namespace Lopputyo
             tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
         }
 
-        private void panel1_BackColorChanged(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-
+            
         }
-
-        //private void panel1_Paint(object sender, PaintEventArgs e)
-        //{
-        //    if (LuoPeli.PelaajanVuoro == 1)
-        //    {
-        //        tsslKummanVuoro.Text = "Vuoro: " + Pelaaja1;
-        //    }
-        //    else if (LuoPeli.PelaajanVuoro == 0)
-        //    {
-        //        tsslKummanVuoro.Text = "Vuoro: " + Pelaaja2;
-        //    }
-        //}
     }
 }

@@ -25,14 +25,19 @@ namespace Lopputyo
             //mahdollistetaan pelin aloitus
             PeliKenttaRef.peliAlkanut = true;
 
+            // Laitetaan ToolStripStatusLabelit, Tallenna Peli ja Tallenna Tulos näkyviin
+            MainRef.tsslKulunutPeliAika.Enabled = true;
+            MainRef.tsslKummanVuoro.Enabled = true;
+            MainRef.tsslViimeisinSiirto.Enabled = true;
+            MainRef.tallennaToolStripMenuItem.Enabled = true;
+            MainRef.vieTiedostoonToolStripMenuItem.Enabled = true;
+
             //asetetaan pelaajien nimet classiin
             PeliKenttaRef.pelaaja1 = this.tbPelaaja1.Text;
             PeliKenttaRef.pelaaja2 = this.tbPelaaja2.Text;
 
             //alustetaan heti form1 status strippiin pelaajan 1 text.
             MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;
-
-            
 
             this.Close();
         }
