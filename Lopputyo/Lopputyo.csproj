@@ -99,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\NeljansuoraIcon.ico" />
+    <Content Include="Resources\PlayersIcon2.ico" />
+    <None Include="Resources\PlayerYellow.png" />
+    <None Include="Resources\PlayerRed.png" />
     <None Include="Resources\Uusipeli.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
