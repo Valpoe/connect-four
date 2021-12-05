@@ -96,9 +96,9 @@ namespace Lopputyo
             tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void tallennaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            avaaPeliToolStripMenuItem.Enabled = true;
         }
     }
 }

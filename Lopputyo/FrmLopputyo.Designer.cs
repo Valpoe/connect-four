@@ -53,6 +53,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sfdTiedot1 = new System.Windows.Forms.SaveFileDialog();
             this.button2 = new System.Windows.Forms.Button();
+            this.avaaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel0.SuspendLayout();
             this.ss1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -215,8 +216,9 @@
             // 
             this.tsmiValikko.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aloitaPeliToolStripMenuItem,
-            this.vieTiedostoonToolStripMenuItem,
+            this.avaaPeliToolStripMenuItem,
             this.tallennaToolStripMenuItem,
+            this.vieTiedostoonToolStripMenuItem,
             this.infoToolStripMenuItem});
             this.tsmiValikko.Name = "tsmiValikko";
             this.tsmiValikko.Size = new System.Drawing.Size(56, 22);
@@ -243,6 +245,7 @@
             this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
             this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tallennaToolStripMenuItem.Text = "Tallenna peli";
+            this.tallennaToolStripMenuItem.Click += new System.EventHandler(this.tallennaToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -264,7 +267,13 @@
             this.button2.TabIndex = 33;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // avaaPeliToolStripMenuItem
+            // 
+            this.avaaPeliToolStripMenuItem.Enabled = false;
+            this.avaaPeliToolStripMenuItem.Name = "avaaPeliToolStripMenuItem";
+            this.avaaPeliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.avaaPeliToolStripMenuItem.Text = "Avaa Peli";
             // 
             // FrmLopputyo
             // 
@@ -310,6 +319,7 @@
         public System.Windows.Forms.ToolStripMenuItem vieTiedostoonToolStripMenuItem;
         public System.Windows.Forms.ToolStripMenuItem tallennaToolStripMenuItem;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem avaaPeliToolStripMenuItem;
     }
 }
 

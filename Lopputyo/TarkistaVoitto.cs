@@ -9,18 +9,19 @@ namespace Lopputyo
 {
     class TarkistaVoitto
     {
-        //public Panel[,] peliKenttä;
-        //public int rivi, sarake;
+        public Panel[,] peliKenttä;
+        public int rivi, sarake;
 
         public void Voitto()
         {
             //voitto välittää classin tiedot "Voiton Tarkistus" funktiolle joka katsoo voititko.
-            //VoitonTarkistus(peliKenttä, rivi, sarake);
+            VoitonTarkistus(peliKenttä, rivi, sarake);
         }
 
-        private bool VoitonTarkistus(Panel[,] peliKenttä, int rivi, int sarake)
+        private bool VoitonTarkistus(Panel[,] peliKenttä, int tivi, int sarake)
         {
             //funktio palauttaa arvon true/false, sillä perusteella voittiko vuorossa ollut pelaaja.
+
             return true;
         }
     }
