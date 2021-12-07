@@ -64,6 +64,7 @@
     <Compile Include="TarkistaVoitto.cs" />
     <EmbeddedResource Include="FrmLopputyo.resx">
       <DependentUpon>FrmLopputyo.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPelaajat.resx">
       <DependentUpon>FrmPelaajat.cs</DependentUpon>

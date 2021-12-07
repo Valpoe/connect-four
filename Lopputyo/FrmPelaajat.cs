@@ -39,6 +39,12 @@ namespace Lopputyo
             //alustetaan heti form1 status strippiin pelaajan 1 text.
             MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;
 
+
+            //tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
+            //timer1.Start();
+            MainRef.tsslKulunutPeliAika.Text = "Aika: 00:00";
+            MainRef.timer1.Start();
+
             this.Close();
         }
     }

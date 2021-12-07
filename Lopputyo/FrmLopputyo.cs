@@ -18,6 +18,7 @@ namespace Lopputyo
         public static FrmLopputyo FormLopputyo = null;
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
+        public Timer ajastin1 = new Timer();
 
         int kulunutPeliAika = 0;
 
@@ -43,12 +44,9 @@ namespace Lopputyo
 
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
+            //avataan pelaaja valikko, mihin syötetään pelaajien nimet
             FrmPelaajat frmPelaajat = new FrmPelaajat();
-            //showdialog kun suljetaan alkaa pelin ajastin
             frmPelaajat.ShowDialog();
-
-            tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
-            timer1.Start();
         }
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,8 +90,11 @@ namespace Lopputyo
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            // Formatoidaan aika muotoon 00:00
+            TimeSpan result = TimeSpan.FromSeconds(kulunutPeliAika);
             kulunutPeliAika++;
-            tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
+            string aika = string.Format("Aika: {0}", new DateTime(result.Ticks).ToString("mm:ss"));
+            tsslKulunutPeliAika.Text = aika;
         }
 
         private void tallennaToolStripMenuItem_Click(object sender, EventArgs e)
