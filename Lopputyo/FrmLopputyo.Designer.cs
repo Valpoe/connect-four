@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLopputyo));
             this.panel0 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,13 +48,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiValikko = new System.Windows.Forms.ToolStripMenuItem();
             this.aloitaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vieTiedostoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avaaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tallennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vieTiedostoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sfdTiedot1 = new System.Windows.Forms.SaveFileDialog();
-            this.button2 = new System.Windows.Forms.Button();
-            this.avaaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel0.SuspendLayout();
             this.ss1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -79,6 +79,15 @@
             this.panel0.Size = new System.Drawing.Size(565, 596);
             this.panel0.TabIndex = 0;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(92, 39);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(243, 34);
@@ -95,7 +104,7 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(505, 67);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(14, 16);
+            this.label9.Size = new System.Drawing.Size(15, 16);
             this.label9.TabIndex = 31;
             this.label9.Text = "7";
             // 
@@ -105,7 +114,7 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(428, 67);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(14, 16);
+            this.label8.Size = new System.Drawing.Size(15, 16);
             this.label8.TabIndex = 30;
             this.label8.Text = "6";
             // 
@@ -115,7 +124,7 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(351, 67);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(14, 16);
+            this.label7.Size = new System.Drawing.Size(15, 16);
             this.label7.TabIndex = 29;
             this.label7.Text = "5";
             // 
@@ -125,7 +134,7 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(274, 67);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(14, 16);
+            this.label6.Size = new System.Drawing.Size(15, 16);
             this.label6.TabIndex = 28;
             this.label6.Text = "4";
             // 
@@ -135,7 +144,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(197, 67);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(14, 16);
+            this.label4.Size = new System.Drawing.Size(15, 16);
             this.label4.TabIndex = 26;
             this.label4.Text = "3";
             // 
@@ -145,7 +154,7 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(120, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(14, 16);
+            this.label2.Size = new System.Drawing.Size(15, 16);
             this.label2.TabIndex = 24;
             this.label2.Text = "2";
             // 
@@ -155,7 +164,7 @@
             this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1.Location = new System.Drawing.Point(43, 67);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(14, 16);
+            this.lbl1.Size = new System.Drawing.Size(15, 16);
             this.lbl1.TabIndex = 22;
             this.lbl1.Text = "1";
             // 
@@ -227,30 +236,37 @@
             // aloitaPeliToolStripMenuItem
             // 
             this.aloitaPeliToolStripMenuItem.Name = "aloitaPeliToolStripMenuItem";
-            this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.aloitaPeliToolStripMenuItem.Text = "Aloita peli";
             this.aloitaPeliToolStripMenuItem.Click += new System.EventHandler(this.btnAloitaPeli_Click);
             // 
-            // vieTiedostoonToolStripMenuItem
+            // avaaPeliToolStripMenuItem
             // 
-            this.vieTiedostoonToolStripMenuItem.Enabled = false;
-            this.vieTiedostoonToolStripMenuItem.Name = "vieTiedostoonToolStripMenuItem";
-            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.vieTiedostoonToolStripMenuItem.Text = "Tallenna tulos";
-            this.vieTiedostoonToolStripMenuItem.Click += new System.EventHandler(this.vieTiedostoonToolStripMenuItem_Click);
+            this.avaaPeliToolStripMenuItem.Enabled = false;
+            this.avaaPeliToolStripMenuItem.Name = "avaaPeliToolStripMenuItem";
+            this.avaaPeliToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.avaaPeliToolStripMenuItem.Text = "Avaa Peli";
             // 
             // tallennaToolStripMenuItem
             // 
             this.tallennaToolStripMenuItem.Enabled = false;
             this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
-            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.tallennaToolStripMenuItem.Text = "Tallenna peli";
             this.tallennaToolStripMenuItem.Click += new System.EventHandler(this.tallennaToolStripMenuItem_Click);
+            // 
+            // vieTiedostoonToolStripMenuItem
+            // 
+            this.vieTiedostoonToolStripMenuItem.Enabled = false;
+            this.vieTiedostoonToolStripMenuItem.Name = "vieTiedostoonToolStripMenuItem";
+            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.vieTiedostoonToolStripMenuItem.Text = "Tallenna tulos";
+            this.vieTiedostoonToolStripMenuItem.Click += new System.EventHandler(this.vieTiedostoonToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
@@ -258,22 +274,6 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(92, 39);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // avaaPeliToolStripMenuItem
-            // 
-            this.avaaPeliToolStripMenuItem.Enabled = false;
-            this.avaaPeliToolStripMenuItem.Name = "avaaPeliToolStripMenuItem";
-            this.avaaPeliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.avaaPeliToolStripMenuItem.Text = "Avaa Peli";
             // 
             // FrmLopputyo
             // 
@@ -296,7 +296,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmiValikko;
         private System.Windows.Forms.ToolStripMenuItem aloitaPeliToolStripMenuItem;
@@ -320,6 +319,7 @@
         public System.Windows.Forms.ToolStripMenuItem tallennaToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem avaaPeliToolStripMenuItem;
+        public System.Windows.Forms.Timer timer1;
     }
 }
 
