@@ -17,6 +17,7 @@ namespace Lopputyo
         public string pelaaja2 = "";
         public bool peliAlkanut = false;
         public int viimeisinSiirto;
+        public int siirtojenMaara;
         bool siirtoKesken = false;
 
         Panel[,] peliKentta;
@@ -62,7 +63,7 @@ namespace Lopputyo
 
         public async void kentanKoko_Click(object sender, EventArgs e)
         {
-
+            siirtojenMaara++;
             //jos vuoro on kesken tai peli ei ole alkanut, return eli ei tapahdu mitään.
             if (siirtoKesken || !peliAlkanut)
             {

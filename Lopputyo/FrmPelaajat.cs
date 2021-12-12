@@ -14,6 +14,7 @@ namespace Lopputyo
     {
         PeliKenttaLuonti PeliKenttaRef = FrmLopputyo.LuoPeli;
         FrmLopputyo MainRef = FrmLopputyo.FormLopputyo;
+        public static FrmPelaajat FormPelaajat = null;
 
         public FrmPelaajat()
         {
@@ -35,6 +36,9 @@ namespace Lopputyo
             //asetetaan pelaajien nimet classiin
             PeliKenttaRef.pelaaja1 = this.tbPelaaja1.Text;
             PeliKenttaRef.pelaaja2 = this.tbPelaaja2.Text;
+
+            MainRef.pelaaja1 = this.tbPelaaja1.Text;
+            MainRef.pelaaja2 = this.tbPelaaja2.Text;
 
             //alustetaan heti form1 status strippiin pelaajan 1 text.
             MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;

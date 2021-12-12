@@ -16,12 +16,13 @@ namespace Lopputyo
         public int kiekkojenMaaraVoittoon = 3;
         public Panel aloitusArvo;
         public Panel tarkistaja;
+        
 
         public void Voitto(Panel p)
         {
             string[] Sijainti = new string[2];
             Sijainti = p.Tag.ToString().Split(',');
-
+          
             rivi = Convert.ToInt32(Sijainti[0]);
             sarake = Convert.ToInt32(Sijainti[1]);
 

@@ -20,6 +20,8 @@ namespace Lopputyo
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
         public Timer ajastin1 = new Timer();
 
+        public string pelaaja1 = "";
+        public string pelaaja2 = ""; 
         int kulunutPeliAika = 0;
 
         public FrmLopputyo()
@@ -37,7 +39,6 @@ namespace Lopputyo
         {
             //Tätä kutsutaan classista "FrmLopputyö.painallusEvent();" <- Static
             //eli aina kun painetaan Panel nappia päädytään tähän koodiin vuoron loputtua
-            
             tsslPublicKummanVuoro.Text = "Vuoro: " + pelaajanVuoro;
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: " + LuoPeli.viimeisinSiirto;
         }
@@ -68,16 +69,20 @@ namespace Lopputyo
 
         private void vieTiedostoonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dr;
-            dr = sfdTiedot1.ShowDialog();
-            if (dr == DialogResult.OK)
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.FileName = "Pelin tiedot.txt";
+            saveFileDialog.Filter = "Text File | *.txt";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    using (StreamWriter sw = new StreamWriter(sfdTiedot1.FileName))
+                    using (StreamWriter sw = new StreamWriter(saveFileDialog.OpenFile()))
                     {
-                       
-                        // sw.WriteLine(); tähän tulee mitä tallennetaan
+                        sw.WriteLine("Pelaaja 1:        {0}", pelaaja1);
+                        sw.WriteLine("Pelaaja 2:        {0}", pelaaja2);
+                        sw.WriteLine("Siirtojen määrä:  {0}", LuoPeli.siirtojenMaara);
+                        sw.WriteLine("Voittaja:         {0}");
+                        
                         // Tallenna tulos: Pelaajat, siirtojen määrä, voittaja
                     }
                 }
