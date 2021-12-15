@@ -19,7 +19,7 @@ namespace Lopputyo
         public int viimeisinSiirto;
         public int siirtojenMaara;
         bool siirtoKesken = false;
-
+        Panel uusiSijainti;
         Panel[,] peliKentta;
         int peliKentanPanelMax;
 
@@ -57,7 +57,7 @@ namespace Lopputyo
             }
 
             //annetaan classille TarkistaVoitto luotu pelikenttä alustuksiin
-            voittoTarkistus.peliKenttä = peliKentta;
+            voittoTarkistus.peliKentta = peliKentta;
             return peliKentta;
         }
 
@@ -104,8 +104,7 @@ namespace Lopputyo
             }
 
             //tarkistetaan voittiko pelaaja
-            voittoTarkistus.Voitto(p);
-            Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, pelaajanVuoro);
+            Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", uusiSijainti.Name, pelaajanVuoro);
         }
 
         public async Task tarkistaSijainti(Panel sender)
@@ -130,6 +129,7 @@ namespace Lopputyo
                 //MessageBox.Show("Kenttä loppuu! / alapuolella ei ole tilaa");
 
                 siirtoKesken = false;
+                uusiSijainti = p;
                 pelaajanVuoronVaihto();
             }
 
@@ -172,6 +172,7 @@ namespace Lopputyo
             }
 
             //siirto ei ole kesken kun tullaan tähän
+            voittoTarkistus.Voitto(uusiSijainti);
             siirtoKesken = false;
         }
 
