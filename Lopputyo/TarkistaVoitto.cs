@@ -10,10 +10,10 @@ namespace Lopputyo
 {
     public class TarkistaVoitto
     {
-        public Panel[,] peliKenttä;
+        public Panel[,] peliKentta;
         public int rivi, sarake;
         // -1 oikeaan määrään koska aloitusarvoa ei oteta tähän mukaan
-        public int kiekkojenMaaraVoittoon = 3;
+        public int kiekkojenMaaraVoittoon = 4;
         public Panel aloitusArvo;
         public Panel tarkistaja;
         
@@ -33,12 +33,19 @@ namespace Lopputyo
         private void VoitonTarkistus(int rivi, int sarake)
         {
             //kutsutun panelin alkuarvo
-            aloitusArvo = peliKenttä[rivi, sarake];
+            aloitusArvo = peliKentta[rivi, sarake];
 
+            Console.WriteLine("Tarkistuskohta on: " + aloitusArvo.Tag);
             Anders(sarake, rivi, 1, 0);  // Horizontal
             Anders(sarake, rivi, 0, 1);  // Vertical
             Anders(sarake, rivi, 1, 1);  // Diagonal Down
             Anders(sarake, rivi, 1, -1); // Diagonal Up
+
+            //tarkistetaan vastakkaiseen suuntaan samat kulmat vastaarvoilla
+            Anders(sarake, rivi, -1, 0);  // Horizontal
+            Anders(sarake, rivi, 0, -1);  // Vertical
+            Anders(sarake, rivi, -1, -1);  // Diagonal Down
+            Anders(sarake, rivi, -1, 1); // Diagonal Up
         }
 
 
@@ -46,20 +53,23 @@ namespace Lopputyo
         {
             for (int i = 1; i < kiekkojenMaaraVoittoon; i++)
             {
-                //check boundries of the board
-                if (rivi + stepY * i < 0 || rivi + stepY * i >= peliKenttä.GetLength(0) ||
-                    sarake + stepX * i < 0 || sarake + stepX * i >= peliKenttä.GetLength(1))
+                //tarkistetaan kentän rajat
+                if (rivi + (stepY * i) < peliKentta.GetLength(0) && rivi + (stepY * i) >= 0 &&
+                    sarake + (stepX * i) < peliKentta.GetLength(1) && sarake + (stepX * i) >= 0)
                 {
-                    return;
-                }
-                //if (peliKenttä[rivi + i * stepX, sarake + i * stepY].BackColor == aloitusArvo.BackColor)
-                //{
-                //    return;
-                //}
+                    if(peliKentta[rivi + (stepY * i), sarake + stepX * i].BackColor == aloitusArvo.BackColor)
+                    {
+                        Console.WriteLine("sama väri löytyi kohdasta" + peliKentta[rivi + (stepY * i), sarake + stepX * i].Tag.ToString());
+                    }
 
+                    //Console.WriteLine("rivien max: " + peliKentta.GetLength(0).ToString() + "\n sarakkeiden max: " + peliKentta.GetLength(1).ToString());
+                }
+
+                else
+                {
+                     return;
+                }
             }
-                //voitto
-                MessageBox.Show("voitto");
         }
     }
 }

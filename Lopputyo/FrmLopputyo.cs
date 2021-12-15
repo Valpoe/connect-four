@@ -21,7 +21,7 @@ namespace Lopputyo
         public Timer ajastin1 = new Timer();
 
         public string pelaaja1 = "";
-        public string pelaaja2 = ""; 
+        public string pelaaja2 = "";
         int kulunutPeliAika = 0;
 
         public FrmLopputyo()
