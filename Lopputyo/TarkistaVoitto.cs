@@ -16,9 +16,10 @@ namespace Lopputyo
         public int kiekkojenMaaraVoittoon = 4;
         public Panel aloitusArvo;
         public Panel tarkistaja;
+        public bool peliVoitettu = false;
         
 
-        public void Voitto(Panel p)
+        public bool Voitto(Panel p)
         {
             string[] Sijainti = new string[2];
             Sijainti = p.Tag.ToString().Split(',');
@@ -28,6 +29,8 @@ namespace Lopputyo
 
             //voitto välittää classin tiedot "Voiton Tarkistus" funktiolle joka katsoo voititko.
             VoitonTarkistus(rivi, sarake);
+
+            return peliVoitettu;
         }
 
         private void VoitonTarkistus(int rivi, int sarake)
@@ -60,14 +63,21 @@ namespace Lopputyo
                     if(peliKentta[rivi + (stepY * i), sarake + stepX * i].BackColor == aloitusArvo.BackColor)
                     {
                         Console.WriteLine("sama väri löytyi kohdasta" + peliKentta[rivi + (stepY * i), sarake + stepX * i].Tag.ToString());
+                        if(i == kiekkojenMaaraVoittoon - 1)
+                        {
+                            Console.WriteLine("voitto!");
+                            peliVoitettu = true;
+                        }
                     }
-
-                    //Console.WriteLine("rivien max: " + peliKentta.GetLength(0).ToString() + "\n sarakkeiden max: " + peliKentta.GetLength(1).ToString());
+                    else
+                    {
+                        return;
+                    }                          
                 }
-
                 else
                 {
-                     return;
+                    peliVoitettu = false;
+                    return;
                 }
             }
         }

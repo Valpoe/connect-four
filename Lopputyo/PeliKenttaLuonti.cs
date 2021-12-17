@@ -11,16 +11,19 @@ namespace Lopputyo
     public class PeliKenttaLuonti
     {
         public TarkistaVoitto voittoTarkistus = new TarkistaVoitto();
+        FrmLopputyo MainRef = FrmLopputyo.FormLopputyo;
         public int pelaajanVuoro = 1;
         public string kummanVuoro;
         public string pelaaja1 = "";
         public string pelaaja2 = "";
+        public string voittaja = "";
         public bool peliAlkanut = false;
+        public bool peliVoitettu = false;
         public int viimeisinSiirto;
         public int siirtojenMaara;
         bool siirtoKesken = false;
         Panel uusiSijainti;
-        Panel[,] peliKentta;
+        public Panel[,] peliKentta;
         int peliKentanPanelMax;
 
         public Panel[,] LuoPeliKentta(Panel kentanKohde, int columns = 6, int rows = 7)
@@ -93,7 +96,6 @@ namespace Lopputyo
                 p.BackColor = Color.Yellow;
                 pelaajanVuoro = 1;
                 await tarkistaSijainti(p);
-
             }
             else
             {
@@ -171,13 +173,37 @@ namespace Lopputyo
             }
 
             //siirto ei ole kesken kun tullaan tähän
-            voittoTarkistus.Voitto(uusiSijainti);
+            peliVoitettu = voittoTarkistus.Voitto(uusiSijainti);
+            if (peliVoitettu == true)
+            {
+                pelaajaVoitti();
+            }
+            else
+            {
+                return;
+            }
             siirtoKesken = false;
         }
 
         public async Task odotaHetki()
         {
             await Task.Delay(200);
+        }
+
+        public void pelaajaVoitti()
+        {
+            DialogResult d;
+            
+            if (pelaajanVuoro == 1)
+            {
+                d = MessageBox.Show($"Onneksi olkoon, {pelaaja2} on voittanut pelin");
+                voittaja = pelaaja2;
+            }
+            else
+            {
+                d = MessageBox.Show($"Onneksi olkoon, {pelaaja1} on voittanut pelin");
+                voittaja = pelaaja1;
+            }
         }
     }
 }

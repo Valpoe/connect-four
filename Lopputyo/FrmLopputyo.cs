@@ -18,7 +18,6 @@ namespace Lopputyo
         public static FrmLopputyo FormLopputyo = null;
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
-        public Timer ajastin1 = new Timer();
 
         public string pelaaja1 = "";
         public string pelaaja2 = "";
@@ -45,7 +44,31 @@ namespace Lopputyo
 
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
-            //avataan pelaaja valikko, mihin syötetään pelaajien nimet
+            DialogResult dr;
+            if (LuoPeli.peliVoitettu == false && timer1.Enabled == true)
+            {
+                dr = MessageBox.Show("Haluatko varmasti aloittaa uuden pelin?", "Peli on kesken", MessageBoxButtons.YesNo);
+
+                if (dr == DialogResult.Yes)
+                {
+                    timer1.Stop();
+                    kulunutPeliAika = 0;
+                    restart();
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            if (LuoPeli.peliVoitettu == true)
+            {
+                timer1.Stop();
+                kulunutPeliAika = 0;
+                restart();
+            }
+
+            // Avataan pelaaja valikko, mihin syötetään pelaajien nimet
             FrmPelaajat frmPelaajat = new FrmPelaajat();
             frmPelaajat.ShowDialog();
         }
@@ -69,6 +92,8 @@ namespace Lopputyo
 
         private void vieTiedostoonToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // Tallennetaan .txt tiedostoon pelin tiedot
+
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.FileName = "Pelin tiedot.txt";
             saveFileDialog.Filter = "Text File | *.txt";
@@ -81,9 +106,7 @@ namespace Lopputyo
                         sw.WriteLine("Pelaaja 1:        {0}", pelaaja1);
                         sw.WriteLine("Pelaaja 2:        {0}", pelaaja2);
                         sw.WriteLine("Siirtojen määrä:  {0}", LuoPeli.siirtojenMaara);
-                        sw.WriteLine("Voittaja:         {0}");
-                        
-                        // Tallenna tulos: Pelaajat, siirtojen määrä, voittaja
+                        sw.WriteLine("Voittaja:         {0}", LuoPeli.voittaja);
                     }
                 }
                 catch (Exception ex)
@@ -105,6 +128,16 @@ namespace Lopputyo
         private void tallennaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             avaaPeliToolStripMenuItem.Enabled = true;
+        }
+
+        public void restart()
+        {
+            foreach (var panel in LuoPeli.peliKentta)
+            {
+                panel.BackColor = Color.White;
+            }
+
+            tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
         }
     }
 }

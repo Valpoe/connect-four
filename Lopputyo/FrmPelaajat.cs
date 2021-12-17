@@ -23,7 +23,7 @@ namespace Lopputyo
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            //mahdollistetaan pelin aloitus
+            // Mahdollistetaan pelin aloitus
             PeliKenttaRef.peliAlkanut = true;
 
             // Laitetaan ToolStripStatusLabelit, Tallenna Peli ja Tallenna Tulos näkyviin
@@ -33,19 +33,17 @@ namespace Lopputyo
             MainRef.tallennaToolStripMenuItem.Enabled = true;
             MainRef.vieTiedostoonToolStripMenuItem.Enabled = true;
 
-            //asetetaan pelaajien nimet classiin
+            // Asetetaan pelaajien nimet classiin
             PeliKenttaRef.pelaaja1 = this.tbPelaaja1.Text;
             PeliKenttaRef.pelaaja2 = this.tbPelaaja2.Text;
 
             MainRef.pelaaja1 = this.tbPelaaja1.Text;
             MainRef.pelaaja2 = this.tbPelaaja2.Text;
 
-            //alustetaan heti form1 status strippiin pelaajan 1 text.
+            // Alustetaan heti form1 status strippiin pelaajan 1 text.
             MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;
 
-
-            //tsslKulunutPeliAika.Text = "Aika: " + kulunutPeliAika.ToString();
-            //timer1.Start();
+            // Aloitetaan ajastin
             MainRef.tsslKulunutPeliAika.Text = "Aika: 00:00";
             MainRef.timer1.Start();
 
