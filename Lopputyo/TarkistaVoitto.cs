@@ -60,11 +60,18 @@ namespace Lopputyo
                     if(peliKentta[rivi + (stepY * i), sarake + stepX * i].BackColor == aloitusArvo.BackColor)
                     {
                         Console.WriteLine("sama väri löytyi kohdasta" + peliKentta[rivi + (stepY * i), sarake + stepX * i].Tag.ToString());
+                        if(i == 3)
+                        {
+                            Console.WriteLine("voitto!");
+                        }
+                    }
+                    else
+                    {
+                        return;
                     }
 
                     //Console.WriteLine("rivien max: " + peliKentta.GetLength(0).ToString() + "\n sarakkeiden max: " + peliKentta.GetLength(1).ToString());
                 }
-
                 else
                 {
                      return;
