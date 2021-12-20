@@ -66,12 +66,13 @@ namespace Lopputyo
 
         public async void kentanKoko_Click(object sender, EventArgs e)
         {
-            siirtojenMaara++;
             //jos vuoro on kesken tai peli ei ole alkanut, return eli ei tapahdu mitään.
             if (siirtoKesken || !peliAlkanut)
             {
                 return;
             }
+
+            siirtojenMaara++;
 
             //jos peli on alkanut ja siirto aloitettu, muutetaan siirtokesken bool trueksi, koska ajastimia pitää odottaa.
             //ja tällä myös estetään ettei yhtä aikaa pudoteta 2 pelimerkkiä.
@@ -118,18 +119,16 @@ namespace Lopputyo
 
             //rivi = rivikorkeus
             //sarake = sarakesyvyys
-
             int rivi;
             int sarake;
 
-            bool parseInt = int.TryParse(sijaintiTaulukko[0], out rivi);
-            parseInt = int.TryParse(sijaintiTaulukko[1], out sarake);
+            int.TryParse(sijaintiTaulukko[0], out rivi);
+            int.TryParse(sijaintiTaulukko[1], out sarake);
 
 
             if (rivi + 1 >= peliKentta.GetLength(0) || peliKentta[rivi + 1, sarake].BackColor != Color.White)
             {
-                //MessageBox.Show("Kenttä loppuu! / alapuolella ei ole tilaa");
-
+                //"Kenttä loppuu / alapuolella ei ole tilaa"
                 siirtoKesken = false;
                 uusiSijainti = p;
                 pelaajanVuoronVaihto();
@@ -137,12 +136,9 @@ namespace Lopputyo
 
             else
             {
-                //MessageBox.Show("Alapuolella on tilaa!");
+                //Alapuolella on tilaa
                 await siirraKiekkoAlas(p, rivi, sarake);
             }
-
-            //voitto tarkistus classiin
-
         }
 
         public async Task siirraKiekkoAlas(Panel peliKentta, int r, int c)
@@ -157,11 +153,14 @@ namespace Lopputyo
             this.peliKentta[r, c].BackColor = Color.White;
             this.peliKentta[r + 1, c].BackColor = siirrettavaVari;
             viimeisinSiirto = c + 1;
+
+            //kutsutaan taas sijainnin tarkistusta ja katsotaan onko alapuolella tilaa
             await tarkistaSijainti(peliKentta);
         }
 
         public void pelaajanVuoronVaihto()
         {
+            //täällä tehdään lopputarkastus pelaajan vuorolle kun kiekko on tiputettu
 
             if (pelaajanVuoro == 1)
             {
@@ -172,7 +171,7 @@ namespace Lopputyo
                 FrmLopputyo.painallusEvent(pelaaja2);
             }
 
-            //siirto ei ole kesken kun tullaan tähän
+            //tarkistetaan onko pelaajan vuorolla tullut voitto
             peliVoitettu = voittoTarkistus.Voitto(uusiSijainti);
             if (peliVoitettu == true)
             {
@@ -182,26 +181,28 @@ namespace Lopputyo
             {
                 return;
             }
+
+            //vapautetaan kenttä seuraavan pelaajan käyttöön kun tarkistukset on tehty
             siirtoKesken = false;
         }
 
         public async Task odotaHetki()
         {
+            //odottaa 200 ms "painovoima"
             await Task.Delay(200);
         }
 
         public void pelaajaVoitti()
-        {
-            DialogResult d;
-            
+        {   
+            //tulostetaan voittajan nimi
             if (pelaajanVuoro == 1)
             {
-                d = MessageBox.Show($"Onneksi olkoon, {pelaaja2} on voittanut pelin");
+                MessageBox.Show($"Onneksi olkoon, {pelaaja2} on voittanut pelin");
                 voittaja = pelaaja2;
             }
             else
             {
-                d = MessageBox.Show($"Onneksi olkoon, {pelaaja1} on voittanut pelin");
+                MessageBox.Show($"Onneksi olkoon, {pelaaja1} on voittanut pelin");
                 voittaja = pelaaja1;
             }
         }

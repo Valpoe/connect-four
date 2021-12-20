@@ -35,7 +35,7 @@ namespace Lopputyo
 
         private void VoitonTarkistus(int rivi, int sarake)
         {
-            //kutsutun panelin alkuarvo
+            //kutsutun panelin alkuarvo, siitä tallennetaan väri
             aloitusArvo = peliKentta[rivi, sarake];
 
             Console.WriteLine("Tarkistuskohta on: " + aloitusArvo.Tag);
@@ -60,9 +60,12 @@ namespace Lopputyo
                 if (rivi + (stepY * i) < peliKentta.GetLength(0) && rivi + (stepY * i) >= 0 &&
                     sarake + (stepX * i) < peliKentta.GetLength(1) && sarake + (stepX * i) >= 0)
                 {
+                    //jos kyseisessä suunnassa on samaa väriä, ilmoitetaan mistä kohdasta väri löytyi
                     if(peliKentta[rivi + (stepY * i), sarake + stepX * i].BackColor == aloitusArvo.BackColor)
                     {
                         Console.WriteLine("sama väri löytyi kohdasta" + peliKentta[rivi + (stepY * i), sarake + stepX * i].Tag.ToString());
+
+                        //jos värejä on yhteensä 4 samassa suunnassa, ilmoitetaan että pelaaja voitti.
                         if(i == kiekkojenMaaraVoittoon - 1)
                         {
                             Console.WriteLine("voitto!");

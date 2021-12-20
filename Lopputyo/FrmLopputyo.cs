@@ -132,10 +132,15 @@ namespace Lopputyo
 
         public void restart()
         {
+
+            //palautetaan kentän taustaväri valkoiseksi
             foreach (var panel in LuoPeli.peliKentta)
             {
                 panel.BackColor = Color.White;
             }
+
+            //palautetaan voitto arvot nollaan
+            LuoPeli.peliVoitettu = false;
 
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
         }
