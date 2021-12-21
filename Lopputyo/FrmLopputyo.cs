@@ -19,7 +19,7 @@ namespace Lopputyo
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
 
-        int kulunutPeliAika = 0;
+        public int kulunutPeliAika = 0;
 
         public FrmLopputyo()
         {

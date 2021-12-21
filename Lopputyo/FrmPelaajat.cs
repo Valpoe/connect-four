@@ -23,8 +23,7 @@ namespace Lopputyo
         }
 
         private void btnOk_Click(object sender, EventArgs e)
-        {
-            
+        {     
             // Mahdollistetaan pelin aloitus
             PeliKenttaRef.peliAlkanut = true;
 
@@ -69,14 +68,7 @@ namespace Lopputyo
         {
             TextBox txt = sender as TextBox;
             e.Cancel = TekstiboxiOnTyhja(errorProvider1, txt);
-            tbPelaaja1.Text = Regex.Replace(tbPelaaja1.Text, "^[ \t\r\n] + | [ \t\r\n] + $", "");
-        }
-
-        private void tbPelaaja2_Validating(object sender, CancelEventArgs e)
-        {
-            TextBox txt = sender as TextBox;
-            e.Cancel = TekstiboxiOnTyhja(errorProvider1, txt);
-            tbPelaaja2.Text = Regex.Replace(tbPelaaja2.Text, "^[ \t\r\n] + | [ \t\r\n] + $", "");
+            txt.Text = Regex.Replace(txt.Text, "^[ \t\r\n] + | [ \t\r\n] + $", "");
         }
 
         private void tbPelaaja1_TextChanged(object sender, EventArgs e)
