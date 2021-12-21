@@ -11,34 +11,28 @@ namespace Lopputyo
     public class TarkistaVoitto
     {
         public Panel[,] peliKentta;
-        public int rivi, sarake;
-        // -1 oikeaan määrään koska aloitusarvoa ei oteta tähän mukaan
-        public int kiekkojenMaaraVoittoon = 4;
         public Panel aloitusArvo;
         public Panel tarkistaja;
+        public int kiekkojenMaaraVoittoon = 4;
         public bool peliVoitettu = false;
+        public int rivi, sarake;
         
 
-        public bool Voitto(Panel p)
+        public bool Voitto()
         {
-            string[] Sijainti = new string[2];
-            Sijainti = p.Tag.ToString().Split(',');
-          
-            rivi = Convert.ToInt32(Sijainti[0]);
-            sarake = Convert.ToInt32(Sijainti[1]);
-
             //voitto välittää classin tiedot "Voiton Tarkistus" funktiolle joka katsoo voititko.
-            VoitonTarkistus(rivi, sarake);
+            VoitonTarkistus();
 
             return peliVoitettu;
         }
 
-        private void VoitonTarkistus(int rivi, int sarake)
+        private void VoitonTarkistus()
         {
             //kutsutun panelin alkuarvo, siitä tallennetaan väri
             aloitusArvo = peliKentta[rivi, sarake];
 
             Console.WriteLine("Tarkistuskohta on: " + aloitusArvo.Tag);
+
             Anders(sarake, rivi, 1, 0);  // Horizontal
             Anders(sarake, rivi, 0, 1);  // Vertical
             Anders(sarake, rivi, 1, 1);  // Diagonal Down
@@ -54,6 +48,12 @@ namespace Lopputyo
 
         private void Anders(int sarake, int rivi, int stepX, int stepY)
         {
+            //jos peli voitettu, skipataan looppaus
+            if(peliVoitettu == true)
+            {
+                return;
+            }
+
             for (int i = 1; i < kiekkojenMaaraVoittoon; i++)
             {
                 //tarkistetaan kentän rajat
@@ -70,6 +70,7 @@ namespace Lopputyo
                         {
                             Console.WriteLine("voitto!");
                             peliVoitettu = true;
+                            
                         }
                     }
                     else
