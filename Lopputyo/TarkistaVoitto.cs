@@ -14,7 +14,7 @@ namespace Lopputyo
         public Panel aloitusArvo;
         public Panel tarkistaja;
         public int kiekkojenMaaraVoittoon = 4;
-        public bool peliVoitettu = false;
+        public bool peliVoitettu;
         public int rivi, sarake;
         
 
@@ -28,8 +28,10 @@ namespace Lopputyo
 
         private void VoitonTarkistus()
         {
-            //kutsutun panelin alkuarvo, siitä tallennetaan väri
-            aloitusArvo = peliKentta[rivi, sarake];
+            peliVoitettu = false;
+
+        //kutsutun panelin alkuarvo, siitä tallennetaan väri
+        aloitusArvo = peliKentta[rivi, sarake];
 
             Console.WriteLine("Tarkistuskohta on: " + aloitusArvo.Tag);
 
@@ -63,7 +65,7 @@ namespace Lopputyo
                     //jos kyseisessä suunnassa on samaa väriä, ilmoitetaan mistä kohdasta väri löytyi
                     if(peliKentta[rivi + (stepY * i), sarake + stepX * i].BackColor == aloitusArvo.BackColor)
                     {
-                        Console.WriteLine("sama väri löytyi kohdasta" + peliKentta[rivi + (stepY * i), sarake + stepX * i].Tag.ToString());
+                        Console.WriteLine("sama väri löytyi kohdasta " + peliKentta[rivi + (stepY * i), sarake + stepX * i].Tag.ToString());
 
                         //jos värejä on yhteensä 4 samassa suunnassa, ilmoitetaan että pelaaja voitti.
                         if(i == kiekkojenMaaraVoittoon - 1)
