@@ -16,9 +16,10 @@ namespace Lopputyo
         public string kummanVuoro;
         public string pelaaja1 = "";
         public string pelaaja2 = "";
+
         public string voittaja = "";
         public bool peliAlkanut = false;
-        public bool peliVoitettu = false;
+        public bool peliVoitettu;
         public int viimeisinSiirto;
         public int siirtojenMaara;
         bool siirtoKesken = false;
@@ -61,7 +62,7 @@ namespace Lopputyo
         public async void kentanKoko_Click(object sender, EventArgs e)
         {
             //jos vuoro on kesken tai peli ei ole alkanut, return eli ei tapahdu mitään.
-            if (siirtoKesken || !peliAlkanut)
+            if (siirtoKesken || !peliAlkanut || peliVoitettu == true)
             {
                 return;
             }
@@ -157,6 +158,17 @@ namespace Lopputyo
 
         public void pelaajanVuoronVaihto()
         {
+
+            //tarkistetaan onko pelaajan vuorolla tullut voitto
+            peliVoitettu = voittoTarkistus.Voitto();
+
+            if (peliVoitettu == true)
+            {
+                pelaajaVoitti();
+                return;
+            }
+
+
             //täällä tehdään lopputarkastus pelaajan vuorolle kun kiekko on tiputettu
             if (pelaajanVuoro == 1)
             {
@@ -165,18 +177,6 @@ namespace Lopputyo
             else
             {
                 FrmLopputyo.painallusEvent(pelaaja2);
-            }
-
-            //tarkistetaan onko pelaajan vuorolla tullut voitto
-            peliVoitettu = voittoTarkistus.Voitto();
-
-            if (peliVoitettu == true)
-            {
-                pelaajaVoitti();
-            }
-            else
-            {
-                return;
             }
 
             //vapautetaan kenttä seuraavan pelaajan käyttöön kun tarkistukset on tehty

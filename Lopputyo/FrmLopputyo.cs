@@ -19,8 +19,6 @@ namespace Lopputyo
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
 
-        public string pelaaja1 = "";
-        public string pelaaja2 = "";
         int kulunutPeliAika = 0;
 
         public FrmLopputyo()
@@ -101,8 +99,8 @@ namespace Lopputyo
                 {
                     using (StreamWriter sw = new StreamWriter(saveFileDialog.OpenFile()))
                     {
-                        sw.WriteLine("Pelaaja 1:        {0}", pelaaja1);
-                        sw.WriteLine("Pelaaja 2:        {0}", pelaaja2);
+                        sw.WriteLine("Pelaaja 1:        {0}", LuoPeli.pelaaja1);
+                        sw.WriteLine("Pelaaja 2:        {0}", LuoPeli.pelaaja2);
                         sw.WriteLine("Siirtojen määrä:  {0}", LuoPeli.siirtojenMaara);
                         sw.WriteLine("Voittaja:         {0}", LuoPeli.voittaja);
                     }
@@ -137,9 +135,9 @@ namespace Lopputyo
             }
 
             //palautetaan voitto arvot nollaan
-            LuoPeli.peliVoitettu = false;
             LuoPeli.pelaajanVuoro = 1;
             LuoPeli.siirtojenMaara = 0;
+            LuoPeli.peliVoitettu = false;
             LuoPeli.voittaja = "";
 
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
