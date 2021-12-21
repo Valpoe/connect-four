@@ -46,17 +46,21 @@
             // tbPelaaja1
             // 
             this.tbPelaaja1.Location = new System.Drawing.Point(122, 26);
+            this.tbPelaaja1.MaxLength = 20;
             this.tbPelaaja1.Name = "tbPelaaja1";
             this.tbPelaaja1.Size = new System.Drawing.Size(100, 20);
             this.tbPelaaja1.TabIndex = 0;
+            this.tbPelaaja1.TextChanged += new System.EventHandler(this.tbPelaaja1_TextChanged);
             this.tbPelaaja1.Validating += new System.ComponentModel.CancelEventHandler(this.tbPelaaja1_Validating);
             // 
             // tbPelaaja2
             // 
             this.tbPelaaja2.Location = new System.Drawing.Point(122, 69);
+            this.tbPelaaja2.MaxLength = 20;
             this.tbPelaaja2.Name = "tbPelaaja2";
             this.tbPelaaja2.Size = new System.Drawing.Size(100, 20);
             this.tbPelaaja2.TabIndex = 1;
+            this.tbPelaaja2.TextChanged += new System.EventHandler(this.tbPelaaja2_TextChanged);
             this.tbPelaaja2.Validating += new System.ComponentModel.CancelEventHandler(this.tbPelaaja2_Validating);
             // 
             // label1
@@ -81,6 +85,7 @@
             // 
             // btnOk
             // 
+            this.btnOk.Enabled = false;
             this.btnOk.Location = new System.Drawing.Point(69, 112);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(100, 23);

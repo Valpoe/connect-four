@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Lopputyo
 {
@@ -23,6 +24,7 @@ namespace Lopputyo
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            
             // Mahdollistetaan pelin aloitus
             PeliKenttaRef.peliAlkanut = true;
 
@@ -47,20 +49,6 @@ namespace Lopputyo
             this.Close();
         }
 
-        private string CamelCaseToWords(string input)
-        {
-            // Laittaa välilyönnin jokaisen ison kirjaimen eteen
-            string result = "";
-            foreach (char ch in input.ToCharArray())
-            {
-                if (char.IsUpper(ch)) result += " ";
-                result += ch;
-            }
-
-            // Etsii ensimmäisen välilyönnin ja poistaa kaiken ennen sitä
-            return result.Substring(result.IndexOf(" ") + 1);
-        }
-
         private bool TekstiboxiOnTyhja(ErrorProvider err, TextBox txt)
         {
             if (txt.Text.Length > 0)
@@ -72,8 +60,7 @@ namespace Lopputyo
             else
             {
                 // Asettaa errorin
-                errorProvider1.SetError(txt, CamelCaseToWords(txt.Name) +
-                    " ei saa olla tyhjä.");
+                errorProvider1.SetError(txt, "Kenttä ei saa olla tyhjä.");
                 return true;
             }
         }
@@ -82,12 +69,30 @@ namespace Lopputyo
         {
             TextBox txt = sender as TextBox;
             e.Cancel = TekstiboxiOnTyhja(errorProvider1, txt);
+            tbPelaaja1.Text = Regex.Replace(tbPelaaja1.Text, "^[ \t\r\n] + | [ \t\r\n] + $", "");
         }
 
         private void tbPelaaja2_Validating(object sender, CancelEventArgs e)
         {
             TextBox txt = sender as TextBox;
             e.Cancel = TekstiboxiOnTyhja(errorProvider1, txt);
+            tbPelaaja2.Text = Regex.Replace(tbPelaaja2.Text, "^[ \t\r\n] + | [ \t\r\n] + $", "");
+        }
+
+        private void tbPelaaja1_TextChanged(object sender, EventArgs e)
+        {
+            if (tbPelaaja1.Text.Trim().Length > 0)
+            {
+                if (tbPelaaja2.Text.Trim().Length > 0)
+                {
+                    btnOk.Enabled = true;
+                }
+            }
+        }
+
+        private void tbPelaaja2_TextChanged(object sender, EventArgs e)
+        {
+            tbPelaaja1_TextChanged(sender, e);
         }
     }
 }
