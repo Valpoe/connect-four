@@ -76,7 +76,6 @@ namespace Lopputyo
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // MessageBox, josta näkyy pelin idea ja säännöt
-
             string otsikko = "Info";
             string info = "Neljän suora on kahden pelaajan lautapeli, " +
                 "jossa pelaajat pudottavat vuorotellen kiekkoja pelilautaan yrittäen saada aikaan neljän suoran. " +
@@ -93,7 +92,6 @@ namespace Lopputyo
         private void vieTiedostoonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Tallennetaan .txt tiedostoon pelin tiedot
-
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.FileName = "Pelin tiedot.txt";
             saveFileDialog.Filter = "Text File | *.txt";
@@ -132,7 +130,6 @@ namespace Lopputyo
 
         public void restart()
         {
-
             //palautetaan kentän taustaväri valkoiseksi
             foreach (var panel in LuoPeli.peliKentta)
             {
@@ -141,6 +138,9 @@ namespace Lopputyo
 
             //palautetaan voitto arvot nollaan
             LuoPeli.peliVoitettu = false;
+            LuoPeli.pelaajanVuoro = 1;
+            LuoPeli.siirtojenMaara = 0;
+            LuoPeli.voittaja = "";
 
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
         }

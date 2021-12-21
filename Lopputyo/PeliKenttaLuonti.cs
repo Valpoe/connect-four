@@ -22,17 +22,12 @@ namespace Lopputyo
         public int viimeisinSiirto;
         public int siirtojenMaara;
         bool siirtoKesken = false;
-        Panel uusiSijainti;
         public Panel[,] peliKentta;
-        int peliKentanPanelMax;
 
         public Panel[,] LuoPeliKentta(Panel kentanKohde, int columns = 6, int rows = 7)
         {
             //Luodaan oletusparametreilla, tai annetuilla parametreillä pelikentän koko
             peliKentta = new Panel[columns, rows];
-
-            //otetaan pelikentän paneelien määrä ylös "Array" muodossa eli 0-X eikä 1-X
-            peliKentanPanelMax = columns * rows - 1;
 
             for (int i = 0; i < peliKentta.GetLength(0); i++)
             {
@@ -40,7 +35,6 @@ namespace Lopputyo
                 {
                     //i = rivikorkeus
                     //j = columni syvyys
-
                     peliKentta[i, j] = new Panel();
                     peliKentta[i, j].Location = new Point(j * 77, i * 77);
                     //peliKentta[i, j].Location = new Point(j * kentanKohde.Width / columns, i * kentanKohde.Height / rows);
@@ -88,6 +82,7 @@ namespace Lopputyo
                 Console.WriteLine("Et valinnut tyhjää kenttää, tässä on {0} sijainti {1}", p.BackColor.ToString(), p.Name);
                 return;
             }
+
             Console.WriteLine();
 
             //pelaajan vuoro
@@ -107,7 +102,7 @@ namespace Lopputyo
             }
 
             //tarkistetaan voittiko pelaaja
-            Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", uusiSijainti.Name, pelaajanVuoro);
+            Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, pelaajanVuoro);
         }
 
         public async Task tarkistaSijainti(Panel sender)
@@ -117,8 +112,6 @@ namespace Lopputyo
 
             string[] sijaintiTaulukko = p.Tag.ToString().Split(',');
 
-            //rivi = rivikorkeus
-            //sarake = sarakesyvyys
             int rivi;
             int sarake;
 
@@ -130,7 +123,11 @@ namespace Lopputyo
             {
                 //"Kenttä loppuu / alapuolella ei ole tilaa"
                 siirtoKesken = false;
-                uusiSijainti = p;
+                //uusiSijainti = p;
+
+                voittoTarkistus.rivi = rivi;
+                voittoTarkistus.sarake = sarake;
+
                 pelaajanVuoronVaihto();
             }
 
@@ -161,7 +158,6 @@ namespace Lopputyo
         public void pelaajanVuoronVaihto()
         {
             //täällä tehdään lopputarkastus pelaajan vuorolle kun kiekko on tiputettu
-
             if (pelaajanVuoro == 1)
             {
                 FrmLopputyo.painallusEvent(pelaaja1);
@@ -172,7 +168,8 @@ namespace Lopputyo
             }
 
             //tarkistetaan onko pelaajan vuorolla tullut voitto
-            peliVoitettu = voittoTarkistus.Voitto(uusiSijainti);
+            peliVoitettu = voittoTarkistus.Voitto();
+
             if (peliVoitettu == true)
             {
                 pelaajaVoitti();
