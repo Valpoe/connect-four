@@ -164,6 +164,8 @@ namespace Lopputyo
 
             if (peliVoitettu == true)
             {
+                System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
+                soitin.Play();
                 pelaajaVoitti();
                 return;
             }
