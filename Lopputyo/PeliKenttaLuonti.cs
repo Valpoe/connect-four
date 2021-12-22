@@ -11,7 +11,6 @@ namespace Lopputyo
     public class PeliKenttaLuonti
     {
         public TarkistaVoitto voittoTarkistus = new TarkistaVoitto();
-        FrmLopputyo MainRef = FrmLopputyo.FormLopputyo;
         public int pelaajanVuoro = 1;
         public string kummanVuoro;
         public string pelaaja1 = "";
@@ -164,8 +163,8 @@ namespace Lopputyo
 
             if (peliVoitettu == true)
             {
-                System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
-                soitin.Play();
+                //System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
+                //soitin.Play();
                 pelaajaVoitti();
                 return;
             }
@@ -192,7 +191,12 @@ namespace Lopputyo
         }
 
         public void pelaajaVoitti()
-        {   
+        {
+
+            //pysäytetään ajastin kun peli on voitettu
+            FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
+            mainRef.timer1.Stop();
+
             //tulostetaan voittajan nimi
             if (pelaajanVuoro == 1)
             {

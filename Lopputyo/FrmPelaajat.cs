@@ -42,7 +42,7 @@ namespace Lopputyo
             MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;
 
             // Aloitetaan ajastin
-            MainRef.tsslKulunutPeliAika.Text = "Aika: 00:00";
+            MainRef.tsslKulunutPeliAika.Text = "Aika: 00.00";
             MainRef.timer1.Start();
 
             this.Close();
