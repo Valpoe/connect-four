@@ -12,7 +12,6 @@ using Newtonsoft.Json;
 
 namespace Lopputyo
 {
-
     public partial class FrmLopputyo : Form
     {
         public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
@@ -20,7 +19,7 @@ namespace Lopputyo
         public static PeliTiedot pelinHistoriaTiedot = new PeliTiedot();
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
-        static string tallennusSijainti = @"C:/temp/pelitiedot.json";
+        static string tallennusSijainti = @".\pelitiedot.json";
         static public List<Voittaja> Voittajat = new List<Voittaja>();
 
         public int kulunutPeliAika = 0;
@@ -43,7 +42,6 @@ namespace Lopputyo
                     pelinHistoriaTiedot.rtbPelaajaTiedot.Text += voittaja;
                 }
             }
-
 
             //alustetaan FormLopputyo muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
             FormLopputyo = this;
@@ -140,7 +138,6 @@ namespace Lopputyo
             string aika = string.Format("Aika: {0}", new DateTime(result.Ticks).ToString("mm:ss"));
             tsslKulunutPeliAika.Text = aika;
         }
-
         private void tallennaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             avaaPeliToolStripMenuItem.Enabled = true;
@@ -163,7 +160,6 @@ namespace Lopputyo
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
         }
 
-
         //muutetaan voittotiedot struct voittajaan ja tallennetaan json muotoon
         public struct Voittaja
         {
@@ -182,17 +178,13 @@ namespace Lopputyo
                 Voittajat.Add(Pelaaja);
                 tallennaPeliTiedot(Voittajat);
             }
-
         }
-
-
         static public void tallennaPeliTiedot(List<Voittaja> input)
         {
 
          // Tallennetaan .json tiedostoon pelin historia tiedot
             string TallennaTiedot = JsonConvert.SerializeObject(input);
             System.IO.File.WriteAllText(tallennusSijainti, TallennaTiedot);
-
         }
 
         public List<Voittaja> DeserializeJSON()

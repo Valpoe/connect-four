@@ -17,13 +17,12 @@ namespace Lopputyo
         public bool peliVoitettu;
         public int rivi, sarake;
         
-
         public bool Voitto()
         {
             //voitto välittää classin tiedot "Voiton Tarkistus" funktiolle joka katsoo voititko.
             VoitonTarkistus();
 
-            return peliVoitettu;
+            return peliVoitettu;      
         }
 
         private void VoitonTarkistus()
@@ -46,8 +45,6 @@ namespace Lopputyo
             Anders(sarake, rivi, -1, -1);  // Diagonal Down
             Anders(sarake, rivi, -1, 1); // Diagonal Up
         }
-
-
         private void Anders(int sarake, int rivi, int stepX, int stepY)
         {
             //jos peli voitettu, skipataan looppaus
@@ -71,14 +68,13 @@ namespace Lopputyo
                         if(i == kiekkojenMaaraVoittoon - 1)
                         {
                             Console.WriteLine("voitto!");
-                            peliVoitettu = true;
-                            
-                        }
+                            peliVoitettu = true;          
+                        }             
                     }
                     else
                     {
                         return;
-                    }                          
+                    }
                 }
                 else
                 {
