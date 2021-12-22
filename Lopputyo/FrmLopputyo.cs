@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Lopputyo
 {
@@ -16,14 +17,33 @@ namespace Lopputyo
     {
         public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
         public static FrmLopputyo FormLopputyo = null;
+        public static PeliTiedot pelinHistoriaTiedot = new PeliTiedot();
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
+        static string tallennusSijainti = @"C:/temp/pelitiedot.json";
+        static public List<Voittaja> Voittajat = new List<Voittaja>();
 
         public int kulunutPeliAika = 0;
 
         public FrmLopputyo()
         {
             InitializeComponent();
+
+            //ladataan pelitiedot, jos niitä ei ole luodaan uusi
+            Voittajat = DeserializeJSON();
+            if (Voittajat == null)
+            {
+                Voittajat = new List<Voittaja>();
+            }
+            else
+            {
+                //pelinHistoriaTiedot.rtbPelaajaTiedot.Text = Voittajat;
+                foreach(Voittaja voittaja in Voittajat)
+                {
+                    pelinHistoriaTiedot.rtbPelaajaTiedot.Text += voittaja;
+                }
+            }
+
 
             //alustetaan FormLopputyo muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
             FormLopputyo = this;
@@ -141,6 +161,53 @@ namespace Lopputyo
             LuoPeli.voittaja = "";
 
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
+        }
+
+
+        //muutetaan voittotiedot struct voittajaan ja tallennetaan json muotoon
+        public struct Voittaja
+        {
+            string voittaja;
+            int siirtojenMaara;
+            int pelattuAika;
+
+            //lisätään voittotiedot voittajat listaan
+            static public void tallennaVoittaja()
+            {
+                Voittaja Pelaaja = new Voittaja();
+                Pelaaja.voittaja = LuoPeli.voittaja;
+                Pelaaja.siirtojenMaara = LuoPeli.siirtojenMaara;
+                Pelaaja.pelattuAika = FormLopputyo.kulunutPeliAika;
+
+                Voittajat.Add(Pelaaja);
+                tallennaPeliTiedot(Voittajat);
+            }
+
+        }
+
+
+        static public void tallennaPeliTiedot(List<Voittaja> input)
+        {
+
+         // Tallennetaan .json tiedostoon pelin historia tiedot
+            string TallennaTiedot = JsonConvert.SerializeObject(input);
+            System.IO.File.WriteAllText(tallennusSijainti, TallennaTiedot);
+
+        }
+
+        public List<Voittaja> DeserializeJSON()
+        {
+            //jos tallennustiedosto löytyy niin luetaan tiedostosta voittaja tiedot
+            if (File.Exists(tallennusSijainti))
+            {
+                using (StreamReader r = new StreamReader(tallennusSijainti))
+                {
+                    string json = r.ReadToEnd();
+                    return JsonConvert.DeserializeObject<List<Voittaja>>(json);
+                }
+            }
+            else
+                return null;
         }
     }
 }

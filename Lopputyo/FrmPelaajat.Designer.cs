@@ -96,8 +96,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Lopputyo.Properties.Resources.PlayerYellow;
-            this.pictureBox2.Location = new System.Drawing.Point(14, 65);
+            this.pictureBox2.Location = new System.Drawing.Point(14, 68);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(32, 32);
             this.pictureBox2.TabIndex = 6;
@@ -105,7 +104,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Lopputyo.Properties.Resources.PlayerRed;
+            this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(14, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(32, 32);

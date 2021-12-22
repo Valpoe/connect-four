@@ -196,8 +196,12 @@ namespace Lopputyo
             //pysäytetään ajastin kun peli on voitettu
             FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
             mainRef.timer1.Stop();
-            mainRef.vieTiedostoonToolStripMenuItem.Enabled = true;
-            
+
+            //tallennetaan pelin tiedot json formaattiin structin kautta
+            FrmLopputyo.Voittaja.tallennaVoittaja();
+
+            //mainRef.vieTiedostoonToolStripMenuItem.Enabled = true;
+
             //tulostetaan voittajan nimi
             if (pelaajanVuoro == 1)
             {
