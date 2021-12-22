@@ -197,8 +197,6 @@ namespace Lopputyo
             FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
             mainRef.timer1.Stop();
 
-            //tallennetaan pelin tiedot json formaattiin structin kautta
-            FrmLopputyo.Voittaja.tallennaVoittaja();
 
             //mainRef.vieTiedostoonToolStripMenuItem.Enabled = true;
 
@@ -213,6 +211,10 @@ namespace Lopputyo
                 MessageBox.Show($"Onneksi olkoon, {pelaaja1} on voittanut pelin");
                 voittaja = pelaaja1;
             }
+
+
+            //tallennetaan pelin tiedot json formaattiin structin kautta
+            FrmLopputyo.Voittaja.tallennaVoittaja();
         }
     }
 }
