@@ -20,7 +20,7 @@ namespace Lopputyo
         public static PeliTiedot pelinHistoriaTiedot = new PeliTiedot();
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
-        static string tallennusSijainti = @"C:/temp/pelitiedot.json";
+        static string tallennusSijainti = @".\pelitiedot.json";
         static public List<Voittaja> Voittajat = new List<Voittaja>();
 
         public int kulunutPeliAika = 0;
