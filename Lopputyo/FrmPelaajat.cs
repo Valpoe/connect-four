@@ -32,7 +32,7 @@ namespace Lopputyo
             MainRef.tsslKummanVuoro.Enabled = true;
             MainRef.tsslViimeisinSiirto.Enabled = true;
             MainRef.tallennaToolStripMenuItem.Enabled = true;
-            MainRef.vieTiedostoonToolStripMenuItem.Enabled = true;
+            MainRef.vieTiedostoonToolStripMenuItem.Enabled = false;
 
             // Asetetaan pelaajien nimet classiin
             PeliKenttaRef.pelaaja1 = this.tbPelaaja1.Text;
@@ -42,7 +42,7 @@ namespace Lopputyo
             MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;
 
             // Aloitetaan ajastin
-            MainRef.tsslKulunutPeliAika.Text = "Aika: 00:00";
+            MainRef.tsslKulunutPeliAika.Text = "Aika: 00.00";
             MainRef.timer1.Start();
 
             this.Close();
