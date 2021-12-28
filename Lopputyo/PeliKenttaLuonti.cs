@@ -80,6 +80,7 @@ namespace Lopputyo
             if (p.BackColor != Color.White)
             {
                 Console.WriteLine("Et valinnut tyhjää kenttää, tässä on {0} sijainti {1}", p.BackColor.ToString(), p.Name);
+                siirtoKesken = false;
                 return;
             }
 
