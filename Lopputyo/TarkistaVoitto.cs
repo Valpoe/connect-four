@@ -54,19 +54,29 @@ namespace Lopputyo
             }
 
             //tarkistetaan vastasuunta ennen kuin tarkistetaan osumein määrä jos esim tiputetaan värijonon keskelle kiekko.
-            for(int i = 1; i < kiekkojenMaaraVoittoon; i++)
+            for (int i = 1; i < kiekkojenMaaraVoittoon; i++)
             {
-                if (peliKentta[rivi + (stepY * -i), sarake + stepX * -i].BackColor == aloitusArvo.BackColor)
-                {
-                rivi = rivi + (stepY * -i);
-                sarake = sarake + (stepX * -i);
-
-                }
+                    if (rivi + (stepY * -i) < peliKentta.GetLength(0) && rivi + (stepY * -i) >= 0 &&
+                    sarake + (stepX * -i) < peliKentta.GetLength(1) && sarake + (stepX * -i) >= 0)
+                    {
+                        if (peliKentta[rivi + (stepY * -i), sarake + stepX * -i].BackColor == aloitusArvo.BackColor)
+                        {
+                            rivi = rivi + (stepY * -i);
+                            sarake = sarake + (stepX * -i);
+                        }
+                        else
+                        {
+                            //jos ei löydy vastakkaisesta suunnasta samaa väriä break;
+                            break;
+                        }
+                    }
                 else
                 {
-                    return;
+                    break;
                 }
+
             }
+
 
             for (int i = 1; i < kiekkojenMaaraVoittoon; i++)
             {
@@ -74,13 +84,15 @@ namespace Lopputyo
                 if (rivi + (stepY * i) < peliKentta.GetLength(0) && rivi + (stepY * i) >= 0 &&
                     sarake + (stepX * i) < peliKentta.GetLength(1) && sarake + (stepX * i) >= 0)
                 {
-                    //jos kyseisessä suunnassa on samaa väriä, ilmoitetaan mistä kohdasta väri löytyi
-                    if(peliKentta[rivi + (stepY * i), sarake + stepX * i].BackColor == aloitusArvo.BackColor)
+                        //jos kyseisessä suunnassa on samaa väriä, ilmoitetaan mistä kohdasta väri löytyi
+                        if (peliKentta[rivi + (stepY * i), sarake + stepX * i].BackColor == aloitusArvo.BackColor)
                     {
                         Console.WriteLine("sama väri löytyi kohdasta " + peliKentta[rivi + (stepY * i), sarake + stepX * i].Tag.ToString());
+                        //Console.WriteLine("värin vastakohta löytyi kohdasta " + peliKentta[rivi + (stepY * -i), sarake + stepX * -i].Tag.ToString());
+
 
                         //jos värejä on yhteensä 4 samassa suunnassa, ilmoitetaan että pelaaja voitti.
-                        if(i == kiekkojenMaaraVoittoon - 1)
+                        if (i == kiekkojenMaaraVoittoon - 1)
                         {
                             Console.WriteLine("voitto!");
                             peliVoitettu = true;          

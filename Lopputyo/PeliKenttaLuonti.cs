@@ -101,7 +101,7 @@ namespace Lopputyo
                 pelaajanVuoro = 0;
                 await tarkistaSijainti(p);
             }
-
+            
             //tarkistetaan voittiko pelaaja
             Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, pelaajanVuoro);
         }
@@ -112,6 +112,8 @@ namespace Lopputyo
             Panel p = sender as Panel;
 
             string[] sijaintiTaulukko = p.Tag.ToString().Split(',');
+
+            viimeisinSiirto = int.Parse(sijaintiTaulukko[1]) + 1;
 
             int rivi;
             int sarake;
@@ -148,7 +150,6 @@ namespace Lopputyo
 
             this.peliKentta[r, c].BackColor = Color.White;
             this.peliKentta[r + 1, c].BackColor = siirrettavaVari;
-            viimeisinSiirto = c + 1;
 
             //kutsutaan taas sijainnin tarkistusta ja katsotaan onko alapuolella tilaa
             await tarkistaSijainti(peliKentta);
