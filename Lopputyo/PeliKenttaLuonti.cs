@@ -66,6 +66,8 @@ namespace Lopputyo
                 return;
             }
 
+            siirtojenMaara++;
+            Console.WriteLine("Siirtojenmäärä: {0}", siirtojenMaara);
 
             //jos peli on alkanut ja siirto aloitettu, muutetaan siirtokesken bool trueksi, koska ajastimia pitää odottaa.
             //ja tällä myös estetään ettei yhtä aikaa pudoteta 2 pelimerkkiä.
@@ -156,12 +158,10 @@ namespace Lopputyo
 
         public void pelaajanVuoronVaihto()
         {
-            //lisätään siirto
-            siirtojenMaara++;
 
             //tarkistetaan onko pelaajan vuorolla tullut voitto
             peliVoitettu = voittoTarkistus.Voitto();
-
+            
             if (peliVoitettu == true)
             {
                 //System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
@@ -169,8 +169,7 @@ namespace Lopputyo
                 pelaajaVoitti();
                 return;
             }
-
-
+            
             //täällä tehdään lopputarkastus pelaajan vuorolle kun kiekko on tiputettu
             if (pelaajanVuoro == 1)
             {
@@ -181,7 +180,13 @@ namespace Lopputyo
                 FrmLopputyo.painallusEvent(pelaaja2);
             }
 
-
+            // Kumpikaan pelaaja ei voittanut ja tuli tasapeli
+            if (peliVoitettu == false && siirtojenMaara == 42)
+            {
+                mainRef.timer1.Stop();
+                MessageBox.Show("Tasapeli");
+                voittaja = "Tasapeli";
+            }
 
             //vapautetaan kenttä seuraavan pelaajan käyttöön kun tarkistukset on tehty
             siirtoKesken = false;
@@ -195,7 +200,6 @@ namespace Lopputyo
 
         public void pelaajaVoitti()
         {
-
             //pysäytetään ajastin kun peli on voitettu
             FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
             mainRef.timer1.Stop();
@@ -209,7 +213,7 @@ namespace Lopputyo
                 MessageBox.Show($"Onneksi olkoon, {pelaaja2} on voittanut pelin");
                 voittaja = pelaaja2;
             }
-            else
+            else if (pelaajanVuoro == 0)
             {
                 MessageBox.Show($"Onneksi olkoon, {pelaaja1} on voittanut pelin");
                 voittaja = pelaaja1;

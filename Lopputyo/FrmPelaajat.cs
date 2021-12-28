@@ -31,8 +31,6 @@ namespace Lopputyo
             MainRef.tsslKulunutPeliAika.Enabled = true;
             MainRef.tsslKummanVuoro.Enabled = true;
             MainRef.tsslViimeisinSiirto.Enabled = true;
-            MainRef.tallennaToolStripMenuItem.Enabled = true;
-            MainRef.vieTiedostoonToolStripMenuItem.Enabled = false;
 
             // Asetetaan pelaajien nimet classiin
             PeliKenttaRef.pelaaja1 = this.tbPelaaja1.Text;
@@ -47,7 +45,6 @@ namespace Lopputyo
 
             this.Close();
         }
-
         private bool TekstiboxiOnTyhja(ErrorProvider err, TextBox txt)
         {
             if (txt.Text.Length > 0)
@@ -70,7 +67,6 @@ namespace Lopputyo
             e.Cancel = TekstiboxiOnTyhja(errorProvider1, txt);
             txt.Text = Regex.Replace(txt.Text, "^[ \t\r\n] + | [ \t\r\n] + $", "");
         }
-
         private void tbPelaaja1_TextChanged(object sender, EventArgs e)
         {
             if (tbPelaaja1.Text.Trim().Length > 0)
@@ -81,7 +77,6 @@ namespace Lopputyo
                 }
             }
         }
-
         private void tbPelaaja2_TextChanged(object sender, EventArgs e)
         {
             tbPelaaja1_TextChanged(sender, e);

@@ -29,6 +29,7 @@ namespace Lopputyo
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PeliTiedot));
             this.btnSuljePeliTiedot = new System.Windows.Forms.Button();
             this.rtbPelaajaTiedot = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
@@ -58,8 +59,10 @@ namespace Lopputyo
             this.ClientSize = new System.Drawing.Size(353, 513);
             this.Controls.Add(this.rtbPelaajaTiedot);
             this.Controls.Add(this.btnSuljePeliTiedot);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PeliTiedot";
             this.Text = "Pelitiedot";
+            this.Load += new System.EventHandler(this.PeliTiedot_Load);
             this.ResumeLayout(false);
 
         }

@@ -12,7 +12,6 @@ using Newtonsoft.Json;
 
 namespace Lopputyo
 {
-
     public partial class FrmLopputyo : Form
     {
         public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
@@ -43,7 +42,6 @@ namespace Lopputyo
                     pelinHistoriaTiedot.rtbPelaajaTiedot.Text += voittaja;
                 }
             }
-
 
             //alustetaan FormLopputyo muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
             FormLopputyo = this;
@@ -121,11 +119,6 @@ namespace Lopputyo
             tsslKulunutPeliAika.Text = aika;
         }
 
-        private void tallennaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            avaaPeliToolStripMenuItem.Enabled = true;
-        }
-
         public void restart()
         {
             //palautetaan kentän taustaväri valkoiseksi
@@ -142,7 +135,6 @@ namespace Lopputyo
 
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
         }
-
 
         //muutetaan voittotiedot struct voittajaan ja tallennetaan json muotoon
         public struct Voittaja
@@ -163,10 +155,7 @@ namespace Lopputyo
                 Voittajat.Add(Pelaaja);
                 tallennaPeliTiedot(Voittajat);
             }
-
         }
-
-
         static public void tallennaPeliTiedot(List<Voittaja> input)
         {
 
@@ -176,7 +165,6 @@ namespace Lopputyo
 
             pelinHistoriaTiedot.ShowDialog();
             System.IO.File.WriteAllText(tallennusSijainti, TallennaTiedot);
-
         }
 
         public List<Voittaja> DeserializeJSON()

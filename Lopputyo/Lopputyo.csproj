@@ -114,6 +114,7 @@
   <ItemGroup>
     <Content Include="Resources\NeljansuoraIcon.ico" />
     <None Include="Resources\Neljansuora_Voitto.wav" />
+    <Content Include="Resources\PeliTiedot2.ico" />
     <Content Include="Resources\PlayersIcon2.ico" />
     <None Include="Resources\PlayerYellow.png" />
     <None Include="Resources\PlayerRed.png" />
