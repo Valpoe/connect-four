@@ -31,8 +31,6 @@ namespace Lopputyo
             MainRef.tsslKulunutPeliAika.Enabled = true;
             MainRef.tsslKummanVuoro.Enabled = true;
             MainRef.tsslViimeisinSiirto.Enabled = true;
-            MainRef.tallennaToolStripMenuItem.Enabled = true;
-            MainRef.vieTiedostoonToolStripMenuItem.Enabled = false;
 
             // Asetetaan pelaajien nimet classiin
             PeliKenttaRef.pelaaja1 = this.tbPelaaja1.Text;

@@ -118,10 +118,6 @@ namespace Lopputyo
             string aika = string.Format("Aika: {0}", new DateTime(result.Ticks).ToString("mm:ss"));
             tsslKulunutPeliAika.Text = aika;
         }
-        private void tallennaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            avaaPeliToolStripMenuItem.Enabled = true;
-        }
 
         public void restart()
         {

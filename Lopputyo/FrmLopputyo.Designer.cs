@@ -47,7 +47,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiValikko = new System.Windows.Forms.ToolStripMenuItem();
             this.aloitaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.vieTiedostoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sfdTiedot1 = new System.Windows.Forms.SaveFileDialog();
@@ -214,7 +213,6 @@
             this.tsmiValikko.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aloitaPeliToolStripMenuItem,
             this.avaaTiedotToolStripMenuItem,
-            this.vieTiedostoonToolStripMenuItem,
             this.infoToolStripMenuItem});
             this.tsmiValikko.Name = "tsmiValikko";
             this.tsmiValikko.Size = new System.Drawing.Size(56, 22);
@@ -226,14 +224,6 @@
             this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aloitaPeliToolStripMenuItem.Text = "Aloita peli";
             this.aloitaPeliToolStripMenuItem.Click += new System.EventHandler(this.btnAloitaPeli_Click);
-            // 
-            // vieTiedostoonToolStripMenuItem
-            // 
-            this.vieTiedostoonToolStripMenuItem.Enabled = false;
-            this.vieTiedostoonToolStripMenuItem.Name = "vieTiedostoonToolStripMenuItem";
-            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.vieTiedostoonToolStripMenuItem.Text = "Tallenna tiedot";
-            this.vieTiedostoonToolStripMenuItem.Click += new System.EventHandler(this.vieTiedostoonToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -298,7 +288,6 @@
         private System.Windows.Forms.Label lbl1;
         public System.Windows.Forms.ToolStripStatusLabel tsslKulunutPeliAika;
         public System.Windows.Forms.ToolStripStatusLabel tsslViimeisinSiirto;
-        public System.Windows.Forms.ToolStripMenuItem vieTiedostoonToolStripMenuItem;
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem avaaTiedotToolStripMenuItem;
     }
