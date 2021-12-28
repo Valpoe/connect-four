@@ -38,7 +38,7 @@ namespace Lopputyo
             {
                 foreach(Voittaja voittaja in Voittajat)
                 {
-                    pelinHistoriaTiedot.rtbPelaajaTiedot.Text += voittaja;
+                    pelinHistoriaTiedot.rtbPelaajaTiedot.Text += $"voittaja: {voittaja.voittaja} - siirrot: {voittaja.siirtojenMaara} - pelattu aika: {voittaja.pelattuAika}\n";
                 }
             }
 
@@ -149,9 +149,10 @@ namespace Lopputyo
         }
         static public void tallennaPeliTiedot(List<Voittaja> input)
         {
+            //mikko 7 15
             // Tallennetaan .json tiedostoon pelin historia tiedot
+
             string TallennaTiedot = JsonConvert.SerializeObject(input);
-            MessageBox.Show(TallennaTiedot);
 
             pelinHistoriaTiedot.ShowDialog();
             System.IO.File.WriteAllText(tallennusSijainti, TallennaTiedot);
