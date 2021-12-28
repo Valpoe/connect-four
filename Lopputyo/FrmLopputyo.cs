@@ -150,6 +150,7 @@ namespace Lopputyo
         }
         static public void tallennaPeliTiedot(List<Voittaja> input)
         {
+            //mikko 7 15
             // Tallennetaan .json tiedostoon pelin historia tiedot
 
             string TallennaTiedot = JsonConvert.SerializeObject(input);

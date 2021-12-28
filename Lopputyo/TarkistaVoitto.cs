@@ -94,7 +94,7 @@ namespace Lopputyo
                         if (i == kiekkojenMaaraVoittoon - 1)
                         {
                             Console.WriteLine("voitto!");
-                            peliVoitettu = true;          
+                            peliVoitettu = true;
                         }             
                     }
                     else
