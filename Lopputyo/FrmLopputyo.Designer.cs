@@ -47,12 +47,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiValikko = new System.Windows.Forms.ToolStripMenuItem();
             this.aloitaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.avaaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tallennaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vieTiedostoonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sfdTiedot1 = new System.Windows.Forms.SaveFileDialog();
+            this.avaaTiedotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel0.SuspendLayout();
             this.ss1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -214,8 +213,7 @@
             // 
             this.tsmiValikko.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aloitaPeliToolStripMenuItem,
-            this.avaaPeliToolStripMenuItem,
-            this.tallennaToolStripMenuItem,
+            this.avaaTiedotToolStripMenuItem,
             this.vieTiedostoonToolStripMenuItem,
             this.infoToolStripMenuItem});
             this.tsmiValikko.Name = "tsmiValikko";
@@ -225,37 +223,22 @@
             // aloitaPeliToolStripMenuItem
             // 
             this.aloitaPeliToolStripMenuItem.Name = "aloitaPeliToolStripMenuItem";
-            this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.aloitaPeliToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aloitaPeliToolStripMenuItem.Text = "Aloita peli";
             this.aloitaPeliToolStripMenuItem.Click += new System.EventHandler(this.btnAloitaPeli_Click);
-            // 
-            // avaaPeliToolStripMenuItem
-            // 
-            this.avaaPeliToolStripMenuItem.Enabled = false;
-            this.avaaPeliToolStripMenuItem.Name = "avaaPeliToolStripMenuItem";
-            this.avaaPeliToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.avaaPeliToolStripMenuItem.Text = "Avaa Peli";
-            // 
-            // tallennaToolStripMenuItem
-            // 
-            this.tallennaToolStripMenuItem.Enabled = false;
-            this.tallennaToolStripMenuItem.Name = "tallennaToolStripMenuItem";
-            this.tallennaToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.tallennaToolStripMenuItem.Text = "Tallenna peli";
-            this.tallennaToolStripMenuItem.Click += new System.EventHandler(this.tallennaToolStripMenuItem_Click);
             // 
             // vieTiedostoonToolStripMenuItem
             // 
             this.vieTiedostoonToolStripMenuItem.Enabled = false;
             this.vieTiedostoonToolStripMenuItem.Name = "vieTiedostoonToolStripMenuItem";
-            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.vieTiedostoonToolStripMenuItem.Text = "Tallenna tulos";
+            this.vieTiedostoonToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vieTiedostoonToolStripMenuItem.Text = "Tallenna tiedot";
             this.vieTiedostoonToolStripMenuItem.Click += new System.EventHandler(this.vieTiedostoonToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.infoToolStripMenuItem.Text = "Info";
             this.infoToolStripMenuItem.Click += new System.EventHandler(this.infoToolStripMenuItem_Click);
             // 
@@ -263,6 +246,13 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // avaaTiedotToolStripMenuItem
+            // 
+            this.avaaTiedotToolStripMenuItem.Enabled = false;
+            this.avaaTiedotToolStripMenuItem.Name = "avaaTiedotToolStripMenuItem";
+            this.avaaTiedotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.avaaTiedotToolStripMenuItem.Text = "Avaa tiedot";
             // 
             // FrmLopputyo
             // 
@@ -309,9 +299,8 @@
         public System.Windows.Forms.ToolStripStatusLabel tsslKulunutPeliAika;
         public System.Windows.Forms.ToolStripStatusLabel tsslViimeisinSiirto;
         public System.Windows.Forms.ToolStripMenuItem vieTiedostoonToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem tallennaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem avaaPeliToolStripMenuItem;
         public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem avaaTiedotToolStripMenuItem;
     }
 }
 

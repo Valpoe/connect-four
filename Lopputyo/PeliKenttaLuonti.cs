@@ -81,6 +81,7 @@ namespace Lopputyo
             if (p.BackColor != Color.White)
             {
                 Console.WriteLine("Et valinnut tyhjää kenttää, tässä on {0} sijainti {1}", p.BackColor.ToString(), p.Name);
+                siirtoKesken = false;
                 return;
             }
 
@@ -164,8 +165,8 @@ namespace Lopputyo
             
             if (peliVoitettu == true)
             {
-                System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
-                soitin.Play();
+                //System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
+                //soitin.Play();
                 pelaajaVoitti();
                 return;
             }
@@ -204,8 +205,6 @@ namespace Lopputyo
             FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
             mainRef.timer1.Stop();
 
-            //tallennetaan pelin tiedot json formaattiin structin kautta
-            FrmLopputyo.Voittaja.tallennaVoittaja();
 
             //mainRef.vieTiedostoonToolStripMenuItem.Enabled = true;
 
