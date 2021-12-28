@@ -66,8 +66,7 @@ namespace Lopputyo
                 return;
             }
 
-            siirtojenMaara++;
-            Console.WriteLine("Siirtojenmäärä: {0}", siirtojenMaara);
+            
 
             /* Jos peli on alkanut ja siirto aloitettu, muutetaan siirtokesken bool trueksi, koska ajastimia pitää odottaa
             ja tällä myös estetään ettei yhtä aikaa pudoteta 2 pelimerkkiä. */
@@ -104,7 +103,6 @@ namespace Lopputyo
             // Tarkistetaan voittiko pelaaja
             Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, pelaajanVuoro);
         }
-
         public async Task tarkistaSijainti(Panel sender)
         {
             // Avataan tag
@@ -157,7 +155,7 @@ namespace Lopputyo
             
             if (peliVoitettu == true)
             {
-                /*System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
+                /* System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
                 soitin.Play(); */
                 pelaajaVoitti();
                 return;
@@ -179,6 +177,9 @@ namespace Lopputyo
                 pelaajaVoitti();
             }
 
+            siirtojenMaara++;
+            Console.WriteLine("Siirtojenmäärä: {0}", siirtojenMaara);
+
             // Vapautetaan kenttä seuraavan pelaajan käyttöön, kun tarkistukset on tehty
             siirtoKesken = false;
         }
@@ -194,6 +195,7 @@ namespace Lopputyo
             // Pysäytetään ajastin, kun peli on voitettu
             FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
             mainRef.timer1.Stop();
+
             // Tulostetaan voittaja tai tasapeli
             if (peliVoitettu == false)
             {
@@ -213,7 +215,6 @@ namespace Lopputyo
 
             // Tallennetaan pelin tiedot json formaattiin structin kautta
             FrmLopputyo.Voittaja.tallennaVoittaja();
-            mainRef.avaaTiedotToolStripMenuItem.Enabled = true;
         }
     }
 }

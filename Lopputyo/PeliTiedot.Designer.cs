@@ -36,7 +36,7 @@ namespace Lopputyo
             // 
             // btnSuljePeliTiedot
             // 
-            this.btnSuljePeliTiedot.Location = new System.Drawing.Point(66, 412);
+            this.btnSuljePeliTiedot.Location = new System.Drawing.Point(68, 404);
             this.btnSuljePeliTiedot.Name = "btnSuljePeliTiedot";
             this.btnSuljePeliTiedot.Size = new System.Drawing.Size(206, 68);
             this.btnSuljePeliTiedot.TabIndex = 0;
@@ -46,6 +46,7 @@ namespace Lopputyo
             // 
             // rtbPelaajaTiedot
             // 
+            this.rtbPelaajaTiedot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rtbPelaajaTiedot.Location = new System.Drawing.Point(12, 12);
             this.rtbPelaajaTiedot.Name = "rtbPelaajaTiedot";
             this.rtbPelaajaTiedot.Size = new System.Drawing.Size(322, 378);
@@ -56,11 +57,12 @@ namespace Lopputyo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 513);
+            this.ClientSize = new System.Drawing.Size(347, 485);
             this.Controls.Add(this.rtbPelaajaTiedot);
             this.Controls.Add(this.btnSuljePeliTiedot);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PeliTiedot";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pelitiedot";
             this.ResumeLayout(false);
 

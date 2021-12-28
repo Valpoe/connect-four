@@ -23,6 +23,7 @@ namespace Lopputyo
         static public List<Voittaja> Voittajat = new List<Voittaja>();
 
         public int kulunutPeliAika = 0;
+        public string FormatoituAika = "";
 
         public FrmLopputyo()
         {
@@ -37,8 +38,8 @@ namespace Lopputyo
             else
             {
                 foreach(Voittaja voittaja in Voittajat)
-                {
-                    pelinHistoriaTiedot.rtbPelaajaTiedot.Text += voittaja;
+                {   
+                    pelinHistoriaTiedot.rtbPelaajaTiedot.Text += $"Voittaja / Tasapeli: {voittaja.voittaja}" + $"  Siirrot: {voittaja.siirtojenMaara}" + $"  {voittaja.pelattuAika}\n";
                 }
             }
 
@@ -102,7 +103,6 @@ namespace Lopputyo
                 "vaakasuorassa tai vinottain. Jos pelilauta täyttyy ilman voittajaa niin syntyy tasapeli.";
             MessageBox.Show(info, otsikko, MessageBoxButtons.OK);
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             // Formatoidaan aika muotoon 00:00
@@ -110,8 +110,9 @@ namespace Lopputyo
             kulunutPeliAika++;
             string aika = string.Format("Aika: {0}", new DateTime(result.Ticks).ToString("mm:ss"));
             tsslKulunutPeliAika.Text = aika;
+            FormatoituAika = aika;
         }
-
+        
         public void restart()
         {
             // Palautetaan kentän taustaväri valkoiseksi
@@ -133,7 +134,7 @@ namespace Lopputyo
             // Json tallennus vaatii public memberit
             public string voittaja;
             public int siirtojenMaara;
-            public int pelattuAika;
+            public string pelattuAika;
 
             // Lisätään voittotiedot voittajat listaan
             static public void tallennaVoittaja()
@@ -141,7 +142,7 @@ namespace Lopputyo
                 Voittaja Pelaaja = new Voittaja();
                 Pelaaja.voittaja = LuoPeli.voittaja;
                 Pelaaja.siirtojenMaara = LuoPeli.siirtojenMaara;
-                Pelaaja.pelattuAika = FormLopputyo.kulunutPeliAika;
+                Pelaaja.pelattuAika = FormLopputyo.FormatoituAika;
 
                 Voittajat.Add(Pelaaja);
                 tallennaPeliTiedot(Voittajat);
@@ -150,8 +151,8 @@ namespace Lopputyo
         static public void tallennaPeliTiedot(List<Voittaja> input)
         {
             // Tallennetaan .json tiedostoon pelin historia tiedot
+
             string TallennaTiedot = JsonConvert.SerializeObject(input);
-            MessageBox.Show(TallennaTiedot);
 
             pelinHistoriaTiedot.ShowDialog();
             System.IO.File.WriteAllText(tallennusSijainti, TallennaTiedot);

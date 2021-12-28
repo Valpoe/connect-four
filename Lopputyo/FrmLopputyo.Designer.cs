@@ -47,10 +47,10 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiValikko = new System.Windows.Forms.ToolStripMenuItem();
             this.aloitaPeliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avaaTiedotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sfdTiedot1 = new System.Windows.Forms.SaveFileDialog();
-            this.avaaTiedotToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel0.SuspendLayout();
             this.ss1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -225,6 +225,13 @@
             this.aloitaPeliToolStripMenuItem.Text = "Aloita peli";
             this.aloitaPeliToolStripMenuItem.Click += new System.EventHandler(this.btnAloitaPeli_Click);
             // 
+            // avaaTiedotToolStripMenuItem
+            // 
+            this.avaaTiedotToolStripMenuItem.Name = "avaaTiedotToolStripMenuItem";
+            this.avaaTiedotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.avaaTiedotToolStripMenuItem.Text = "Avaa tiedot";
+            this.avaaTiedotToolStripMenuItem.Click += new System.EventHandler(this.avaaTiedotToolStripMenuItem_Click);
+            // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
@@ -236,14 +243,6 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // avaaTiedotToolStripMenuItem
-            // 
-            this.avaaTiedotToolStripMenuItem.Enabled = false;
-            this.avaaTiedotToolStripMenuItem.Name = "avaaTiedotToolStripMenuItem";
-            this.avaaTiedotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.avaaTiedotToolStripMenuItem.Text = "Avaa tiedot";
-            this.avaaTiedotToolStripMenuItem.Click += new System.EventHandler(this.avaaTiedotToolStripMenuItem_Click);
             // 
             // FrmLopputyo
             // 
