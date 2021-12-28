@@ -19,7 +19,7 @@ namespace Lopputyo
         
         public bool Voitto()
         {
-            //voitto välittää classin tiedot "Voiton Tarkistus" funktiolle joka katsoo voititko.
+            // Voitto välittää classin tiedot "Voiton Tarkistus" funktiolle joka katsoo voititko
             VoitonTarkistus();
 
             return peliVoitettu;      
@@ -29,7 +29,7 @@ namespace Lopputyo
         {
             peliVoitettu = false;
 
-        //kutsutun panelin alkuarvo, siitä tallennetaan väri
+        // Kutsutun panelin alkuarvo, siitä tallennetaan väri
         aloitusArvo = peliKentta[rivi, sarake];
 
             Console.WriteLine("Tarkistuskohta on: " + aloitusArvo.Tag);
@@ -39,7 +39,7 @@ namespace Lopputyo
             Anders(sarake, rivi, 1, 1);  // Diagonal Down
             Anders(sarake, rivi, 1, -1); // Diagonal Up
 
-            //tarkistetaan vastakkaiseen suuntaan samat kulmat vastaarvoilla
+            // Tarkistetaan vastakkaiseen suuntaan samat kulmat vastaarvoilla
             Anders(sarake, rivi, -1, 0);  // Horizontal
             Anders(sarake, rivi, 0, -1);  // Vertical
             Anders(sarake, rivi, -1, -1);  // Diagonal Down
@@ -47,13 +47,13 @@ namespace Lopputyo
         }
         private void Anders(int sarake, int rivi, int stepX, int stepY)
         {
-            //jos peli voitettu, skipataan looppaus
+            // Jos peli voitettu, skipataan looppaus
             if(peliVoitettu == true)
             {
                 return;
             }
 
-            //tarkistetaan vastasuunta ennen kuin tarkistetaan osumein määrä jos esim tiputetaan värijonon keskelle kiekko.
+            // Tarkistetaan vastasuunta ennen kuin tarkistetaan osumein määrä jos esim tiputetaan värijonon keskelle kiekko.
             for (int i = 1; i < kiekkojenMaaraVoittoon; i++)
             {
                     if (rivi + (stepY * -i) < peliKentta.GetLength(0) && rivi + (stepY * -i) >= 0 &&
@@ -66,7 +66,7 @@ namespace Lopputyo
                         }
                         else
                         {
-                            //jos ei löydy vastakkaisesta suunnasta samaa väriä break;
+                            // Jos ei löydy vastakkaisesta suunnasta samaa väriä break;
                             break;
                         }
                     }
@@ -80,18 +80,17 @@ namespace Lopputyo
 
             for (int i = 1; i < kiekkojenMaaraVoittoon; i++)
             {
-                //tarkistetaan kentän rajat
+                // Tarkistetaan kentän rajat
                 if (rivi + (stepY * i) < peliKentta.GetLength(0) && rivi + (stepY * i) >= 0 &&
                     sarake + (stepX * i) < peliKentta.GetLength(1) && sarake + (stepX * i) >= 0)
                 {
-                        //jos kyseisessä suunnassa on samaa väriä, ilmoitetaan mistä kohdasta väri löytyi
+                        // Jos kyseisessä suunnassa on samaa väriä, ilmoitetaan mistä kohdasta väri löytyi
                         if (peliKentta[rivi + (stepY * i), sarake + stepX * i].BackColor == aloitusArvo.BackColor)
                     {
                         Console.WriteLine("sama väri löytyi kohdasta " + peliKentta[rivi + (stepY * i), sarake + stepX * i].Tag.ToString());
-                        //Console.WriteLine("värin vastakohta löytyi kohdasta " + peliKentta[rivi + (stepY * -i), sarake + stepX * -i].Tag.ToString());
+                        // Console.WriteLine("värin vastakohta löytyi kohdasta " + peliKentta[rivi + (stepY * -i), sarake + stepX * -i].Tag.ToString());
 
-
-                        //jos värejä on yhteensä 4 samassa suunnassa, ilmoitetaan että pelaaja voitti.
+                        // Jos värejä on yhteensä 4 samassa suunnassa, ilmoitetaan että pelaaja voitti.
                         if (i == kiekkojenMaaraVoittoon - 1)
                         {
                             Console.WriteLine("voitto!");

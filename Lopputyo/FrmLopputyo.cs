@@ -28,7 +28,7 @@ namespace Lopputyo
         {
             InitializeComponent();
 
-            //ladataan pelitiedot, jos niitä ei ole luodaan uusi
+            // Ladataan pelitiedot, jos niitä ei ole luodaan uusi
             Voittajat = DeserializeJSON();
             if (Voittajat == null)
             {
@@ -36,14 +36,13 @@ namespace Lopputyo
             }
             else
             {
-                //pelinHistoriaTiedot.rtbPelaajaTiedot.Text = Voittajat;
                 foreach(Voittaja voittaja in Voittajat)
                 {
                     pelinHistoriaTiedot.rtbPelaajaTiedot.Text += voittaja;
                 }
             }
 
-            //alustetaan FormLopputyo muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
+            // Alustetaan FormLopputyo muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
             FormLopputyo = this;
             tsslPublicKummanVuoro = tsslKummanVuoro;
             tsslPublicViimeisinSiirto = tsslViimeisinSiirto;
@@ -52,12 +51,11 @@ namespace Lopputyo
 
         static public void painallusEvent(string pelaajanVuoro)
         {
-            //Tätä kutsutaan classista "FrmLopputyö.painallusEvent();" <- Static
-            //eli aina kun painetaan Panel nappia päädytään tähän koodiin vuoron loputtua
+            /* Tätä kutsutaan classista "FrmLopputyö.painallusEvent();" <- Static
+            eli aina kun painetaan Panel nappia päädytään tähän koodiin vuoron loputtua */
             tsslPublicKummanVuoro.Text = "Vuoro: " + pelaajanVuoro;
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: " + LuoPeli.viimeisinSiirto;
         }
-
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
             DialogResult dr;
@@ -105,11 +103,6 @@ namespace Lopputyo
             MessageBox.Show(info, otsikko, MessageBoxButtons.OK);
         }
 
-        private void vieTiedostoonToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             // Formatoidaan aika muotoon 00:00
@@ -121,30 +114,28 @@ namespace Lopputyo
 
         public void restart()
         {
-            //palautetaan kentän taustaväri valkoiseksi
+            // Palautetaan kentän taustaväri valkoiseksi
             foreach (var panel in LuoPeli.peliKentta)
             {
                 panel.BackColor = Color.White;
             }
 
-            //palautetaan voitto arvot nollaan
+            // Palautetaan voitto arvot nollaan
             LuoPeli.pelaajanVuoro = 1;
             LuoPeli.siirtojenMaara = 0;
             LuoPeli.peliVoitettu = false;
             LuoPeli.voittaja = "";
-
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
         }
 
-        //muutetaan voittotiedot struct voittajaan ja tallennetaan json muotoon
-        public struct Voittaja
+        public struct Voittaja // Muutetaan voittotiedot struct voittajaan ja tallennetaan json muotoon
         {
-            //json tallennus vaatii public memberit
+            // Json tallennus vaatii public memberit
             public string voittaja;
             public int siirtojenMaara;
             public int pelattuAika;
 
-            //lisätään voittotiedot voittajat listaan
+            // Lisätään voittotiedot voittajat listaan
             static public void tallennaVoittaja()
             {
                 Voittaja Pelaaja = new Voittaja();
@@ -158,8 +149,7 @@ namespace Lopputyo
         }
         static public void tallennaPeliTiedot(List<Voittaja> input)
         {
-
-         // Tallennetaan .json tiedostoon pelin historia tiedot
+            // Tallennetaan .json tiedostoon pelin historia tiedot
             string TallennaTiedot = JsonConvert.SerializeObject(input);
             MessageBox.Show(TallennaTiedot);
 
@@ -169,7 +159,7 @@ namespace Lopputyo
 
         public List<Voittaja> DeserializeJSON()
         {
-            //jos tallennustiedosto löytyy niin luetaan tiedostosta voittaja tiedot
+            // Jos tallennustiedosto löytyy niin luetaan tiedostosta voittaja tiedot
             if (File.Exists(tallennusSijainti))
             {
                 using (StreamReader r = new StreamReader(tallennusSijainti))

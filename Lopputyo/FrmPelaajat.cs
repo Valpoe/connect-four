@@ -36,7 +36,7 @@ namespace Lopputyo
             PeliKenttaRef.pelaaja1 = this.tbPelaaja1.Text;
             PeliKenttaRef.pelaaja2 = this.tbPelaaja2.Text;
 
-            // Alustetaan heti form1 status strippiin pelaajan 1 text.
+            // Alustetaan heti form1 status strippiin pelaajan 1 text
             MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;
 
             // Aloitetaan ajastin

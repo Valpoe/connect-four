@@ -16,7 +16,6 @@ namespace Lopputyo
         public string kummanVuoro;
         public string pelaaja1 = "";
         public string pelaaja2 = "";
-
         public string voittaja = "";
         public bool peliAlkanut = false;
         public bool peliVoitettu;
@@ -27,25 +26,25 @@ namespace Lopputyo
 
         public Panel[,] LuoPeliKentta(Panel kentanKohde, int columns = 6, int rows = 7)
         {
-            //Luodaan oletusparametreilla, tai annetuilla parametreillä pelikentän koko
+            // Luodaan oletusparametreilla tai annetuilla parametreillä pelikentän koko
             peliKentta = new Panel[columns, rows];
 
             for (int i = 0; i < peliKentta.GetLength(0); i++)
             {
                 for (int j = 0; j < peliKentta.GetLength(1); j++)
                 {
-                    //i = rivikorkeus
-                    //j = columni syvyys
+                    // i = rivikorkeus
+                    // j = columni syvyys
                     peliKentta[i, j] = new Panel();
                     peliKentta[i, j].Location = new Point(j * 77, i * 77);
-                    //peliKentta[i, j].Location = new Point(j * kentanKohde.Width / columns, i * kentanKohde.Height / rows);
+                    // PeliKentta[i, j].Location = new Point(j * kentanKohde.Width / columns, i * kentanKohde.Height / rows);
                     kentanKohde.Controls.Add(peliKentta[i, j]);
                     peliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
 
-                    //napataan 2 dim sijainti tagiin talteen
+                    // Napataan 2 dim sijainti tagiin talteen
                     peliKentta[i, j].Tag = i + "," + j;
                     peliKentta[i, j].Size = new Size(75, 75);
-                    //peliKentta[i, j].Size = new Size(kentanKohde.Width / columns, kentanKohde.Height / rows);
+                    // PeliKentta[i, j].Size = new Size(kentanKohde.Width / columns, kentanKohde.Height / rows);
                     peliKentta[i, j].BackColor = Color.White;
                     peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
                     peliKentta[i, j].BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
@@ -54,14 +53,14 @@ namespace Lopputyo
                 }
             }
 
-            //annetaan classille TarkistaVoitto luotu pelikenttä alustuksiin
+            // Annetaan classille TarkistaVoitto luotu pelikenttä alustuksiin
             voittoTarkistus.peliKentta = peliKentta;
             return peliKentta;
         }
 
         public async void kentanKoko_Click(object sender, EventArgs e)
         {
-            //jos vuoro on kesken tai peli ei ole alkanut, return eli ei tapahdu mitään.
+            // Jos vuoro on kesken tai peli ei ole alkanut, return eli ei tapahdu mitään
             if (siirtoKesken || !peliAlkanut || peliVoitettu == true)
             {
                 return;
@@ -70,15 +69,15 @@ namespace Lopputyo
             siirtojenMaara++;
             Console.WriteLine("Siirtojenmäärä: {0}", siirtojenMaara);
 
-            //jos peli on alkanut ja siirto aloitettu, muutetaan siirtokesken bool trueksi, koska ajastimia pitää odottaa.
-            //ja tällä myös estetään ettei yhtä aikaa pudoteta 2 pelimerkkiä.
+            /* Jos peli on alkanut ja siirto aloitettu, muutetaan siirtokesken bool trueksi, koska ajastimia pitää odottaa
+            ja tällä myös estetään ettei yhtä aikaa pudoteta 2 pelimerkkiä. */
             siirtoKesken = true;
 
-            //napataan object sender paneeli muuttujaan jotta voidaan käyttää paneelin omia tietueita.
+            // Napataan object sender paneeli muuttujaan jotta voidaan käyttää paneelin omia tietueita
             Panel p = (Panel)sender;
             Console.WriteLine("Tag on:" + p.Tag.ToString());
 
-            //jos taustaväri ei ole valkoinen -> tulostetaan klikatun paneelin taustaväri ja nimi.
+            // Jos taustaväri ei ole valkoinen -> tulostetaan klikatun paneelin taustaväri ja nimi
             if (p.BackColor != Color.White)
             {
                 Console.WriteLine("Et valinnut tyhjää kenttää, tässä on {0} sijainti {1}", p.BackColor.ToString(), p.Name);
@@ -86,7 +85,7 @@ namespace Lopputyo
                 return;
             }
 
-            //pelaajan vuoro
+            // Pelaajan vuoro
             if (pelaajanVuoro == 0)
             {
                 kummanVuoro = pelaaja1;
@@ -102,30 +101,26 @@ namespace Lopputyo
                 await tarkistaSijainti(p);
             }
             
-            //tarkistetaan voittiko pelaaja
+            // Tarkistetaan voittiko pelaaja
             Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, pelaajanVuoro);
         }
 
         public async Task tarkistaSijainti(Panel sender)
         {
-            //avataan tag
+            // Avataan tag
             Panel p = sender as Panel;
 
             string[] sijaintiTaulukko = p.Tag.ToString().Split(',');
 
+            // Luetaan viimeisimmän siirron sarake muuttujaan
             viimeisinSiirto = int.Parse(sijaintiTaulukko[1]) + 1;
 
-            int rivi;
-            int sarake;
-
-            int.TryParse(sijaintiTaulukko[0], out rivi);
-            int.TryParse(sijaintiTaulukko[1], out sarake);
+            int rivi = int.Parse(sijaintiTaulukko[0]);
+            int sarake = int.Parse(sijaintiTaulukko[1]);
 
             if (rivi + 1 >= peliKentta.GetLength(0) || peliKentta[rivi + 1, sarake].BackColor != Color.White)
             {
-                //"Kenttä loppuu / alapuolella ei ole tilaa"
                 siirtoKesken = false;
-                //uusiSijainti = p;
 
                 voittoTarkistus.rivi = rivi;
                 voittoTarkistus.sarake = sarake;
@@ -134,41 +129,41 @@ namespace Lopputyo
             }
             else
             {
-                //Alapuolella on tilaa
+                // Alapuolella on tilaa
                 await siirraKiekkoAlas(p, rivi, sarake);
             }
         }
 
         public async Task siirraKiekkoAlas(Panel peliKentta, int r, int c)
         {
-            //async methodi, odotetaan että tämä suoritetaan ennenkuin koodi jatkaa suoritustaan.
+            // Async methodi, odotetaan että tämä suoritetaan ennenkuin koodi jatkaa suoritustaan
             await odotaHetki();
 
-            //napataan talteen valitun panelin väri ja vaihdetaan valittu paneeli luotuPeliKentta viittaamalla.
+            // Napataan talteen valitun panelin väri ja vaihdetaan valittu paneeli luotuPeliKentta viittaamalla
             Color siirrettavaVari = this.peliKentta[r, c].BackColor;
             peliKentta = this.peliKentta[r + 1, c];
 
             this.peliKentta[r, c].BackColor = Color.White;
             this.peliKentta[r + 1, c].BackColor = siirrettavaVari;
 
-            //kutsutaan taas sijainnin tarkistusta ja katsotaan onko alapuolella tilaa
+            // Kutsutaan taas sijainnin tarkistusta ja katsotaan onko alapuolella tilaa
             await tarkistaSijainti(peliKentta);
         }
 
         public void pelaajanVuoronVaihto()
         {
-            //tarkistetaan onko pelaajan vuorolla tullut voitto
+            // Tarkistetaan onko pelaajan vuorolla tullut voitto
             peliVoitettu = voittoTarkistus.Voitto();
             
             if (peliVoitettu == true)
             {
-                //System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
-                //soitin.Play();
+                /*System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
+                soitin.Play(); */
                 pelaajaVoitti();
                 return;
             }
             
-            //täällä tehdään lopputarkastus pelaajan vuorolle kun kiekko on tiputettu
+            // Täällä tehdään lopputarkastus pelaajan vuorolle kun kiekko on tiputettu
             if (pelaajanVuoro == 1)
             {
                 FrmLopputyo.painallusEvent(pelaaja1);
@@ -184,22 +179,22 @@ namespace Lopputyo
                 pelaajaVoitti();
             }
 
-            //vapautetaan kenttä seuraavan pelaajan käyttöön kun tarkistukset on tehty
+            // Vapautetaan kenttä seuraavan pelaajan käyttöön, kun tarkistukset on tehty
             siirtoKesken = false;
         }
 
         public async Task odotaHetki()
         {
-            //odottaa 200 ms "painovoima"
+            // Odottaa 200 ms "painovoima"
             await Task.Delay(200);
         }
 
         public void pelaajaVoitti()
         {
-            //pysäytetään ajastin kun peli on voitettu
+            // Pysäytetään ajastin, kun peli on voitettu
             FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
             mainRef.timer1.Stop();
-            //tulostetaan voittajan nimi tai tasapeli
+            // Tulostetaan voittaja tai tasapeli
             if (peliVoitettu == false)
             {
                 MessageBox.Show("Tasapeli, kumpikaan ei voittanut");
@@ -216,7 +211,7 @@ namespace Lopputyo
                 voittaja = pelaaja1;
             }
 
-            //tallennetaan pelin tiedot json formaattiin structin kautta
+            // Tallennetaan pelin tiedot json formaattiin structin kautta
             FrmLopputyo.Voittaja.tallennaVoittaja();
             mainRef.avaaTiedotToolStripMenuItem.Enabled = true;
         }
