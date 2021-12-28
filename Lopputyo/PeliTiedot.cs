@@ -21,10 +21,5 @@ namespace Lopputyo
         {
             this.Close();
         }
-
-        private void PeliTiedot_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

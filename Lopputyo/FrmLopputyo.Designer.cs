@@ -243,6 +243,7 @@
             this.avaaTiedotToolStripMenuItem.Name = "avaaTiedotToolStripMenuItem";
             this.avaaTiedotToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.avaaTiedotToolStripMenuItem.Text = "Avaa tiedot";
+            this.avaaTiedotToolStripMenuItem.Click += new System.EventHandler(this.avaaTiedotToolStripMenuItem_Click);
             // 
             // FrmLopputyo
             // 
@@ -289,7 +290,7 @@
         public System.Windows.Forms.ToolStripStatusLabel tsslKulunutPeliAika;
         public System.Windows.Forms.ToolStripStatusLabel tsslViimeisinSiirto;
         public System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripMenuItem avaaTiedotToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem avaaTiedotToolStripMenuItem;
     }
 }
 

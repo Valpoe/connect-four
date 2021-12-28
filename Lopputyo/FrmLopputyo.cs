@@ -182,5 +182,10 @@ namespace Lopputyo
             else
                 return null;
         }
+
+        private void avaaTiedotToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pelinHistoriaTiedot.ShowDialog();
+        }
     }
 }

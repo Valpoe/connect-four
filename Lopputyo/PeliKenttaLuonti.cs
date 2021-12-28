@@ -11,6 +11,7 @@ namespace Lopputyo
     public class PeliKenttaLuonti
     {
         public TarkistaVoitto voittoTarkistus = new TarkistaVoitto();
+        FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
         public int pelaajanVuoro = 1;
         public string kummanVuoro;
         public string pelaaja1 = "";
@@ -85,7 +86,6 @@ namespace Lopputyo
                 return;
             }
 
-
             //pelaajan vuoro
             if (pelaajanVuoro == 0)
             {
@@ -119,7 +119,6 @@ namespace Lopputyo
             int.TryParse(sijaintiTaulukko[0], out rivi);
             int.TryParse(sijaintiTaulukko[1], out sarake);
 
-
             if (rivi + 1 >= peliKentta.GetLength(0) || peliKentta[rivi + 1, sarake].BackColor != Color.White)
             {
                 //"Kenttä loppuu / alapuolella ei ole tilaa"
@@ -131,7 +130,6 @@ namespace Lopputyo
 
                 pelaajanVuoronVaihto();
             }
-
             else
             {
                 //Alapuolella on tilaa
@@ -158,7 +156,6 @@ namespace Lopputyo
 
         public void pelaajanVuoronVaihto()
         {
-
             //tarkistetaan onko pelaajan vuorolla tullut voitto
             peliVoitettu = voittoTarkistus.Voitto();
             
@@ -183,9 +180,7 @@ namespace Lopputyo
             // Kumpikaan pelaaja ei voittanut ja tuli tasapeli
             if (peliVoitettu == false && siirtojenMaara == 42)
             {
-                mainRef.timer1.Stop();
-                MessageBox.Show("Tasapeli");
-                voittaja = "Tasapeli";
+                pelaajaVoitti();
             }
 
             //vapautetaan kenttä seuraavan pelaajan käyttöön kun tarkistukset on tehty
@@ -203,12 +198,13 @@ namespace Lopputyo
             //pysäytetään ajastin kun peli on voitettu
             FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
             mainRef.timer1.Stop();
-
-
-            //mainRef.vieTiedostoonToolStripMenuItem.Enabled = true;
-
-            //tulostetaan voittajan nimi
-            if (pelaajanVuoro == 1)
+            //tulostetaan voittajan nimi tai tasapeli
+            if (peliVoitettu == false)
+            {
+                MessageBox.Show("Tasapeli, kumpikaan ei voittanut");
+                voittaja = "Tasapeli";
+            }
+            else if (pelaajanVuoro == 1)
             {
                 MessageBox.Show($"Onneksi olkoon, {pelaaja2} on voittanut pelin");
                 voittaja = pelaaja2;
@@ -221,6 +217,7 @@ namespace Lopputyo
 
             //tallennetaan pelin tiedot json formaattiin structin kautta
             FrmLopputyo.Voittaja.tallennaVoittaja();
+            mainRef.avaaTiedotToolStripMenuItem.Enabled = true;
         }
     }
 }

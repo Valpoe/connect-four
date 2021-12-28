@@ -62,7 +62,6 @@ namespace Lopputyo
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PeliTiedot";
             this.Text = "Pelitiedot";
-            this.Load += new System.EventHandler(this.PeliTiedot_Load);
             this.ResumeLayout(false);
 
         }
