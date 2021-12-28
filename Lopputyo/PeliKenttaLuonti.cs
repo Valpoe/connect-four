@@ -11,6 +11,7 @@ namespace Lopputyo
     public class PeliKenttaLuonti
     {
         public TarkistaVoitto voittoTarkistus = new TarkistaVoitto();
+        FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
         public int pelaajanVuoro = 1;
         public string kummanVuoro;
         public string pelaaja1 = "";
