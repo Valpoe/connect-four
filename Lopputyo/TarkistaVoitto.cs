@@ -56,6 +56,21 @@ namespace Lopputyo
                 return;
             }
 
+            //tarkistetaan vastasuunta ennen kuin tarkistetaan osumein määrä jos esim tiputetaan värijonon keskelle kiekko.
+            for(int i = 1; i < kiekkojenMaaraVoittoon; i++)
+            {
+                if (peliKentta[rivi + (stepY * -i), sarake + stepX * -i].BackColor == aloitusArvo.BackColor)
+                {
+                rivi = rivi + (stepY * -i);
+                sarake = sarake + (stepX * -i);
+
+                }
+                else
+                {
+                    return;
+                }
+            }
+
             for (int i = 1; i < kiekkojenMaaraVoittoon; i++)
             {
                 //tarkistetaan kentän rajat

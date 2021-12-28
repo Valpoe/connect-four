@@ -66,7 +66,6 @@ namespace Lopputyo
                 return;
             }
 
-            siirtojenMaara++;
 
             //jos peli on alkanut ja siirto aloitettu, muutetaan siirtokesken bool trueksi, koska ajastimia pitää odottaa.
             //ja tällä myös estetään ettei yhtä aikaa pudoteta 2 pelimerkkiä.
@@ -84,7 +83,6 @@ namespace Lopputyo
                 return;
             }
 
-            Console.WriteLine();
 
             //pelaajan vuoro
             if (pelaajanVuoro == 0)
@@ -158,6 +156,8 @@ namespace Lopputyo
 
         public void pelaajanVuoronVaihto()
         {
+            //lisätään siirto
+            siirtojenMaara++;
 
             //tarkistetaan onko pelaajan vuorolla tullut voitto
             peliVoitettu = voittoTarkistus.Voitto();
@@ -180,6 +180,8 @@ namespace Lopputyo
             {
                 FrmLopputyo.painallusEvent(pelaaja2);
             }
+
+
 
             //vapautetaan kenttä seuraavan pelaajan käyttöön kun tarkistukset on tehty
             siirtoKesken = false;
