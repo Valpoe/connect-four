@@ -109,27 +109,7 @@ namespace Lopputyo
 
         private void vieTiedostoonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Tallennetaan .txt tiedostoon pelin tiedot
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.FileName = "Pelin tiedot.txt";
-            saveFileDialog.Filter = "Text File | *.txt";
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    using (StreamWriter sw = new StreamWriter(saveFileDialog.OpenFile()))
-                    {
-                        sw.WriteLine("Pelaaja 1:        {0}", LuoPeli.pelaaja1);
-                        sw.WriteLine("Pelaaja 2:        {0}", LuoPeli.pelaaja2);
-                        sw.WriteLine("Siirtojen määrä:  {0}", LuoPeli.siirtojenMaara);
-                        sw.WriteLine("Voittaja:         {0}", LuoPeli.voittaja);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -167,9 +147,10 @@ namespace Lopputyo
         //muutetaan voittotiedot struct voittajaan ja tallennetaan json muotoon
         public struct Voittaja
         {
-            string voittaja;
-            int siirtojenMaara;
-            int pelattuAika;
+            //json tallennus vaatii public memberit
+            public string voittaja;
+            public int siirtojenMaara;
+            public int pelattuAika;
 
             //lisätään voittotiedot voittajat listaan
             static public void tallennaVoittaja()
@@ -191,6 +172,9 @@ namespace Lopputyo
 
          // Tallennetaan .json tiedostoon pelin historia tiedot
             string TallennaTiedot = JsonConvert.SerializeObject(input);
+            MessageBox.Show(TallennaTiedot);
+
+            pelinHistoriaTiedot.ShowDialog();
             System.IO.File.WriteAllText(tallennusSijainti, TallennaTiedot);
 
         }
@@ -203,6 +187,7 @@ namespace Lopputyo
                 using (StreamReader r = new StreamReader(tallennusSijainti))
                 {
                     string json = r.ReadToEnd();
+                    Console.WriteLine(json);
                     return JsonConvert.DeserializeObject<List<Voittaja>>(json);
                 }
             }
