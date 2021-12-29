@@ -13,8 +13,8 @@ namespace Lopputyo
 {
     public partial class FrmPelaajat : Form
     {
-        PeliKenttaLuonti PeliKenttaRef = FrmLopputyo.LuoPeli;
-        FrmLopputyo MainRef = FrmLopputyo.FormLopputyo;
+        PeliKenttaLuonti PeliKenttaRef = Neljansuora.LuoPeli;
+        Neljansuora MainRef = Neljansuora.FormLopputyo;
         public static FrmPelaajat FormPelaajat = null;
 
         public FrmPelaajat()
@@ -40,7 +40,7 @@ namespace Lopputyo
             MainRef.tsslKummanVuoro.Text = "Vuoro: " + tbPelaaja1.Text;
 
             // Aloitetaan ajastin
-            MainRef.tsslKulunutPeliAika.Text = "Aika: 00.00";
+            MainRef.tsslKulunutPeliAika.Text = "Aika: 00:00";
             MainRef.timer1.Start();
 
             this.Close();
@@ -67,8 +67,10 @@ namespace Lopputyo
             e.Cancel = TekstiboxiOnTyhja(errorProvider1, txt);
             txt.Text = Regex.Replace(txt.Text, "^[ \t\r\n] + | [ \t\r\n] + $", "");
         }
+
         private void tbPelaaja1_TextChanged(object sender, EventArgs e)
         {
+            // Trimmaa tekstistä välilyönnit textchanged eventissä
             if (tbPelaaja1.Text.Trim().Length > 0)
             {
                 if (tbPelaaja2.Text.Trim().Length > 0)

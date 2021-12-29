@@ -12,7 +12,7 @@ namespace Lopputyo
     {
         public TarkistaVoitto voittoTarkistus = new TarkistaVoitto();
         System.Media.SoundPlayer soitin = new System.Media.SoundPlayer();
-        static FrmLopputyo mainRef;
+        static Neljansuora mainRef;
         public int pelaajanVuoro = 1;
         public string kummanVuoro;
         public string pelaaja1 = "";
@@ -34,18 +34,14 @@ namespace Lopputyo
             {
                 for (int j = 0; j < peliKentta.GetLength(1); j++)
                 {
-                    // i = rivikorkeus
-                    // j = columni syvyys
                     peliKentta[i, j] = new Panel();
                     peliKentta[i, j].Location = new Point(j * 77, i * 77);
-                    // PeliKentta[i, j].Location = new Point(j * kentanKohde.Width / columns, i * kentanKohde.Height / rows);
                     kentanKohde.Controls.Add(peliKentta[i, j]);
                     peliKentta[i, j].Name = ("[" + i + ", " + j + "]").ToString();
 
                     // Napataan 2 dim sijainti tagiin talteen
                     peliKentta[i, j].Tag = i + "," + j;
                     peliKentta[i, j].Size = new Size(75, 75);
-                    // PeliKentta[i, j].Size = new Size(kentanKohde.Width / columns, kentanKohde.Height / rows);
                     peliKentta[i, j].BackColor = Color.White;
                     peliKentta[i, j].BorderStyle = BorderStyle.FixedSingle;
                     peliKentta[i, j].BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
@@ -67,8 +63,6 @@ namespace Lopputyo
                 return;
             }
 
-            
-
             /* Jos peli on alkanut ja siirto aloitettu, muutetaan siirtokesken bool trueksi, koska ajastimia pitää odottaa
             ja tällä myös estetään ettei yhtä aikaa pudoteta 2 pelimerkkiä. */
             siirtoKesken = true;
@@ -85,7 +79,7 @@ namespace Lopputyo
                 return;
             }
 
-            // Pelaajan vuoro
+            // Pelaajan vuoro ja kiekon sijainnin tarkistus -> jos alapuolella on tilaa
             if (pelaajanVuoro == 0)
             {
                 kummanVuoro = pelaaja1;
@@ -101,7 +95,6 @@ namespace Lopputyo
                 await tarkistaSijainti(p);
             }
             
-            // Tarkistetaan voittiko pelaaja
             Console.WriteLine("Laitoit kiekon kohtaan: {0} Pelaajan vuoro:{1}", p.Name, pelaajanVuoro);
         }
         public async Task tarkistaSijainti(Panel sender)
@@ -135,7 +128,7 @@ namespace Lopputyo
 
         public async Task siirraKiekkoAlas(Panel peliKentta, int r, int c)
         {
-            // Async methodi, odotetaan että tämä suoritetaan ennenkuin koodi jatkaa suoritustaan
+            //funktio odottaa 200ms ja toimii ns. "painovoimana"
             await odotaHetki();
 
             // Napataan talteen valitun panelin väri ja vaihdetaan valittu paneeli luotuPeliKentta viittaamalla
@@ -145,13 +138,13 @@ namespace Lopputyo
             this.peliKentta[r, c].BackColor = Color.White;
             this.peliKentta[r + 1, c].BackColor = siirrettavaVari;
 
-            // Kutsutaan taas sijainnin tarkistusta ja katsotaan onko alapuolella tilaa
+            // Kutsutaan uudestaan sijainnin tarkistusta ja katsotaan onko alapuolella tilaa
             await tarkistaSijainti(peliKentta);
         }
 
         public void pelaajanVuoronVaihto()
         {
-            mainRef = FrmLopputyo.FormLopputyo;
+            mainRef = Neljansuora.FormLopputyo;
 
             // Tarkistetaan onko pelaajan vuorolla tullut voitto
             peliVoitettu = voittoTarkistus.Voitto();
@@ -159,7 +152,7 @@ namespace Lopputyo
             if (peliVoitettu == true)
             {
 
-                //soitetaan voittoääni jos äänet ovat päällä
+                // Soitetaan voittoääni jos äänet ovat päällä
                 if(mainRef.cbAanet.Checked)
                 {
                     soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
@@ -169,7 +162,7 @@ namespace Lopputyo
                 return;
             }
 
-            //soitetaan kiekkoääni jos äänet ovat päällä
+            // Soitetaan kiekkoääni jos äänet ovat päällä, kun kiekko on tippunut alas
             if (mainRef.cbAanet.Checked)
             {
                 soitin = new System.Media.SoundPlayer(Properties.Resources.Pelinappula);
@@ -177,14 +170,14 @@ namespace Lopputyo
             }
 
 
-            // Täällä tehdään lopputarkastus pelaajan vuorolle kun kiekko on tiputettu
+            // Pelaajan vuoron käsittely
             if (pelaajanVuoro == 1)
             {
-                FrmLopputyo.painallusEvent(pelaaja1);
+                Neljansuora.painallusEvent(pelaaja1);
             }
             else
             {
-                FrmLopputyo.painallusEvent(pelaaja2);
+                Neljansuora.painallusEvent(pelaaja2);
             }
 
             // Kumpikaan pelaaja ei voittanut ja tuli tasapeli
@@ -209,7 +202,6 @@ namespace Lopputyo
         public void pelaajaVoitti()
         {
             // Pysäytetään ajastin, kun peli on voitettu
-            FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
             mainRef.timer1.Stop();
 
             // Tulostetaan voittaja tai tasapeli
@@ -230,7 +222,7 @@ namespace Lopputyo
             }
 
             // Tallennetaan pelin tiedot json formaattiin structin kautta
-            FrmLopputyo.Voittaja.tallennaVoittaja();
+            Neljansuora.Voittaja.tallennaVoittaja();
         }
     }
 }

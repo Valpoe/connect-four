@@ -12,10 +12,10 @@ using Newtonsoft.Json;
 
 namespace Lopputyo
 {
-    public partial class FrmLopputyo : Form
+    public partial class Neljansuora : Form
     {
         public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
-        public static FrmLopputyo FormLopputyo = null;
+        public static Neljansuora FormLopputyo = null;
         public static PeliTiedot pelinHistoriaTiedot = new PeliTiedot();
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
@@ -25,11 +25,11 @@ namespace Lopputyo
         public int kulunutPeliAika = 0;
         public string FormatoituAika = "";
 
-        public FrmLopputyo()
+        public Neljansuora()
         {
             InitializeComponent();
 
-            // Ladataan pelitiedot, jos niitä ei ole luodaan uusi
+            // Ladataan pelitiedot, jos niitä ei ole luodaan uusi voittajat lista
             Voittajat = DeserializeJSON();
             if (Voittajat == null)
             {
@@ -49,13 +49,13 @@ namespace Lopputyo
 
         static public void painallusEvent(string pelaajanVuoro)
         {
-            /* Tätä kutsutaan classista "FrmLopputyö.painallusEvent();" <- Static
-            eli aina kun painetaan Panel nappia päädytään tähän koodiin vuoron loputtua */
             tsslPublicKummanVuoro.Text = "Vuoro: " + pelaajanVuoro;
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: " + LuoPeli.viimeisinSiirto;
         }
+
         private void btnAloitaPeli_Click(object sender, EventArgs e)
         {
+            // Aloittaa pelin, jos peli on kesken kysytään vahvistus uuden pelin aloittamisesta
             DialogResult dr;
             if (LuoPeli.peliVoitettu == false && timer1.Enabled == true)
             {
@@ -112,7 +112,7 @@ namespace Lopputyo
         
         public void restart()
         {
-            // Palautetaan kentän taustaväri valkoiseksi
+            // Palautetaan kentän taustaväri valkoiseksi ja muutetaan myös taustakuva oletusarvoon
             foreach (var panel in LuoPeli.peliKentta)
             {
                 panel.BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
@@ -127,16 +127,16 @@ namespace Lopputyo
             tsslPublicViimeisinSiirto.Text = "Viimeisin siirto: ";
         }
 
-        public struct Voittaja // Muutetaan voittotiedot struct voittajaan ja tallennetaan json muotoon
+        public struct Voittaja // Muutetaan voittotiedot struct voittajaan joka tallennetaan myöhemmin json muotoon
         {
-            // Json tallennus vaatii public memberit
             public string voittaja;
             public int siirtojenMaara;
             public string pelattuAika;
 
-            // Lisätään voittotiedot voittajat listaan
             static public void tallennaVoittaja()
             {
+                // Lisätään voittotiedot voittajat listaan
+
                 Voittaja Pelaaja = new Voittaja();
                 Pelaaja.voittaja = LuoPeli.voittaja;
                 Pelaaja.siirtojenMaara = LuoPeli.siirtojenMaara;
@@ -150,9 +150,7 @@ namespace Lopputyo
         }
         static public void tallennaPeliTiedot(List<Voittaja> input)
         {
-            //mikko 7 15
-            // Tallennetaan .json tiedostoon pelin historia tiedot
-
+            // Serialisoidaan voittajat lista Json formaattiin ja tallennetaan
             string TallennaTiedot = JsonConvert.SerializeObject(input);
             System.IO.File.WriteAllText(tallennusSijainti, TallennaTiedot);
         }
@@ -180,7 +178,7 @@ namespace Lopputyo
 
         static private void paivitaVoittajat()
         {
-            //nollaa ennen päivitystä
+            // Nollaa pelitiedot ennen uudelleen päivitystä
             pelinHistoriaTiedot.rtbPelaajaTiedot.Text = "";
 
             foreach (Voittaja voittaja in Voittajat)

@@ -55,11 +55,11 @@
     <Compile Include="FrmPelaajat.Designer.cs">
       <DependentUpon>FrmPelaajat.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmLopputyo.cs">
+    <Compile Include="Neljansuora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLopputyo.Designer.cs">
-      <DependentUpon>FrmLopputyo.cs</DependentUpon>
+    <Compile Include="Neljansuora.Designer.cs">
+      <DependentUpon>Neljansuora.cs</DependentUpon>
     </Compile>
     <Compile Include="PeliKenttaLuonti.cs" />
     <Compile Include="PeliTiedot.cs">
@@ -71,8 +71,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TarkistaVoitto.cs" />
-    <EmbeddedResource Include="FrmLopputyo.resx">
-      <DependentUpon>FrmLopputyo.cs</DependentUpon>
+    <EmbeddedResource Include="Neljansuora.resx">
+      <DependentUpon>Neljansuora.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPelaajat.resx">
