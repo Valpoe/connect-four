@@ -11,7 +11,8 @@ namespace Lopputyo
     public class PeliKenttaLuonti
     {
         public TarkistaVoitto voittoTarkistus = new TarkistaVoitto();
-        FrmLopputyo mainRef = FrmLopputyo.FormLopputyo;
+        System.Media.SoundPlayer soitin = new System.Media.SoundPlayer();
+        static FrmLopputyo mainRef;
         public int pelaajanVuoro = 1;
         public string kummanVuoro;
         public string pelaaja1 = "";
@@ -150,17 +151,32 @@ namespace Lopputyo
 
         public void pelaajanVuoronVaihto()
         {
+            mainRef = FrmLopputyo.FormLopputyo;
+
             // Tarkistetaan onko pelaajan vuorolla tullut voitto
             peliVoitettu = voittoTarkistus.Voitto();
             
             if (peliVoitettu == true)
             {
-                /* System.Media.SoundPlayer soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
-                soitin.Play(); */
+
+                //soitetaan voittoääni jos äänet ovat päällä
+                if(mainRef.cbAanet.Checked)
+                {
+                    soitin = new System.Media.SoundPlayer(Properties.Resources.Neljansuora_Voitto);
+                    soitin.Play();
+                }
                 pelaajaVoitti();
                 return;
             }
-            
+
+            //soitetaan kiekkoääni jos äänet ovat päällä
+            if (mainRef.cbAanet.Checked)
+            {
+                soitin = new System.Media.SoundPlayer(Properties.Resources.Pelinappula);
+                soitin.Play();
+            }
+
+
             // Täällä tehdään lopputarkastus pelaajan vuorolle kun kiekko on tiputettu
             if (pelaajanVuoro == 1)
             {

@@ -37,10 +37,7 @@ namespace Lopputyo
             }
             else
             {
-                foreach(Voittaja voittaja in Voittajat)
-                {   
-                    pelinHistoriaTiedot.rtbPelaajaTiedot.Text += $"Voittaja / Tasapeli: {voittaja.voittaja}" + $"  Siirrot: {voittaja.siirtojenMaara}" + $"  {voittaja.pelattuAika}\n";
-                }
+                paivitaVoittajat();
             }
 
             // Alustetaan FormLopputyo muuttujaan tämä Form pohja, jotta sitä voidaan referoida muista lähteistä
@@ -146,6 +143,8 @@ namespace Lopputyo
 
                 Voittajat.Add(Pelaaja);
                 tallennaPeliTiedot(Voittajat);
+                paivitaVoittajat();
+                pelinHistoriaTiedot.ShowDialog();
             }
         }
         static public void tallennaPeliTiedot(List<Voittaja> input)
@@ -154,8 +153,6 @@ namespace Lopputyo
             // Tallennetaan .json tiedostoon pelin historia tiedot
 
             string TallennaTiedot = JsonConvert.SerializeObject(input);
-
-            pelinHistoriaTiedot.ShowDialog();
             System.IO.File.WriteAllText(tallennusSijainti, TallennaTiedot);
         }
 
@@ -164,9 +161,9 @@ namespace Lopputyo
             // Jos tallennustiedosto löytyy niin luetaan tiedostosta voittaja tiedot
             if (File.Exists(tallennusSijainti))
             {
-                using (StreamReader r = new StreamReader(tallennusSijainti))
+                using (StreamReader lukija = new StreamReader(tallennusSijainti))
                 {
-                    string json = r.ReadToEnd();
+                    string json = lukija.ReadToEnd();
                     Console.WriteLine(json);
                     return JsonConvert.DeserializeObject<List<Voittaja>>(json);
                 }
@@ -178,6 +175,17 @@ namespace Lopputyo
         private void avaaTiedotToolStripMenuItem_Click(object sender, EventArgs e)
         {
             pelinHistoriaTiedot.ShowDialog();
+        }
+
+        static private void paivitaVoittajat()
+        {
+            //nollaa ennen päivitystä
+            pelinHistoriaTiedot.rtbPelaajaTiedot.Text = "";
+
+            foreach (Voittaja voittaja in Voittajat)
+            {
+                pelinHistoriaTiedot.rtbPelaajaTiedot.Text += $"Voittaja / Tasapeli: {voittaja.voittaja}" + $"  Siirrot: {voittaja.siirtojenMaara}" + $"  {voittaja.pelattuAika}\n";
+            }
         }
     }
 }
