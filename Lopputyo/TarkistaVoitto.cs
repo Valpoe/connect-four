@@ -94,16 +94,10 @@ namespace Lopputyo
                         if (i == kiekkojenMaaraVoittoon - 1)
                         {
 
-                            //tummennetaan vielä voittava rivi jotta sen erottaa käyttäjä
+                            // Tummennetaan vielä voittava rivi jotta sen erottaa käyttäjä
                             for (int b = 0; b < kiekkojenMaaraVoittoon; b++)
                             {
-                                    peliKentta[rivi + (stepY * b), sarake + stepX * b].BackColor =
-                                    peliKentta[rivi + (stepY * b), sarake + stepX * b].BackColor = Color.FromArgb(
-                                    peliKentta[rivi + (stepY * b), sarake + stepX * b].BackColor.A,
-                                    peliKentta[rivi + (stepY * b), sarake + stepX * b].BackColor.R,
-                                    peliKentta[rivi + (stepY * b), sarake + stepX * b].BackColor.G,
-                                    peliKentta[rivi + (stepY * b), sarake + stepX * b].BackColor.B + 100
-                                    );
+                                    peliKentta[rivi + (stepY * b), sarake + stepX * b].BackgroundImage = (System.Drawing.Image)Properties.Resources.KiekonpaikkaRaksi;
                             }
 
                             Console.WriteLine("voitto!");

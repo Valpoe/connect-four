@@ -115,6 +115,7 @@ namespace Lopputyo
             // Palautetaan kentän taustaväri valkoiseksi
             foreach (var panel in LuoPeli.peliKentta)
             {
+                panel.BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
                 panel.BackColor = Color.White;
             }
 
@@ -149,7 +150,6 @@ namespace Lopputyo
         }
         static public void tallennaPeliTiedot(List<Voittaja> input)
         {
-            //mikko 7 15
             // Tallennetaan .json tiedostoon pelin historia tiedot
 
             string TallennaTiedot = JsonConvert.SerializeObject(input);
@@ -179,12 +179,13 @@ namespace Lopputyo
 
         static private void paivitaVoittajat()
         {
-            //nollaa ennen päivitystä
+            // Nollaa ennen päivitystä
             pelinHistoriaTiedot.rtbPelaajaTiedot.Text = "";
 
             foreach (Voittaja voittaja in Voittajat)
             {
-                pelinHistoriaTiedot.rtbPelaajaTiedot.Text += $"Voittaja / Tasapeli: {voittaja.voittaja}" + $"  Siirrot: {voittaja.siirtojenMaara}" + $"  {voittaja.pelattuAika}\n";
+                pelinHistoriaTiedot.rtbPelaajaTiedot.Text += $"Voittaja / Tasapeli: {voittaja.voittaja}\t" + 
+                    $"Siirrot: {voittaja.siirtojenMaara}\t\t" + $"{voittaja.pelattuAika}\n";
             }
         }
     }
