@@ -21,7 +21,7 @@ namespace Lopputyo
         {
             VoitonTarkistus();
 
-            //palauttaa voiton arvon booleanina
+            // Palauttaa voiton arvon booleanina
             return peliVoitettu;      
         }
 
