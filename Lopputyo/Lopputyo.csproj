@@ -112,6 +112,7 @@
     <None Include="Resources\Kiekonpaikka.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\KiekonpaikkaRaksi.png" />
     <Content Include="Resources\NeljansuoraIcon.ico" />
     <None Include="Resources\Neljansuora_Voitto.wav" />
     <None Include="Resources\Pelinappula.wav" />
