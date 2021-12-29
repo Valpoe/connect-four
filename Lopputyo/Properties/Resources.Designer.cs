@@ -90,11 +90,31 @@ namespace Lopputyo.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon NeljansuoraIcon {
+            get {
+                object obj = ResourceManager.GetObject("NeljansuoraIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream Pelinappula {
             get {
                 return ResourceManager.GetStream("Pelinappula", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon PeliTiedot2 {
+            get {
+                object obj = ResourceManager.GetObject("PeliTiedot2", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -105,6 +125,16 @@ namespace Lopputyo.Properties {
             get {
                 object obj = ResourceManager.GetObject("PlayerRed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon PlayersIcon2 {
+            get {
+                object obj = ResourceManager.GetObject("PlayersIcon2", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

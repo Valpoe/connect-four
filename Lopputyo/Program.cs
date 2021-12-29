@@ -16,7 +16,7 @@ namespace Lopputyo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Neljansuora());
+            Application.Run(new FrmNeljansuora());
         }
     }
 }
