@@ -12,7 +12,7 @@ namespace Lopputyo
     {
         public TarkistaVoitto voittoTarkistus = new TarkistaVoitto();
         System.Media.SoundPlayer soitin = new System.Media.SoundPlayer();
-        static Neljansuora mainRef;
+        static FrmNeljansuora mainRef;
         public int pelaajanVuoro = 1;
         public string kummanVuoro;
         public string pelaaja1 = "";
@@ -144,7 +144,7 @@ namespace Lopputyo
 
         public void pelaajanVuoronVaihto()
         {
-            mainRef = Neljansuora.FormLopputyo;
+            mainRef = FrmNeljansuora.FormLopputyo;
 
             // Tarkistetaan onko pelaajan vuorolla tullut voitto
             peliVoitettu = voittoTarkistus.Voitto();
@@ -173,11 +173,11 @@ namespace Lopputyo
             // Pelaajan vuoron käsittely
             if (pelaajanVuoro == 1)
             {
-                Neljansuora.painallusEvent(pelaaja1);
+                FrmNeljansuora.painallusEvent(pelaaja1);
             }
             else
             {
-                Neljansuora.painallusEvent(pelaaja2);
+                FrmNeljansuora.painallusEvent(pelaaja2);
             }
 
             // Kumpikaan pelaaja ei voittanut ja tuli tasapeli
@@ -222,7 +222,7 @@ namespace Lopputyo
             }
 
             // Tallennetaan pelin tiedot json formaattiin structin kautta
-            Neljansuora.Voittaja.tallennaVoittaja();
+            FrmNeljansuora.Voittaja.tallennaVoittaja();
         }
     }
 }

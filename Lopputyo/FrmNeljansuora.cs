@@ -12,10 +12,10 @@ using Newtonsoft.Json;
 
 namespace Lopputyo
 {
-    public partial class Neljansuora : Form
+    public partial class FrmNeljansuora : Form
     {
         public static PeliKenttaLuonti LuoPeli = new PeliKenttaLuonti();
-        public static Neljansuora FormLopputyo = null;
+        public static FrmNeljansuora FormLopputyo = null;
         public static PeliTiedot pelinHistoriaTiedot = new PeliTiedot();
         public static ToolStripStatusLabel tsslPublicKummanVuoro;
         public static ToolStripStatusLabel tsslPublicViimeisinSiirto;
@@ -25,7 +25,7 @@ namespace Lopputyo
         public int kulunutPeliAika = 0;
         public string FormatoituAika = "";
 
-        public Neljansuora()
+        public FrmNeljansuora()
         {
             InitializeComponent();
 

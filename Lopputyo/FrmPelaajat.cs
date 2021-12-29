@@ -13,8 +13,8 @@ namespace Lopputyo
 {
     public partial class FrmPelaajat : Form
     {
-        PeliKenttaLuonti PeliKenttaRef = Neljansuora.LuoPeli;
-        Neljansuora MainRef = Neljansuora.FormLopputyo;
+        PeliKenttaLuonti PeliKenttaRef = FrmNeljansuora.LuoPeli;
+        FrmNeljansuora MainRef = FrmNeljansuora.FormLopputyo;
         public static FrmPelaajat FormPelaajat = null;
 
         public FrmPelaajat()
