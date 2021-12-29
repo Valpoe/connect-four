@@ -115,6 +115,7 @@ namespace Lopputyo
             // Palautetaan kentän taustaväri valkoiseksi
             foreach (var panel in LuoPeli.peliKentta)
             {
+                panel.BackgroundImage = (System.Drawing.Image)Properties.Resources.Kiekonpaikka;
                 panel.BackColor = Color.White;
             }
 
