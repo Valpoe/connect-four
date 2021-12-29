@@ -46,7 +46,7 @@
             // tbPelaaja1
             // 
             this.tbPelaaja1.Location = new System.Drawing.Point(122, 34);
-            this.tbPelaaja1.MaxLength = 20;
+            this.tbPelaaja1.MaxLength = 10;
             this.tbPelaaja1.Name = "tbPelaaja1";
             this.tbPelaaja1.Size = new System.Drawing.Size(100, 20);
             this.tbPelaaja1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // tbPelaaja2
             // 
             this.tbPelaaja2.Location = new System.Drawing.Point(122, 80);
-            this.tbPelaaja2.MaxLength = 20;
+            this.tbPelaaja2.MaxLength = 10;
             this.tbPelaaja2.Name = "tbPelaaja2";
             this.tbPelaaja2.Size = new System.Drawing.Size(100, 20);
             this.tbPelaaja2.TabIndex = 1;

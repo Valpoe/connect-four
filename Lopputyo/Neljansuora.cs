@@ -183,7 +183,8 @@ namespace Lopputyo
 
             foreach (Voittaja voittaja in Voittajat)
             {
-                pelinHistoriaTiedot.rtbPelaajaTiedot.Text += $"Voittaja / Tasapeli: {voittaja.voittaja}" + $"  Siirrot: {voittaja.siirtojenMaara}" + $"  {voittaja.pelattuAika}\n";
+                pelinHistoriaTiedot.rtbPelaajaTiedot.Text += $"Voittaja / Tasapeli: {voittaja.voittaja}\t" + 
+                    $"Siirrot: {voittaja.siirtojenMaara}\t\t" + $"{voittaja.pelattuAika}\n";
             }
         }
     }
